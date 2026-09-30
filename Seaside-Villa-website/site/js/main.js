@@ -70,7 +70,9 @@
       const configured = typeof CFG.sisterUrl === "string" ? CFG.sisterUrl.trim() : "";
       const target = configured || sisterLinks[0].getAttribute("href") || "";
       const isLocalCopy = /\.html?(?:[?#].*)?$/i.test(target);
-      const onPublicSite = location.protocol === "http:" || location.protocol === "https:";
+      // localhost / 127.0.0.1 is the preview server on our own machine, not the public site
+      const isLocalServer = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+      const onPublicSite = (location.protocol === "http:" || location.protocol === "https:") && !isLocalServer;
 
       if (isLocalCopy && onPublicSite) {
         sisterLinks.forEach((a) => a.remove());
