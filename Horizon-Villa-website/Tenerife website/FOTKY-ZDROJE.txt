@@ -1,0 +1,12 @@
+Zdroje fotek výletů (Horizont Villa)
+Všechny jsou z Unsplash pod licencí Unsplash License (https://unsplash.com/license):
+volné použití zdarma i komerčně, uvedení autora není povinné.
+Staženo 28. 9. 2026.
+
+site/images/teide.jpg        Maciek Sulkowski   https://unsplash.com/photos/XMXEl9VzOiE
+site/images/santa-cruz.jpg   Majestic Lukas     https://unsplash.com/photos/Y-GoeBrTNw8   (pláž Las Teresitas)
+site/images/masca.jpg        Tobias Pfeifer     https://unsplash.com/photos/9Qs6PMAp3fw
+
+Ve složce site/images/cards jsou tytéž fotky oříznuté a zaostřené pro karty výletů (900 × 675 px).
+
+Původní fotky z Pinterestu jsou ve složce _zaloha-fotky-pinterest (na web je nenahrávat).

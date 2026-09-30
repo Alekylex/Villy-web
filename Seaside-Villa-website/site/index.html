@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seaside Villa La Tejita · Holiday house in Tenerife South</title>
+  <meta name="description" content="Seaside Villa La Tejita — a 150 m² house over three floors with 2 bedrooms, 2 bathrooms and three terraces, 250 m from Playa de la Tejita, Tenerife. Sleeps 4. Book directly with the owners.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=36">
+  <link rel="stylesheet" href="css/effects.css?v=36">
+  <script>
+    document.documentElement.classList.add("fx");
+    // safety net: never leave the hero hidden if the effects script fails to load
+    setTimeout(function () { document.documentElement.classList.add("is-ready"); }, 2500);
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+  <!-- SVG icon sprite (Lucide-style strokes) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><path d="M12 20h.01"/></symbol>
+      <symbol id="i-pool" viewBox="0 0 24 24"><path d="M2 12c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0 3-1 4.5 0"/><path d="M2 17c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0 3-1 4.5 0"/><path d="M8 9V5a2 2 0 0 1 4 0"/><path d="M16 9V5a2 2 0 0 0-4 0"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+      <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+      <symbol id="i-chef" viewBox="0 0 24 24"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.46.31-.85.74-1A4 4 0 0 0 16.2 6.1a5 5 0 0 0-8.4 0 4 4 0 0 0-2.54 7.55c.43.15.74.54.74 1V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></symbol>
+      <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+      <symbol id="i-washer" viewBox="0 0 24 24"><rect x="3" y="2" width="18" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><path d="M7 6h.01M10 6h.01"/></symbol>
+      <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></symbol>
+      <symbol id="i-bath" viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.68 3 4 3.68 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="M10 5 8 7M2 12h20M7 19v2M17 19v2"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+      <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+      <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-paw" viewBox="0 0 24 24"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.05Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></symbol>
+      <symbol id="i-baby" viewBox="0 0 24 24"><path d="M9 12h.01M15 12h.01M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></symbol>
+      <symbol id="i-bike" viewBox="0 0 24 24"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></symbol>
+      <symbol id="i-bus" viewBox="0 0 24 24"><path d="M8 6v6M15 6v6M2 12h19.6M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></symbol>
+      <symbol id="i-area" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h4M3 15h4M9 3v4M15 3v4"/></symbol>
+      <symbol id="i-tv" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="m17 2-5 5-5-5"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+      <symbol id="i-nosmoke" viewBox="0 0 24 24"><path d="M2 2l20 20M12 12H2v4h14M22 12v4M18 12h-.5M7 12v4M18 8c0-2.5-2-2.5-2-5M22 8c0-2.5-2-2.5-2-5"/></symbol>
+      <symbol id="i-noparty" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2M9 9h.01M15 15h.01M9 15l1.5-1.5M13.5 10.5 15 9"/></symbol>
+      <symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.33 2q2 0 3.87-.93a.5.5 0 0 1 .8.43v9a1 1 0 0 1-.4.8A6 6 0 0 1 16 14c-3 0-5-2-8-2a6 6 0 0 0-4 1.3"/></symbol>
+      <symbol id="i-slide" viewBox="0 0 24 24"><path d="M2 20h4l12-14h4M6 20c0-3 2-5 5-5M18 6v14"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></symbol>
+      <symbol id="i-stairs" viewBox="0 0 24 24"><path d="M3 21h4v-5h5v-5h5V6h4"/><path d="M3 21V10"/></symbol>
+
+      <!-- Seaside-specific icons -->
+      <symbol id="i-tennis" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.5 5.8C9 9 9 15 5.5 18.2M18.5 5.8C15 9 15 15 18.5 18.2"/></symbol>
+      <symbol id="i-grill" viewBox="0 0 24 24"><path d="M3.5 9.5h17a8.5 8.5 0 0 1-8.5 8 8.5 8.5 0 0 1-8.5-8Z"/><path d="m8.6 17-2.1 4.5M15.4 17l2.1 4.5M12 17.5V22"/><path d="M9.2 6.2c0-1.4 1.5-1.4 1.5-2.7M13.3 6.2c0-1.4 1.5-1.4 1.5-2.7"/></symbol>
+      <symbol id="i-mountain" viewBox="0 0 24 24"><path d="M3.5 20h17L13.4 5.6a1.8 1.8 0 0 0-2.8 0L3.5 20Z"/><path d="M9 12.3h6"/></symbol>
+      <symbol id="i-shop" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 11V6a3 3 0 0 1 6 0v5"/></symbol>
+      <symbol id="i-surf" viewBox="0 0 24 24"><path d="M20.8 2.8C15.2 3.6 8.4 8.6 5.4 15c-1 2.3-1.5 4.1-1.4 5.1 1 .1 2.8-.4 5.1-1.4 6.4-3 11.4-9.8 12.2-15.4Z"/><path d="m8.5 15.5 7-7"/></symbol>
+      <symbol id="i-fish" viewBox="0 0 24 24"><path d="M21.6 12c-2.6 3.3-6.2 5-9.7 5-3.5 0-6.6-1.7-8.3-5 1.7-3.3 4.8-5 8.3-5 3.5 0 7.1 1.7 9.7 5Z"/><path d="m3.6 12-2.2-3.5v7z"/><path d="M16.8 10.6h.01"/></symbol>
+
+      <!-- Bed illustrations for the sleeping-arrangements card -->
+      <symbol id="bed-double" viewBox="0 0 64 44">
+        <rect x="6" y="4" width="52" height="36" rx="5" fill="var(--surface)" stroke="currentColor" stroke-width="2"/>
+        <rect x="11" y="9" width="19" height="9" rx="3" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+        <rect x="34" y="9" width="19" height="9" rx="3" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M6 23h52" stroke="currentColor" stroke-width="1.6" opacity=".45"/>
+      </symbol>
+      <symbol id="bed-twin" viewBox="0 0 64 44">
+        <rect x="4" y="4" width="24" height="36" rx="4" fill="var(--surface)" stroke="currentColor" stroke-width="2"/>
+        <rect x="36" y="4" width="24" height="36" rx="4" fill="var(--surface)" stroke="currentColor" stroke-width="2"/>
+        <rect x="8" y="9" width="16" height="8" rx="3" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+        <rect x="40" y="9" width="16" height="8" rx="3" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M4 22h24M36 22h24" stroke="currentColor" stroke-width="1.6" opacity=".45"/>
+      </symbol>
+
+      <!-- Sister property: Horizont Villa's mark, kept in its own amber so the
+           header button reads as "that other place", not as ours. -->
+      <symbol id="logo-sister" viewBox="0 0 48 48">
+        <path d="M11 27a13 13 0 0 1 26 0" fill="none" stroke="#C98A3A" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M24 7v4M10.6 12.6l2.8 2.8M37.4 12.6l-2.8 2.8M4.5 23h3.5M40 23h3.5" stroke="#C98A3A" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M5 31.5h38" stroke="#2B2620" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M10 37h28" stroke="#2B2620" stroke-width="2.4" stroke-linecap="round" opacity=".7"/>
+        <path d="M16 42.5h16" stroke="#2B2620" stroke-width="2.2" stroke-linecap="round" opacity=".45"/>
+      </symbol>
+
+      <!-- Logo mark: a wave curling under the sun, over the swell -->
+      <symbol id="logo-mark" viewBox="0 0 48 48">
+        <circle cx="34" cy="14.5" r="5.2" fill="none" stroke="var(--aqua)" stroke-width="2.8"/>
+        <path d="M3.5 31C5.4 18.4 13.8 12.8 22.4 15.8c7.2 2.5 9.2 10.2 4 13.7-3.7 2.5-7.8.3-7.4-3.9" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 37.5c1.4 1.1 2.7 2.2 5.6 2.2 5.6 0 5.6-4.4 11.2-4.4s5.4 4.4 11.2 4.4c2.9 0 4.2-1.1 5.6-2.2" fill="none" stroke="var(--aqua)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M12 44c1 .8 2 1.6 4 1.6 4 0 4-3.2 8-3.2s4 3.2 8 3.2c2 0 3-.8 4-1.6" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round" opacity=".38"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="page">
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header" id="top">
+      <span class="scroll-progress" aria-hidden="true"></span>
+      <nav class="nav" data-i18n-attr="aria-label:a11y.mainNav" aria-label="Main">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Open menu">
+          <svg class="icon"><use href="#i-menu"/></svg>
+        </button>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="#top" class="is-active" data-i18n="nav.home">Home</a></li>
+          <li><a href="#villa" data-i18n="nav.villa">The House</a></li>
+          <li><a href="#booking" data-i18n="nav.availability">Availability</a></li>
+          <li><a href="#rules" data-i18n="nav.rules">House rules</a></li>
+          <li><a href="#location" data-i18n="nav.location">Location</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+
+        <a class="sister-link" data-sister-link href="../../Horizon-Villa-website/Tenerife%20website/site/index.html"
+           data-i18n-attr="aria-label:header.sisterAria" aria-label="Our other villa">
+          <svg class="sister-link-mark" aria-hidden="true"><use href="#logo-sister"/></svg>
+          <span class="sister-link-text">
+            <small data-i18n="header.sisterEyebrow">Our other villa</small>
+            <strong>Horizont Villa</strong>
+          </span>
+          <svg class="icon sister-link-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+      </nav>
+
+      <a class="brand" href="#top" data-i18n-attr="aria-label:a11y.brandHome" aria-label="Seaside Villa La Tejita — home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+        <span class="brand-text">
+          <span class="brand-name">Seaside Villa</span>
+          <span class="brand-sub">La Tejita · Tenerife</span>
+        </span>
+      </a>
+
+      <div class="header-end">
+        <div class="header-meta">
+          <div class="meta-block">
+            <span class="meta-strong" data-i18n="meta.place">La Tejita, Tenerife South</span>
+            <span class="meta-soft"><span data-i18n="meta.beach">250 m from the beach</span> <span class="sep" aria-hidden="true">|</span> <a href="#location" data-i18n="meta.map">On the map</a></span>
+          </div>
+          <div class="meta-block meta-right">
+            <a class="meta-phone" href="tel:+34600000000" data-config-phone>+34 600 000 000</a>
+            <span class="meta-soft" data-i18n="meta.hours">Replies daily, 9:00 – 21:00</span>
+          </div>
+        </div>
+
+        <div class="lang" data-lang-switch>
+          <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu">
+            <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
+            <span class="lang-code">EN</span>
+            <svg class="icon lang-chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+          </button>
+          <ul class="lang-menu" id="lang-menu" hidden>
+            <li><button type="button" data-lang="cs" lang="cs"><span class="lang-short">CZ</span>Čeština<svg class="icon lang-check" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+            <li><button type="button" data-lang="en" lang="en"><span class="lang-short">EN</span>English<svg class="icon lang-check" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+            <li><button type="button" data-lang="es" lang="es"><span class="lang-short">ES</span>Español<svg class="icon lang-check" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <!-- ================= HERO ================= -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-left">
+          <figure class="hero-photo">
+            <img src="images/beach-sunset.jpg" data-i18n-attr="alt:hero.photoAlt" alt="Fiery sunset over the dark volcanic sand of La Tejita beach" width="1400" height="1050" fetchpriority="high">
+          </figure>
+
+          <div class="hero-card">
+            <svg class="hero-card-watermark" aria-hidden="true"><use href="#logo-mark"/></svg>
+            <p class="eyebrow" data-i18n="hero.eyebrow">Holiday house · Canary Islands</p>
+            <h1 id="hero-title">Seaside Villa<br><em>La Tejita</em></h1>
+            <ul class="hero-points">
+              <li data-i18n="hero.p1">Entire 150 m² house for up to 4 guests, 2 bedrooms &amp; 2 bathrooms</li>
+              <li data-i18n="hero.p2">Three terraces — the top one faces the sunset over the ocean</li>
+              <li data-i18n="hero.p3">Playa de la Tejita just 250 m away</li>
+              <li data-i18n="hero.p4">3 pools &amp; a tennis court on site, garage for two cars</li>
+            </ul>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#booking"><span data-i18n="hero.cta">Check availability</span><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-ghost" href="#villa" data-i18n="hero.explore">Explore the house</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider" aria-roledescription="carousel" data-i18n-attr="aria-label:slider.label" aria-label="House photos">
+          <div class="slider-viewport">
+            <!-- slides injected by main.js -->
+          </div>
+          <button class="slider-btn prev" data-i18n-attr="aria-label:slider.prev" aria-label="Previous photo"><svg class="icon"><use href="#i-left"/></svg></button>
+          <button class="slider-btn next" data-i18n-attr="aria-label:slider.next" aria-label="Next photo"><svg class="icon"><use href="#i-right"/></svg></button>
+          <button class="slider-expand" type="button"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span data-i18n="viewer.open">View full photo</span></button>
+          <p class="slider-caption" aria-live="polite"></p>
+          <div class="slider-thumbs" id="slider-thumbs" role="tablist" data-i18n-attr="aria-label:slider.choose" aria-label="Choose photo"></div>
+          <button class="thumbs-toggle" type="button" aria-controls="slider-thumbs" aria-expanded="true"><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+          <div class="slider-progress" aria-hidden="true"><span></span></div>
+        </div>
+      </section>
+
+      <!-- ================= AMENITIES BAR ================= -->
+      <section class="amenities" data-i18n-attr="aria-label:amen.label" aria-label="Amenities">
+        <ul>
+          <li><span class="am-icon am-sky"><svg class="icon"><use href="#i-pool"/></svg></span><span data-i18n-html="amen.pools">3 pools<br>on site</span></li>
+          <li><span class="am-icon am-aqua"><svg class="icon"><use href="#i-wifi"/></svg></span><span data-i18n-html="amen.wifi">Free<br>Wi-Fi</span></li>
+          <li><span class="am-icon am-coral"><svg class="icon"><use href="#i-car"/></svg></span><span data-i18n-html="amen.garage">Garage &amp; free<br>parking</span></li>
+          <li><span class="am-icon am-sand"><svg class="icon"><use href="#i-paw"/></svg></span><span data-i18n-html="amen.pets">Pets<br>allowed</span></li>
+          <li><span class="am-icon am-palm"><svg class="icon"><use href="#i-tennis"/></svg></span><span data-i18n-html="amen.tennis">Tennis<br>court</span></li>
+          <li><span class="am-icon am-aqua"><svg class="icon"><use href="#i-grill"/></svg></span><span data-i18n-html="amen.grill">Outdoor<br>BBQ grill</span></li>
+        </ul>
+      </section>
+
+      <!-- ================= MOVING HIGHLIGHTS ================= -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span data-i18n="mq.pools">3 pools &amp; a tennis court</span><i></i><span data-i18n="mq.beach">250 m to Playa de la Tejita</span><i></i><span data-i18n="mq.size">150 m² over three floors</span><i></i><span data-i18n="mq.terraces">Three terraces</span><i></i><span data-i18n="mq.guests">Up to 4 guests</span><i></i><span data-i18n="mq.sunsets">Sunset straight over the ocean</span><i></i>
+          <span data-i18n="mq.pools">3 pools &amp; a tennis court</span><i></i><span data-i18n="mq.beach">250 m to Playa de la Tejita</span><i></i><span data-i18n="mq.size">150 m² over three floors</span><i></i><span data-i18n="mq.terraces">Three terraces</span><i></i><span data-i18n="mq.guests">Up to 4 guests</span><i></i><span data-i18n="mq.sunsets">Sunset straight over the ocean</span><i></i>
+        </div>
+      </div>
+
+      <!-- ================= THE HOUSE ================= -->
+      <section class="section villa" id="villa" aria-labelledby="villa-title">
+        <div class="villa-head">
+          <div>
+            <p class="eyebrow" data-i18n="villa.eyebrow">The House</p>
+            <h2 id="villa-title" data-i18n="villa.title">The whole house, all to yourself</h2>
+          </div>
+          <p class="lead" data-i18n="villa.lead">A 150 m² house on three floors in a quiet corner of La Tejita, a few minutes' walk from the beach. Three terraces: the top one looks straight out over the ocean, the balcony off the living room catches the afternoon shade, and the lower floor sits at garden level.</p>
+        </div>
+
+        <div class="bento">
+          <!-- key numbers -->
+          <article class="b-card b-key">
+            <p class="b-label" data-i18n="villa.entire">Entire house</p>
+            <p class="b-big"><span data-count="150">150</span><span class="unit">m²</span></p>
+            <p class="b-text" data-i18n="villa.keyText">Two bedrooms and three terraces over three floors, 250 m from Playa de la Tejita.</p>
+            <dl class="b-stats">
+              <div><dt data-i18n="villa.bedrooms">Bedrooms</dt><dd data-count="2">2</dd></div>
+              <div><dt data-i18n="villa.bathrooms">Bathrooms</dt><dd data-count="2">2</dd></div>
+              <div><dt data-i18n="villa.guests">Guests</dt><dd data-count="4">4</dd></div>
+            </dl>
+          </article>
+
+          <!-- sleeping arrangements -->
+          <article class="b-card b-sleep">
+            <div class="b-card-head">
+              <h3 data-i18n="villa.sleeping">Sleeping arrangements</h3>
+              <span class="b-pill" data-i18n="mq.guests">Up to 4 guests</span>
+            </div>
+            <ul class="beds">
+              <li><svg class="bed-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#bed-double"/></svg><span class="bed-room" data-i18n="villa.bedroom1">Bedroom 1</span><strong data-i18n="room.doubleBed">1 double bed</strong></li>
+              <li><svg class="bed-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#bed-twin"/></svg><span class="bed-room" data-i18n="villa.bedroom2">Bedroom 2</span><strong data-i18n="room.twinBeds">2 single beds</strong></li>
+            </ul>
+          </article>
+
+          <!-- floors -->
+          <article class="b-card b-floor">
+            <p class="b-index">01</p>
+            <h3 data-i18n="floor.upper">Upper floor</h3>
+            <ul class="rooms">
+              <li><span data-i18n="room.roofTerrace">Roof terrace</span><em data-i18n="room.sunsetView">Sunset over the ocean</em></li>
+              <li><span data-i18n="room.double">Double bedroom</span><em data-i18n="room.wardrobe">Wardrobe &amp; fan</em></li>
+              <li><span data-i18n="room.twin">Twin bedroom</span><em data-i18n="room.twinBeds">2 single beds</em></li>
+              <li><span data-i18n="room.mainBath">Main bathroom</span><em data-i18n="room.bathNote">Bathtub &amp; shower</em></li>
+            </ul>
+          </article>
+
+          <article class="b-card b-floor">
+            <p class="b-index">02</p>
+            <h3 data-i18n="floor.main">Main floor</h3>
+            <ul class="rooms">
+              <li><span data-i18n="room.living">Living room</span><em data-i18n="room.tv">Flat-screen TV</em></li>
+              <li><span data-i18n="room.dining">Dining area</span><em data-i18n="room.table">Table for four</em></li>
+              <li><span data-i18n="room.kitchen">Kitchen</span><em data-i18n="room.equipped">Fully equipped</em></li>
+              <li><span data-i18n="room.balcony">Balcony</span><em data-i18n="room.balconyNote">Shaded, table &amp; chairs</em></li>
+              <li><span data-i18n="room.shower">Shower room</span><em data-i18n="room.secondBath">Second bathroom</em></li>
+            </ul>
+          </article>
+
+          <article class="b-card b-floor b-lower">
+            <p class="b-index">03</p>
+            <h3 data-i18n="floor.ground">Ground floor</h3>
+            <ul class="rooms">
+              <li><span data-i18n="room.garage">Garage</span><em data-i18n="room.twoCars">Room for two cars</em></li>
+              <li><span data-i18n="room.utility">Utility room</span><em data-i18n="room.washer">Washing machine</em></li>
+              <li><span data-i18n="room.patio">Garden level</span><em data-i18n="room.lowerTerrace">The quiet lower terrace</em></li>
+              <li><span data-i18n="room.hall">Entrance hall</span><em data-i18n="room.stairs">Stairs to all three floors</em></li>
+            </ul>
+          </article>
+
+          <article class="b-card b-floor b-outside">
+            <p class="b-index">04</p>
+            <h3 data-i18n="floor.outside">On site</h3>
+            <ul class="rooms">
+              <li><span data-i18n="room.pools">3 pools</span><em data-i18n="room.onProperty">On the property</em></li>
+              <li><span data-i18n="room.tennis">Tennis court</span><em data-i18n="room.onProperty">On the property</em></li>
+              <li><span data-i18n="room.grill">BBQ grill</span><em data-i18n="room.outdoorDining">Outdoor dining</em></li>
+              <li><span data-i18n="room.garden">Garden</span><em data-i18n="room.gardenView">Garden view</em></li>
+              <li><span data-i18n="room.parking">Parking</span><em data-i18n="room.parkingNote">Free, on site</em></li>
+              <li><span data-i18n="room.beach">Beach</span><em data-i18n="room.beachWalk">250 m walk</em></li>
+            </ul>
+          </article>
+
+          <!-- services -->
+          <article class="b-card b-services">
+            <h3 data-i18n="svc.title">Included &amp; on request</h3>
+            <ul class="chips">
+              <li><svg class="icon"><use href="#i-wifi"/></svg><span data-i18n="svc.wifi">Free Wi-Fi</span></li>
+              <li><svg class="icon"><use href="#i-tennis"/></svg><span data-i18n="svc.tennis">Tennis court</span></li>
+              <li><svg class="icon"><use href="#i-grill"/></svg><span data-i18n="svc.grill">BBQ grill</span></li>
+              <li><svg class="icon"><use href="#i-bike"/></svg><span data-i18n="svc.bike">Bike rental</span></li>
+              <li><svg class="icon"><use href="#i-car"/></svg><span data-i18n="svc.car">Car rental</span></li>
+              <li><svg class="icon"><use href="#i-baby"/></svg><span data-i18n="svc.cot">Free cot (0–3 yrs)</span></li>
+              <li><svg class="icon"><use href="#i-paw"/></svg><span data-i18n="svc.pets">Pets on request</span></li>
+              <li><svg class="icon"><use href="#i-users"/></svg><span data-i18n="svc.family">Family rooms</span></li>
+              <li><svg class="icon"><use href="#i-nosmoke"/></svg><span data-i18n="svc.nonsmoking">Non-smoking</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= ISLAND DAY TRIPS ================= -->
+      <section class="section island" aria-labelledby="island-title">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="island.eyebrow">Day trips</p>
+          <h2 id="island-title" data-i18n="island.title">The island beyond the beach</h2>
+        </div>
+        <ul class="island-grid">
+          <li class="island-card" data-trip-card>
+            <figure>
+              <img src="images/cards/teide.jpg" data-i18n-attr="alt:island.teideAlt" alt="Pico del Teide rising above a sea of clouds at sunset" loading="lazy" width="900" height="675">
+            </figure>
+            <h3>Pico del Teide</h3>
+            <p data-i18n="island.teide">Spain's highest peak at 3,715 m. The road up crosses old lava fields, and a cable car carries you almost to the summit.</p>
+            <button class="island-more" type="button" data-trip="teide"><span data-i18n="trip.more">Discover more</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </li>
+          <li class="island-card" data-trip-card>
+            <figure>
+              <img src="images/cards/el-medano.jpg" data-i18n-attr="alt:island.medanoAlt" alt="Kitesurfers off El Médano with Montaña Roja behind" loading="lazy" width="900" height="675">
+            </figure>
+            <h3>El Médano</h3>
+            <p data-i18n="island.medano">The island's kitesurf town, with a long sandy beach and a promenade full of bars. The closest of the three.</p>
+            <button class="island-more" type="button" data-trip="medano"><span data-i18n="trip.more">Discover more</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </li>
+          <li class="island-card" data-trip-card>
+            <figure>
+              <img src="images/cards/los-gigantes.jpg" data-i18n-attr="alt:island.gigantesAlt" alt="The cliffs of Los Gigantes above the deep-blue Atlantic" loading="lazy" width="900" height="675">
+            </figure>
+            <h3>Los Gigantes</h3>
+            <p data-i18n="island.gigantes">Cliffs dropping sheer into the Atlantic on the west coast. Boat trips set out from the small harbour below them.</p>
+            <button class="island-more" type="button" data-trip="gigantes"><span data-i18n="trip.more">Discover more</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ================= BOOKING ================= -->
+      <section class="section booking" id="booking" aria-labelledby="booking-title">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="book.eyebrow">Availability &amp; booking</p>
+          <h2 id="booking-title" data-i18n="book.title">Plan your stay, book direct</h2>
+          <p class="lead" data-i18n="book.lead">Pick your arrival and departure date on the calendar below. You'll see the price right away, then send us a booking request. We confirm personally within 24 hours, and booking direct means no platform fees.</p>
+        </div>
+
+        <div class="booking-layout">
+          <div class="calendar-wrap">
+            <div class="calendar-toolbar">
+              <div class="legend" aria-hidden="true">
+                <span><i class="lg lg-free"></i><span data-i18n="cal.available">Available</span></span>
+                <span><i class="lg lg-booked"></i><span data-i18n="cal.booked">Booked</span></span>
+                <span><i class="lg lg-selected"></i><span data-i18n="cal.yourStay">Your stay</span></span>
+              </div>
+              <div class="year-nav">
+                <button class="icon-btn" data-cal="prev" data-i18n-attr="aria-label:cal.earlier" aria-label="Earlier months"><svg class="icon"><use href="#i-left"/></svg></button>
+                <span class="year-label" aria-live="polite"></span>
+                <button class="icon-btn" data-cal="next" data-i18n-attr="aria-label:cal.later" aria-label="Later months"><svg class="icon"><use href="#i-right"/></svg></button>
+              </div>
+            </div>
+            <p class="cal-hint" aria-live="polite"></p>
+            <p class="cal-updated" hidden></p>
+            <div class="calendar" id="calendar"></div>
+            <button class="btn btn-ghost show-more" type="button" hidden>Show all 12 months</button>
+
+            <div class="cancel">
+              <span class="badge badge-palm" data-i18n="cancel.flexible">Flexible</span>
+              <h3 data-i18n="cancel.title">Cancellation &amp; payment</h3>
+              <p class="cancel-intro" data-i18n="cancel.intro">Prices include taxes and fees. Every booking is on our flexible terms:</p>
+              <ul class="ticks">
+                <li data-i18n="cancel.flex1">Free cancellation until the date shown in your booking confirmation</li>
+                <li data-i18n="cancel.flex2">Nothing is charged until shortly before your free-cancellation date</li>
+                <li data-i18n="cancel.flex3">You can change your dates if your plans change</li>
+              </ul>
+            </div>
+          </div>
+
+          <aside class="booking-panel" aria-labelledby="summary-title">
+            <h3 id="summary-title" data-i18n="cal.yourStay">Your stay</h3>
+            <dl class="stay-dates">
+              <div><dt data-i18n="book.arrival">Arrival</dt><dd data-out="checkin">—</dd></div>
+              <div><dt data-i18n="book.departure">Departure</dt><dd data-out="checkout">—</dd></div>
+            </dl>
+            <div class="price-box" data-out="price"></div>
+
+            <form class="booking-form" novalidate>
+              <div class="field">
+                <label for="f-name" data-i18n="form.name">Full name</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required>
+                <p class="field-error" data-i18n="form.nameError" hidden>Please enter your name.</p>
+              </div>
+              <div class="field">
+                <label for="f-email" data-i18n="form.email">Email</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" required>
+                <p class="field-error" data-i18n="form.emailError" hidden>Please enter a valid email address.</p>
+              </div>
+              <div class="field">
+                <label for="f-phone" data-i18n-html="form.phone">Phone <span class="opt">(optional)</span></label>
+                <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="f-adults" data-i18n="form.adults">Adults</label>
+                  <select id="f-adults" name="adults"></select>
+                </div>
+                <div class="field">
+                  <label for="f-children" data-i18n="form.children">Children</label>
+                  <select id="f-children" name="children"></select>
+                </div>
+              </div>
+              <div class="field" data-children-ages hidden>
+                <label for="f-ages" data-i18n="form.ages">Children's ages</label>
+                <input id="f-ages" name="childrenAges" type="text" inputmode="numeric" data-i18n-attr="placeholder:form.agesPlaceholder" placeholder="e.g. 2, 7, 12">
+                <p class="field-help" data-i18n="form.adultRate">Guests aged 18 and over are charged as adults.</p>
+              </div>
+              <p class="field-help" data-i18n="form.maxGuests">Maximum 4 guests in total, children included.</p>
+              <fieldset class="checks">
+                <legend data-i18n="form.extras">Extras</legend>
+                <label class="check"><input type="checkbox" name="crib" value="yes"><span data-i18n="form.cot">Cot for a baby (0–3 years, free)</span></label>
+                <label class="check"><input type="checkbox" name="pets" value="yes"><span data-i18n="form.pet">Travelling with a pet (on request, for a fee)</span></label>
+              </fieldset>
+              <div class="field">
+                <label for="f-msg" data-i18n-html="form.message">Message <span class="opt">(optional)</span></label>
+                <textarea id="f-msg" name="message" rows="3" data-i18n-attr="placeholder:form.messagePlaceholder" placeholder="Expected arrival time (check-in 17:00–23:00), questions, requests…"></textarea>
+              </div>
+              <p class="form-error" role="alert" hidden></p>
+              <button class="btn btn-primary btn-block" type="submit"><span data-i18n="form.submit">Send booking request</span><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+              <p class="form-note" data-i18n="form.note">No payment now. We'll confirm availability and send you payment details.</p>
+            </form>
+
+            <div class="form-success" hidden tabindex="-1">
+              <span class="success-icon"><svg class="icon"><use href="#i-check"/></svg></span>
+              <h4 data-i18n="form.successTitle">Request sent, thank you!</h4>
+              <p data-i18n="form.successText">We'll reply within 24 hours to confirm your stay at Seaside Villa.</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="seasons" data-i18n-attr="aria-label:rates.label" aria-label="Rates">
+          <h3 data-i18n="rates.title">Rates</h3>
+          <div class="season-list"></div>
+          <p class="season-note"></p>
+        </div>
+      </section>
+
+      <!-- ================= HOUSE RULES ================= -->
+      <section class="section rules" id="rules" aria-labelledby="rules-title">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="rules.eyebrow">Good to know</p>
+          <h2 id="rules-title" data-i18n="rules.title">House rules &amp; policies</h2>
+        </div>
+
+        <div class="rules-times">
+          <div class="time-card">
+            <svg class="icon"><use href="#i-clock"/></svg>
+            <div>
+              <span class="time-label">Check-in</span>
+              <strong>17:00 – 23:00</strong>
+              <p data-i18n="rules.checkinNote">Please let us know your arrival time in advance.</p>
+            </div>
+          </div>
+          <div class="time-card">
+            <svg class="icon"><use href="#i-flag"/></svg>
+            <div>
+              <span class="time-label">Check-out</span>
+              <strong>04:00 – 11:00</strong>
+              <p data-i18n="rules.checkoutNote">Early departures are fine — handy for a morning flight.</p>
+            </div>
+          </div>
+        </div>
+
+        <ul class="rules-grid">
+          <li>
+            <span class="rule-icon am-palm"><svg class="icon"><use href="#i-baby"/></svg></span>
+            <div>
+              <h3 data-i18n="rules.childrenTitle">Children</h3>
+              <p data-i18n="rules.childrenText">Children of any age are welcome. Guests aged 18 and over are charged the adult rate. Please tell us the number and ages of children when you request a booking.</p>
+            </div>
+          </li>
+          <li>
+            <span class="rule-icon am-sky"><svg class="icon"><use href="#i-bed"/></svg></span>
+            <div>
+              <h3 data-i18n="rules.cotsTitle">Cots &amp; extra beds</h3>
+              <p data-i18n="rules.cotsText">A cot for children aged 0–3 is free on request, subject to availability. Extra beds are not available.</p>
+            </div>
+          </li>
+          <li>
+            <span class="rule-icon am-sand"><svg class="icon"><use href="#i-paw"/></svg></span>
+            <div>
+              <h3 data-i18n="rules.petsTitle">Pets</h3>
+              <p data-i18n="rules.petsText">Pets are allowed on request, for a fee. Please mention your pet in your booking request.</p>
+            </div>
+          </li>
+          <li>
+            <span class="rule-icon am-coral"><svg class="icon"><use href="#i-nosmoke"/></svg></span>
+            <div>
+              <h3 data-i18n="rules.smokingTitle">No smoking</h3>
+              <p data-i18n="rules.smokingText">Smoking is not allowed anywhere inside the house.</p>
+            </div>
+          </li>
+          <li>
+            <span class="rule-icon am-aqua"><svg class="icon"><use href="#i-noparty"/></svg></span>
+            <div>
+              <h3 data-i18n="rules.partiesTitle">No parties or events</h3>
+              <p data-i18n="rules.partiesText">Parties and events are not permitted, stag and hen celebrations included, so the neighbourhood stays calm for everyone.</p>
+            </div>
+          </li>
+          <li>
+            <span class="rule-icon am-palm"><svg class="icon"><use href="#i-users"/></svg></span>
+            <div>
+              <h3 data-i18n="mq.guests">Up to 4 guests</h3>
+              <p data-i18n="rules.guestsText">The house welcomes a maximum of 4 guests, children included. Guests of all ages are welcome, and the minimum stay is 5 nights.</p>
+            </div>
+          </li>
+        </ul>
+
+      </section>
+
+      <!-- ================= LOCATION ================= -->
+      <section class="section location" id="location" aria-labelledby="location-title">
+        <div class="location-grid">
+          <div class="location-text">
+            <p class="eyebrow" data-i18n="nav.location">Location</p>
+            <h2 id="location-title" data-i18n="loc.title">La Tejita, right where the beach begins</h2>
+            <p class="lead" data-i18n="loc.lead">The house sits in a quiet zone beside the largest natural beach in the south, with the red volcanic cone of Montaña Roja at the end of the sand. The airport is 15 minutes away, so you can stay on the beach until the last moment of your holiday.</p>
+            <ul class="distances">
+              <li><svg class="icon"><use href="#i-waves"/></svg><span>Playa de la Tejita</span><strong>250 m</strong></li>
+              <li><svg class="icon"><use href="#i-plane"/></svg><span data-i18n="loc.airport">Tenerife South Airport (TFS)</span><strong>5 km</strong></li>
+              <li><svg class="icon"><use href="#i-flag"/></svg><span>Golf del Sur</span><strong data-i18n="loc.golfKm">7.7 km</strong></li>
+              <li><svg class="icon"><use href="#i-mountain"/></svg><span data-i18n="loc.teide">Teide National Park</span><strong>12 km</strong></li>
+              <li><svg class="icon"><use href="#i-slide"/></svg><span data-i18n="loc.aqualand">Aqualand water park</span><strong>20 km</strong></li>
+            </ul>
+            <p class="distance-note" data-i18n="loc.note">Distances are approximate.</p>
+          </div>
+          <div class="map-card" data-map-src="https://www.google.com/maps?q=Playa+de+la+Tejita,+El+M%C3%A9dano,+Tenerife&z=14&output=embed">
+            <div class="map-placeholder">
+              <span class="map-pin"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <strong>La Tejita, El Médano</strong>
+              <p data-i18n="loc.mapText">250 m from Playa de la Tejita · 5 km from Tenerife South Airport</p>
+              <div class="map-actions">
+                <button class="btn btn-primary" type="button" data-map-load><span data-i18n="loc.showMap">Show map</span><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                <a class="btn btn-ghost" data-map-open href="https://www.google.com/maps/search/?api=1&query=28.03248549%2C-16.56551578" target="_blank" rel="noopener" data-i18n="loc.openMaps">Open in Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nearby">
+          <h3 data-i18n="near.title">Within walking distance</h3>
+          <ul class="nearby-grid">
+            <li>
+              <span class="am-icon am-aqua"><svg class="icon"><use href="#i-shop"/></svg></span>
+              <div>
+                <h4>Street Market La Tejita</h4>
+                <p data-i18n="near.market">The local supermarket plus Indian, Italian, Chinese and vegan restaurants and bars, often with live music.</p>
+                <span class="nearby-walk" data-i18n="near.marketWalk">5 minutes on foot</span>
+              </div>
+            </li>
+            <li>
+              <span class="am-icon am-sky"><svg class="icon"><use href="#i-surf"/></svg></span>
+              <div>
+                <h4>El Médano</h4>
+                <p data-i18n="near.medano">The island's kitesurf and windsurf town, with surf shops, SUP rental and beach bars along the promenade.</p>
+                <span class="nearby-walk" data-i18n="near.medanoWalk">A short drive or a long walk</span>
+              </div>
+            </li>
+            <li>
+              <span class="am-icon am-coral"><svg class="icon"><use href="#i-fish"/></svg></span>
+              <div>
+                <h4>Los Abrigos</h4>
+                <p data-i18n="near.abrigos">A small fishing village on the other side, with restaurants serving the best of the day's catch.</p>
+                <span class="nearby-walk" data-i18n="near.abrigosWalk">A short drive along the coast</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ================= SISTER VILLA ================= -->
+        <aside class="sister">
+          <div class="sister-text">
+            <span class="sister-badge"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><span data-i18n="sister.badge">Travelling as two families?</span></span>
+            <h3 data-i18n="sister.title">Horizont Villa is 25 m up the street</h3>
+            <p data-i18n="sister.text">Our second house has 4 bedrooms and 220 m² for up to 6 guests. Book both and your group has two kitchens, six bedrooms and the same beach at the end of the road. Ask us and we'll hold the dates together.</p>
+          </div>
+          <a class="btn btn-primary" href="#contact"><span data-i18n="sister.cta">Ask about both houses</span><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </aside>
+      </section>
+
+    </main>
+
+    <!-- ================= CONTACT / FOOTER ================= -->
+    <footer class="site-footer" id="contact">
+      <div class="footer-cta">
+        <img src="images/pool-night.jpg" alt="" loading="lazy" width="2000" height="1500">
+        <div class="footer-cta-inner">
+          <h2 data-i18n="footer.title">Your evening swim is waiting</h2>
+          <p data-i18n="footer.text">Questions before you book? Write or call us — we speak Czech, English, Spanish and Polish.</p>
+          <div class="contact-links">
+            <a class="contact-pill" data-config-email href="mailto:info@seasidevilla-latejita.com"><svg class="icon"><use href="#i-mail"/></svg><span>info@seasidevilla-latejita.com</span></a>
+            <a class="contact-pill" data-config-whatsapp href="https://wa.me/34600000000" target="_blank" rel="noopener"><svg class="icon"><use href="#i-chat"/></svg><span>WhatsApp</span></a>
+            <a class="contact-pill" data-config-phone href="tel:+34600000000"><svg class="icon"><use href="#i-phone"/></svg><span>+34 600 000 000</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a class="brand brand-small" href="#top" data-i18n-attr="aria-label:a11y.backTop" aria-label="Back to top">
+          <svg class="brand-mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+          <span class="brand-text"><span class="brand-name">Seaside Villa</span><span class="brand-sub">La Tejita · Tenerife</span></span>
+        </a>
+        <p class="legal"><span data-i18n="footer.licence">Holiday rental licence:</span> VV-38-4-01036301 &nbsp;·&nbsp; © <span data-year></span> Seaside Villa La Tejita</p>
+      </div>
+    </footer>
+  </div>
+
+  <a class="float-cta" href="#booking" data-i18n-attr="aria-label:float.label" aria-label="Book your stay">
+    <span class="float-cta-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+    <span class="float-cta-text"><span data-i18n="float.title">Book your stay</span><small data-float-price></small></span>
+  </a>
+
+  <script src="js/config.js?v=36"></script>
+  <script src="js/booked.js?v=36"></script>
+  <script src="js/i18n.js?v=36"></script>
+  <script src="js/trips.js?v=36"></script>
+  <script src="js/main.js?v=36"></script>
+  <script src="js/effects.js?v=36"></script>
+</body>
+</html>

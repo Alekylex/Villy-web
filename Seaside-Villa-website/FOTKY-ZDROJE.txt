@@ -1,0 +1,12 @@
+Zdroje fotek výletů (Seaside Villa)
+Všechny jsou z Unsplash pod licencí Unsplash License (https://unsplash.com/license):
+volné použití zdarma i komerčně, uvedení autora není povinné.
+Staženo 28. 9. 2026.
+
+site/images/teide.jpg         Gustavo A. Pérez   https://unsplash.com/photos/mIblcb-GrhE
+site/images/el-medano.jpg     Angelika P         https://unsplash.com/photos/Z0ycJ5FE4CA
+site/images/los-gigantes.jpg  Boris Busorgin     https://unsplash.com/photos/cWUvHh9nb9Y
+
+Ve složce site/images/cards jsou tytéž fotky oříznuté a zaostřené pro karty výletů (900 × 675 px).
+
+Původní fotky z Pinterestu jsou ve složce _zaloha-fotky-pinterest (na web je nenahrávat).
