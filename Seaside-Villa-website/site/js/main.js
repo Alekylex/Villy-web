@@ -1028,6 +1028,21 @@
   applyContact();
   initMap();
   initTrips();
+  /* ------------------------------------------------------------------ */
+  /* Hero points: longest line first, shortest last (a calm staircase).  */
+  /* Re-sorted on language change, since every language runs differently. */
+  /* ------------------------------------------------------------------ */
+  function initHeroPoints() {
+    const list = $(".hero-points");
+    if (!list) return;
+    const order = () => $$("li", list)
+      .sort((a, b) => b.textContent.trim().length - a.textContent.trim().length)
+      .forEach((li) => list.appendChild(li));
+    order();
+    I18N.onChange(order);
+  }
+
+  initHeroPoints();
   initNav();
   initSlider();
   initBooking();
