@@ -281,3 +281,21 @@
   .btn::after { display: none; }
   .marquee-track { transform: none; }
 }
+
+/* ---------- Cursor dot (after kamezi.villas) ---------- */
+.cursor-dot {
+  position: fixed; left: 0; top: 0; z-index: 100000; pointer-events: none;
+  width: 15px; height: 15px; border-radius: 50%;
+  background: #fff; mix-blend-mode: difference;      /* dark on light, light on the photos */
+  transform: translate3d(var(--x, -100px), var(--y, -100px), 0) translate(-50%, -50%) scale(var(--s, 1));
+  transition: transform .17s ease-out, opacity .6s ease-in;
+  will-change: transform;
+}
+.cursor-dot.is-hover { --s: 4.6; }                  /* about 70px over links and buttons */
+.cursor-dot.is-hidden { opacity: 0; }
+@media (max-width: 1024px), (hover: none) {
+  .cursor-dot { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot { transition: opacity .3s; }
+}

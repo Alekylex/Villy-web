@@ -39,7 +39,10 @@ window.I18N = (function () {
       "hero.p2": "3 private pools, terrace, balcony & garden view",
       "hero.p3": "Playa de la Tejita just 300 m away",
       "hero.p4": "Free parking, free Wi-Fi & pets welcome",
-      "hero.cta": "Check availability", "hero.explore": "Explore the villa",
+      "hero.cta": "Check availability", "cover.scroll": "Scroll", "cover.book": "Book",
+      "cal.stay": "Stay", "cal.confirm": "Continue", "cal.priceNote": "Prices in EUR per night for the whole villa", "form.title": "Your details",
+      "cover.f1": "220 m²", "cover.f2": "4 bedrooms",
+      "cover.f3": "300 m to the beach", "cover.f4": "3 private pools", "hero.explore": "Explore the villa",
       "slider.label": "Villa photos", "slider.prev": "Previous photo", "slider.next": "Next photo",
       "slider.choose": "Choose photo", "slider.slide": "{i} of {n}: {label}",
       "slider.hideThumbs": "Hide thumbnails", "slider.showThumbs": "Show thumbnails",
@@ -200,7 +203,10 @@ window.I18N = (function () {
       "hero.p2": "3 soukromé bazény, terasa, balkon a výhled do zahrady",
       "hero.p3": "Pláž Playa de la Tejita jen 300 m",
       "hero.p4": "Parkování i Wi-Fi zdarma, domácí mazlíčci vítáni",
-      "hero.cta": "Ověřit dostupnost", "hero.explore": "Prohlédnout vilu",
+      "hero.cta": "Ověřit dostupnost", "cover.scroll": "Dolů", "cover.book": "Rezervovat",
+      "cal.stay": "Pobyt", "cal.confirm": "Pokračovat", "cal.priceNote": "Ceny v EUR za noc za celou vilu", "form.title": "Vaše údaje",
+      "cover.f1": "220 m²", "cover.f2": "4 ložnice",
+      "cover.f3": "300 m od pláže", "cover.f4": "3 soukromé bazény", "hero.explore": "Prohlédnout vilu",
       "slider.label": "Fotografie vily", "slider.prev": "Předchozí fotka", "slider.next": "Další fotka",
       "slider.choose": "Vybrat fotku", "slider.slide": "{i} z {n}: {label}",
       "slider.hideThumbs": "Skrýt náhledy", "slider.showThumbs": "Zobrazit náhledy",
@@ -361,7 +367,10 @@ window.I18N = (function () {
       "hero.p2": "3 piscinas privadas, terraza, balcón y vistas al jardín",
       "hero.p3": "La Playa de la Tejita a solo 300 m",
       "hero.p4": "Parking y Wi-Fi gratis, se admiten mascotas",
-      "hero.cta": "Ver disponibilidad", "hero.explore": "Descubrir la villa",
+      "hero.cta": "Ver disponibilidad", "cover.scroll": "Desliza", "cover.book": "Reservar",
+      "cal.stay": "Estancia", "cal.confirm": "Continuar", "cal.priceNote": "Precios en EUR por noche para toda la villa", "form.title": "Tus datos",
+      "cover.f1": "220 m²", "cover.f2": "4 dormitorios",
+      "cover.f3": "Playa a 300 m", "cover.f4": "3 piscinas privadas", "hero.explore": "Descubrir la villa",
       "slider.label": "Fotos de la villa", "slider.prev": "Foto anterior", "slider.next": "Foto siguiente",
       "slider.choose": "Elegir foto", "slider.slide": "{i} de {n}: {label}",
       "slider.hideThumbs": "Ocultar miniaturas", "slider.showThumbs": "Mostrar miniaturas",
@@ -568,8 +577,10 @@ window.I18N = (function () {
 
   /* ------------------------------------------------------------- switcher */
   function initSwitcher() {
-    const wrap = document.querySelector("[data-lang-switch]");
-    if (!wrap) return;
+    // the header and the cover photo each have one
+    document.querySelectorAll("[data-lang-switch]").forEach(initOneSwitcher);
+  }
+  function initOneSwitcher(wrap) {
     const btn = wrap.querySelector(".lang-btn");
     const menu = wrap.querySelector(".lang-menu");
     const options = Array.from(menu.querySelectorAll("[data-lang]"));

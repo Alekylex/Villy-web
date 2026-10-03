@@ -39,7 +39,10 @@ window.I18N = (function () {
       "hero.p2": "Three terraces — the top one faces the sunset over the ocean",
       "hero.p3": "Playa de la Tejita just 250 m away",
       "hero.p4": "3 pools & a tennis court on site, garage for two cars",
-      "hero.cta": "Check availability", "hero.explore": "Explore the house",
+      "hero.cta": "Check availability", "cover.scroll": "Scroll", "cover.book": "Book",
+      "cal.stay": "Stay", "cal.confirm": "Continue", "cal.priceNote": "Prices in EUR per night for the whole house", "form.title": "Your details",
+      "cover.f1": "150 m²", "cover.f2": "2 bedrooms",
+      "cover.f3": "250 m to the beach", "cover.f4": "3 pools", "hero.explore": "Explore the house",
       "slider.label": "House photos", "slider.prev": "Previous photo", "slider.next": "Next photo",
       "slider.choose": "Choose photo", "slider.slide": "{i} of {n}: {label}",
       "slider.hideThumbs": "Hide thumbnails", "slider.showThumbs": "Show thumbnails",
@@ -219,7 +222,10 @@ window.I18N = (function () {
       "hero.p2": "Tři terasy — z horní je výhled na západ slunce nad oceánem",
       "hero.p3": "Pláž Playa de la Tejita jen 250 m",
       "hero.p4": "3 bazény a tenisový kurt v areálu, garáž pro dvě auta",
-      "hero.cta": "Ověřit dostupnost", "hero.explore": "Prohlédnout dům",
+      "hero.cta": "Ověřit dostupnost", "cover.scroll": "Dolů", "cover.book": "Rezervovat",
+      "cal.stay": "Pobyt", "cal.confirm": "Pokračovat", "cal.priceNote": "Ceny v EUR za noc za celý dům", "form.title": "Vaše údaje",
+      "cover.f1": "150 m²", "cover.f2": "2 ložnice",
+      "cover.f3": "250 m od pláže", "cover.f4": "3 bazény", "hero.explore": "Prohlédnout dům",
       "slider.label": "Fotografie domu", "slider.prev": "Předchozí fotka", "slider.next": "Další fotka",
       "slider.choose": "Vybrat fotku", "slider.slide": "{i} z {n}: {label}",
       "slider.hideThumbs": "Skrýt náhledy", "slider.showThumbs": "Zobrazit náhledy",
@@ -399,7 +405,10 @@ window.I18N = (function () {
       "hero.p2": "Tres terrazas: la de arriba mira al atardecer sobre el océano",
       "hero.p3": "La Playa de la Tejita a solo 250 m",
       "hero.p4": "3 piscinas y pista de tenis en la propiedad, garaje para dos coches",
-      "hero.cta": "Ver disponibilidad", "hero.explore": "Descubrir la casa",
+      "hero.cta": "Ver disponibilidad", "cover.scroll": "Desliza", "cover.book": "Reservar",
+      "cal.stay": "Estancia", "cal.confirm": "Continuar", "cal.priceNote": "Precios en EUR por noche para toda la casa", "form.title": "Tus datos",
+      "cover.f1": "150 m²", "cover.f2": "2 dormitorios",
+      "cover.f3": "Playa a 250 m", "cover.f4": "3 piscinas", "hero.explore": "Descubrir la casa",
       "slider.label": "Fotos de la casa", "slider.prev": "Foto anterior", "slider.next": "Foto siguiente",
       "slider.choose": "Elegir foto", "slider.slide": "{i} de {n}: {label}",
       "slider.hideThumbs": "Ocultar miniaturas", "slider.showThumbs": "Mostrar miniaturas",
@@ -625,8 +634,10 @@ window.I18N = (function () {
 
   /* ------------------------------------------------------------- switcher */
   function initSwitcher() {
-    const wrap = document.querySelector("[data-lang-switch]");
-    if (!wrap) return;
+    // the header and the cover photo each have one
+    document.querySelectorAll("[data-lang-switch]").forEach(initOneSwitcher);
+  }
+  function initOneSwitcher(wrap) {
     const btn = wrap.querySelector(".lang-btn");
     const menu = wrap.querySelector(".lang-menu");
     const options = Array.from(menu.querySelectorAll("[data-lang]"));

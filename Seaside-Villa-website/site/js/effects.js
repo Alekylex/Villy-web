@@ -32,9 +32,6 @@
     $$(".hero-points li").forEach((li, i) => {
       li.classList.add("intro"); li.style.setProperty("--d", 480 + i * 80 + "ms"); tagged.push(li);
     });
-    $$(".amenities li").forEach((li, i) => {
-      li.classList.add("intro"); li.style.setProperty("--d", 700 + i * 70 + "ms"); tagged.push(li);
-    });
     requestAnimationFrame(() => requestAnimationFrame(() => html.classList.add("is-ready")));
     // tidy up once everything has landed, so hover effects own the transforms again
     setTimeout(() => tagged.forEach((el) => el.classList.remove("intro", "intro-clip", "intro-zoom")), 2600);
@@ -284,10 +281,75 @@
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => en.target.classList.toggle("fx-paused", !en.isIntersecting));
     }, { rootMargin: "100px 0px" });
-    $$(".hero, .marquee").forEach((el) => io.observe(el));
+    $$(".hero").forEach((el) => io.observe(el));
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Cursor dot (after kamezi.villas): follows the mouse a touch behind,  */
+  /* inverts what is under it, and swells over anything clickable.        */
+  /* Mouse only: touch screens and small windows keep the normal pointer. */
+  /* ------------------------------------------------------------------ */
+  function initCursor() {
+    if (!finePointer) return;
+    const dot = document.createElement("div");
+    dot.className = "cursor-dot is-hidden";
+    dot.setAttribute("aria-hidden", "true");
+    document.body.appendChild(dot);
+
+    let x = 0, y = 0, frame = 0;
+    document.addEventListener("mousemove", (e) => {
+      x = e.clientX; y = e.clientY;
+      dot.classList.remove("is-hidden");
+      if (!frame) frame = requestAnimationFrame(() => {
+        frame = 0;
+        dot.style.setProperty("--x", x + "px");
+        dot.style.setProperty("--y", y + "px");
+      });
+    }, { passive: true });
+    document.documentElement.addEventListener("mouseleave", () => dot.classList.add("is-hidden"));
+
+    // one listener for the whole page, so calendar days drawn later count too
+    const clickable = "a, button:not([disabled]), input, select, textarea, label, summary, .slide";
+    document.addEventListener("mouseover", (e) => {
+      dot.classList.toggle("is-hover", Boolean(e.target.closest(clickable)));
+    });
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Finale photo (after supreme-luxury.com): while its frame scrolls in, */
+  /* the photo is pinned to the screen and uncovered from the bottom up,  */
+  /* so the page seems to slide off it. Phones get a plain photo.         */
+  /* ------------------------------------------------------------------ */
+  function initFinale() {
+    const wrap = $(".finale-wrap");
+    const photo = $(".finale-photo");
+    if (!wrap || !photo) return;
+    const phone = window.matchMedia("(max-width: 769px)");
+    let ticking = false;
+
+    const pin = (clip) => {
+      photo.style.position = "fixed";
+      photo.style.clipPath = clip;
+    };
+    const update = () => {
+      ticking = false;
+      if (reduceMotion || phone.matches) { photo.style.position = ""; photo.style.clipPath = ""; return; }
+      const top = wrap.getBoundingClientRect().top;
+      const vh = window.innerHeight;
+      if (top >= vh) pin("inset(100% 0 0 0)");                 // not on screen yet
+      else if (top > 0) pin(`inset(${(top / vh) * 100}% 0 0 0)`); // coming in: show only the part under the page
+      else { photo.style.position = "absolute"; photo.style.clipPath = "none"; }   // fully in: scrolls normally
+    };
+    const request = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request);
+    phone.addEventListener("change", request);
+    update();
   }
 
   initIntro();
+  initCursor();
+  initFinale();
   initButtons();
   initNavIndicator();
   initTilt();

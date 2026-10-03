@@ -68,9 +68,9 @@
       const configured = typeof CFG.sisterUrl === "string" ? CFG.sisterUrl.trim() : "";
       const target = configured || sisterLinks[0].getAttribute("href") || "";
       const isLocalCopy = /\.html?(?:[?#].*)?$/i.test(target);
-      // localhost / 127.0.0.1 is the preview server on our own machine, not the public site
-      const isLocalServer = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
-      const onPublicSite = (location.protocol === "http:" || location.protocol === "https:") && !isLocalServer;
+      // localhost / 127.0.0.1 / home-network IPs (VS Code Live Server, OTEVRIT WEBY.bat) are still a local copy
+      const onDevServer = /^(localhost|127\.\d+\.\d+\.\d+|\[::1\]|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+|172\.(1[6-9]|2\d|3[01])\.\d+\.\d+)$/i.test(location.hostname);
+      const onPublicSite = (location.protocol === "http:" || location.protocol === "https:") && !onDevServer;
 
       if (isLocalCopy && onPublicSite) {
         sisterLinks.forEach((a) => a.remove());
@@ -111,18 +111,41 @@
     list.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
 
-    // "Home" and the logo always go right back to the top of the page
+    // where the site itself starts, just below the full-screen cover photo
+    const pageTop = () => {
+      const page = $(".page");
+      return page ? page.getBoundingClientRect().top + window.scrollY : 0;
+    };
+
+    // "Home" and the logo go back to the top of the site (the menu bar, below the cover)
     $$('a[href="#top"]').forEach((a) => a.addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
       history.replaceState(null, "", location.pathname + location.search);
     }));
 
+    // the arrow at the bottom of the full-screen cover glides down to the site itself
+    $$("[data-cover-scroll]").forEach((a) => a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const first = $(".hero") || $(".page");
+      const y = first.getBoundingClientRect().top + window.scrollY - 64 - 24;   // slim bar + breathing room
+      window.scrollTo({ top: y, behavior: reduceMotion ? "auto" : "smooth" });
+    }));
+
+    // the top bar stays pinned and turns into a slim frosted bar once the page moves
+    const topBar = $(".cover-bar");
+    if (topBar) {
+      const setScrolled = () => topBar.classList.toggle("is-scrolled", window.scrollY > 40);
+      window.addEventListener("scroll", setScrolled, { passive: true });
+      setScrolled();
+    }
+
     // compact menu bar once the page is scrolled (gap between the two thresholds avoids flicker)
     const header = $(".site-header");
     const updateStuck = () => {
-      if (window.scrollY > 160) header.classList.add("is-stuck");
-      else if (window.scrollY < 40) header.classList.remove("is-stuck");
+      const y = window.scrollY - pageTop();          // measured from below the cover
+      if (y > 160) header.classList.add("is-stuck");
+      else if (y < 40) header.classList.remove("is-stuck");
     };
 
     // only in-page anchors: the sister-site link lives in this list too, and its
@@ -467,20 +490,26 @@
     const yearLabel = $(".year-label");
     const prevBtn = $('[data-cal="prev"]');
     const nextBtn = $('[data-cal="next"]');
-    const showMore = $(".show-more");
     const out = (name) => $(`[data-out="${name}"]`);
-    const MAX_OFFSET = 12; // allow browsing up to 24 months ahead
+    const MONTHS_AHEAD = 24;   // how far ahead guests can book
+    const phone = window.matchMedia("(max-width: 640px)");
+    const visibleMonths = () => (phone.matches ? 1 : 2);
+    const maxOffset = () => MONTHS_AHEAD - visibleMonths();
 
     // booked nights (check-out day stays free)
     const bookedNights = new Set();
     const turnover = new Set();
-    (CFG.booked || []).forEach(({ from, to }) => {
+    // made-up bookings relative to today, only while CFG.demoBookings is on (see config.js)
+    const demoRanges = () => !CFG.demoBookings ? [] : [[10, 13], [24, 31], [45, 52], [73, 80]]
+      .map(([a, b]) => ({ from: keyOf(addDays(today, a)), to: keyOf(addDays(today, b)) }));
+
+    (CFG.booked || []).concat(demoRanges()).forEach(({ from, to }) => {
       const a = parseKey(from), b = parseKey(to);
       for (let d = a; d < b; d = addDays(d, 1)) bookedNights.add(keyOf(d));
       turnover.add(to);
     });
 
-    const state = { offset: 0, checkin: null, checkout: null, hover: null, expanded: false };
+    const state = { offset: 0, checkin: null, checkout: null, hover: null };
     let dayButtons = [];
     let focusKey = null;
 
@@ -492,15 +521,16 @@
       cal.innerHTML = "";
       const start = new Date(today.getFullYear(), today.getMonth() + state.offset, 1);
       prevBtn.disabled = state.offset <= 0;
-      nextBtn.disabled = state.offset >= MAX_OFFSET;
+      nextBtn.disabled = state.offset >= maxOffset();
 
       const frag = document.createDocumentFragment();
-      for (let m = 0; m < 12; m++) {
+      cal.style.setProperty("--months", visibleMonths());
+      for (let m = 0; m < visibleMonths(); m++) {
         const first = new Date(start.getFullYear(), start.getMonth() + m, 1);
         const month = document.createElement("div");
         month.className = "month";
         month.dataset.idx = m;
-        month.innerHTML = `<h4>${cap(fmt().month.format(first))}<span>${first.getFullYear()}</span></h4>
+        month.innerHTML = `<h4><span class="m-name">${cap(fmt().month.format(first))} ${first.getFullYear()}</span></h4>
           <div class="dow" aria-hidden="true">${t("cal.dow").map((d) => `<span>${d}</span>`).join("")}</div>`;
         const days = document.createElement("div");
         days.className = "days";
@@ -513,7 +543,7 @@
           const b = document.createElement("button");
           b.type = "button";
           b.className = "day";
-          b.textContent = d;
+          b.innerHTML = `<span class="d-num">${d}</span><span class="d-price"></span>`;
           b.dataset.key = k;
           b.tabIndex = -1;
           if (date < today) b.classList.add("is-past");
@@ -531,7 +561,16 @@
         frag.appendChild(month);
       }
       cal.appendChild(frag);
+      // month arrows sit in the captions: back on the first month, forward on the last
+      const caps = $$(".month h4", cal);
+      caps[0].prepend(prevBtn);
+      caps[caps.length - 1].append(nextBtn);
       dayButtons = $$(".day", cal);
+      // nightly price under each night that can still be booked
+      dayButtons.forEach((b) => {
+        const date = parseKey(b.dataset.key);
+        if (date >= today && !bookedNights.has(b.dataset.key)) $(".d-price", b).textContent = seasonFor(date).nightly;
+      });
       applyCompact();
       paint();
     }
@@ -540,27 +579,15 @@
        breakpoints in styles.css so the last row is always full and the calendar
        column stays level with the booking form beside it:
          1 column -> 3 months     2 columns -> 4 months     3 columns -> 6 months */
-    function collapsedCount() {
-      if (window.matchMedia("(max-width: 760px)").matches) return 3;
-      if (window.matchMedia("(max-width: 1180px)").matches) return 4;
-      return 6;
-    }
-
-    function updateYearLabel() {
+    function updateYearLabel() {   // read out to screen readers when the months change
       const start = new Date(today.getFullYear(), today.getMonth() + state.offset, 1);
-      const shown = state.expanded ? 12 : collapsedCount();
-      const end = new Date(start.getFullYear(), start.getMonth() + shown - 1, 1);
-      yearLabel.textContent = `${cap(fmt().monthYear.format(start))} – ${cap(fmt().monthYear.format(end))}`;
+      const end = new Date(start.getFullYear(), start.getMonth() + visibleMonths() - 1, 1);
+      yearLabel.textContent = visibleMonths() > 1
+        ? `${cap(fmt().monthYear.format(start))} – ${cap(fmt().monthYear.format(end))}`
+        : cap(fmt().monthYear.format(start));
     }
 
-    function applyCompact() {
-      const shown = collapsedCount();
-      const collapsed = !state.expanded && shown < 12;
-      $$(".month", cal).forEach((m) => (m.hidden = collapsed && Number(m.dataset.idx) >= shown));
-      showMore.hidden = shown >= 12;
-      showMore.textContent = t(state.expanded ? "cal.showLess" : "cal.showAll");
-      updateYearLabel();
-    }
+    function applyCompact() { updateYearLabel(); }
 
     // Is a given day selectable in the current step?
     function selectable(date) {
@@ -612,42 +639,59 @@
       updateSummary();
     }
 
+    const confirmBtn = $("[data-cal-confirm]");
+    const dayLabel = (d) => {
+      const wd = new Intl.DateTimeFormat(I18N.locale, { weekday: "short" }).format(d);
+      return `<strong>${fmt().short.format(d)}</strong><small>${cap(wd)} · ${d.getFullYear()}</small>`;
+    };
+    const guestsLabel = () => {
+      const a = Number($("#f-adults").value || 2), c = Number($("#f-children").value || 0);
+      return [t("form.adultsOption", { n: a }), c ? t("form.childrenOption", { n: c }) : ""].filter(Boolean).join(", ");
+    };
+
     function updateSummary() {
       const ci = state.checkin, co = state.checkout;
-      out("checkin").textContent = ci ? cap(fmt().long.format(ci)) : "—";
-      out("checkout").textContent = co ? cap(fmt().long.format(co)) : "—";
+      out("checkin").innerHTML = ci ? dayLabel(ci) : "—";
+      out("checkout").innerHTML = co ? dayLabel(co) : "—";
       const box = out("price");
+      confirmBtn.disabled = true;
 
-      if (!ci) { hint.textContent = t("cal.hintArrival"); box.innerHTML = `<p class="price-empty">${t("price.empty")}</p>`; return; }
+      if (!ci) {
+        out("stay").textContent = "—";
+        hint.textContent = t("cal.hintArrival");
+        box.innerHTML = `<p class="price-empty">${t("price.empty")}</p>`;
+        return;
+      }
       if (!co) {
+        out("stay").textContent = "—";
         hint.textContent = t("cal.hintDeparture", { date: fmt().short.format(ci), nights: nights(minNightsFor(ci)) });
         box.innerHTML = `<p class="price-empty">${t("price.chooseDeparture")}</p>`;
         return;
       }
 
       const stay = nightsBetween(ci, co);
-      const groups = new Map();
-      for (let d = ci; d < co; d = addDays(d, 1)) {
-        const s = seasonFor(d);
-        const name = seasonName(s);
-        const g = groups.get(name) || { nights: 0, rate: s.nightly };
-        g.nights++; groups.set(name, g);
-      }
       let subtotal = 0;
-      let lines = "";
-      groups.forEach((g, name) => {
-        subtotal += g.nights * g.rate;
-        lines += `<div class="price-line"><span>${g.nights} × ${money(g.rate)}${name ? ` <small>(${name})</small>` : ""}</span><span>${money(g.nights * g.rate)}</span></div>`;
-      });
+      for (let d = ci; d < co; d = addDays(d, 1)) subtotal += seasonFor(d).nightly;
       const fee = CFG.cleaningFee || 0;
-      if (fee) lines += `<div class="price-line"><span>${t("price.cleaning")}</span><span>${money(fee)}</span></div>`;
+      const total = subtotal + fee;
       const min = minNightsFor(ci);
-      const warn = stay < min ? `<p class="price-warn">${t("price.min", { nights: nights(min) })}</p>` : "";
-      box.innerHTML = `${lines}<div class="price-total"><span>${t("price.total", { nights: nights(stay) })}</span><strong>${money(subtotal + fee)}</strong></div>${warn}`;
+      out("stay").innerHTML = `<strong>${nights(stay)}</strong><small>${guestsLabel()}</small>`;
+      box.innerHTML = `<div class="q-total"><strong>${money(total)}</strong><small>${t("price.total", { nights: nights(stay) })}</small></div>
+        <div class="q-night"><strong>${money(Math.round(subtotal / stay))}</strong><small>${t("rates.perNight")}</small></div>${
+        fee ? `<p class="q-note">${t("price.cleaning")}: ${money(fee)}</p>` : ""}${
+        stay < min ? `<p class="price-warn">${t("price.min", { nights: nights(min) })}</p>` : ""}`;
+      confirmBtn.disabled = stay < min;
       hint.textContent = stay < min
         ? t("cal.hintMin", { nights: nights(min) })
         : t("cal.hintSelected", { nights: nights(stay) });
     }
+
+    // "Continue": on to the request form with the dates already set
+    confirmBtn.addEventListener("click", () => {
+      const panel = $(".booking-panel");
+      panel.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      $("#f-name").focus({ preventScroll: true });
+    });
 
     function choose(date) {
       const ci = state.checkin, co = state.checkout;
@@ -694,16 +738,9 @@
       visible[i].focus();
     });
 
-    prevBtn.addEventListener("click", () => { state.offset = Math.max(0, state.offset - 12); render(); });
-    nextBtn.addEventListener("click", () => { state.offset = Math.min(MAX_OFFSET, state.offset + 12); render(); });
-    showMore.addEventListener("click", () => {
-      state.expanded = !state.expanded;
-      applyCompact();
-      paint();
-      if (!state.expanded) cal.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-    });
-    ["(max-width: 760px)", "(max-width: 1180px)"].forEach((q) =>
-      window.matchMedia(q).addEventListener("change", () => { applyCompact(); paint(); }));
+    prevBtn.addEventListener("click", () => { state.offset = Math.max(0, state.offset - 1); render(); });
+    nextBtn.addEventListener("click", () => { state.offset = Math.min(maxOffset(), state.offset + 1); render(); });
+    phone.addEventListener("change", () => { state.offset = Math.min(state.offset, maxOffset()); render(); });
 
     /* Rates list */
     const seasonList = $(".season-list");
@@ -750,8 +787,8 @@
       Array.from(adults.options).forEach((o) => (o.disabled = Number(o.value) + c > maxGuests));
       agesField.hidden = c === 0;
     };
-    adults.addEventListener("change", limitGuests);
-    children.addEventListener("change", limitGuests);
+    adults.addEventListener("change", () => { limitGuests(); updateSummary(); });
+    children.addEventListener("change", () => { limitGuests(); updateSummary(); });
     limitGuests();
 
     /* Form */
@@ -787,7 +824,7 @@
       if (problem) { cal.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" }); return; }
 
       const data = Object.fromEntries(new FormData(form).entries());
-      const total = out("price").querySelector(".price-total strong");
+      const total = out("price").querySelector(".q-total strong");
       const payload = {
         ...data,
         arrival: keyOf(ci),
@@ -838,6 +875,7 @@
     });
 
     render();
+
   }
 
   /* ------------------------------------------------------------------ */

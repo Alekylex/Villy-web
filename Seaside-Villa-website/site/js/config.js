@@ -54,6 +54,13 @@ window.VILLA_CONFIG = {
     { name: { en: "All year", cs: "Celý rok", es: "Todo el año" }, from: "01-01", to: "12-31", nightly: 150 }
   ],
 
+  /* ---- Demo bookings (for testing) ---------------------------------------
+     true = the calendar also shows a few made-up bookings that move with today's
+     date (starting 10, 24, 45 and 73 days from today), so the date search on the
+     cover photo and the calendar can be tried out on any day.
+     TODO set to false before the site goes live. */
+  demoBookings: true,
+
   /* ---- Booked dates ----------------------------------------------------- */
   /* Add one line per confirmed booking: check-in date and check-out date (YYYY-MM-DD).
      The check-out day stays available for the next guest's arrival.
