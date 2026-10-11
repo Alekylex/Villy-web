@@ -29,7 +29,7 @@
       el.style.setProperty("--d", delay + "ms");
       tagged.push(el);
     });
-    $$(".hero-points li").forEach((li, i) => {
+    $$(".hero-title, .hero-lead, .hero-sign").forEach((li, i) => {
       li.classList.add("intro"); li.style.setProperty("--d", 480 + i * 80 + "ms"); tagged.push(li);
     });
     requestAnimationFrame(() => requestAnimationFrame(() => html.classList.add("is-ready")));

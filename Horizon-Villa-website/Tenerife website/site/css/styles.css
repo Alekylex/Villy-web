@@ -292,12 +292,6 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
   margin-bottom: 24px;
 }
 .hero-card h1 em { font-style: italic; font-weight: 500; color: var(--amber-deep); }
-.hero-points { display: grid; gap: 10px; margin-bottom: 32px; position: relative; }
-.hero-points li { position: relative; padding-left: 22px; color: var(--ink-2); font-size: 16px; }
-.hero-points li::before {
-  content: ""; position: absolute; left: 2px; top: .62em;
-  width: 8px; height: 8px; border-radius: 50%; background: var(--amber);
-}
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; position: relative; }
 
 /* ---------- Slider ---------- */
@@ -1643,37 +1637,23 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 
 /* hero card: the heading font (Prompt) as in "Sleeping arrangements", but light and soft */
 .hero-card .eyebrow { font-family: var(--font-display); font-size: 13.5px; font-weight: 500; letter-spacing: .18em; margin-bottom: 18px; }
-.hero-points { gap: 12px; margin-bottom: 34px; }
-.hero-points li {
-  font-family: var(--font-display); font-size: 18.5px; font-weight: 300; line-height: 1.5;
-  color: var(--ink-2); padding-left: 24px;
-}
-.hero-points li::before { top: .66em; }
 .hero-actions .btn-ghost {
   min-height: 54px; padding: 14px 30px;
   font-family: var(--font-display); font-size: 17px; font-weight: 400; letter-spacing: .01em; color: var(--ink-2);
 }
 @media (max-width: 760px) {
-  .hero-points li { font-size: 17px; }
   .hero-actions .btn-ghost { font-size: 16px; }
 }
 
-/* hero card, smaller: each point on one line where it fits, longest first */
+/* hero card, smaller */
 .hero-card .eyebrow { font-size: 12px; letter-spacing: .16em; margin-bottom: 14px; }
-.hero-points { gap: 8px; margin-bottom: 26px; }
-.hero-points li { font-size: 15px; line-height: 1.5; padding-left: 20px; }
-.hero-points li::before { width: 7px; height: 7px; top: .68em; }
 .hero-actions .btn-ghost { min-height: 46px; padding: 10px 22px; font-size: 15px; }
 @media (max-width: 760px) {
-  .hero-points li { font-size: 14.5px; }
   .hero-actions .btn-ghost { font-size: 14.5px; }
 }
 @media (min-width: 1241px) {
   .hero { grid-template-columns: minmax(0, .92fr) minmax(0, 1.5fr); }
   .hero-card { padding-inline: 28px; }
-}
-@media (min-width: 1241px) {
-  .hero-points li { font-size: clamp(13px, .93vw, 15px); }   /* one line per point on laptop screens too */
 }
 
 /* hero, stacked: the card sits in the middle with free space either side,
@@ -1681,14 +1661,38 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .hero { grid-template-columns: minmax(0, 1fr); gap: 24px; }
 .hero-left { width: min(100%, 760px); margin-inline: auto; }
 .hero-card { align-items: center; text-align: center; padding: clamp(28px, 3.4vw, 48px) clamp(24px, 4vw, 56px); }
-.hero-points { width: fit-content; max-width: 100%; margin-inline: auto; text-align: left; }
-.hero-points li { font-size: 16px; }
 .hero-actions { justify-content: center; }
-.slider { min-height: 0; aspect-ratio: 16 / 8; max-height: 86vh; }
+
+/* hero welcome: no box around it, just the hosts' words set in an elegant serif */
+.hero-card {
+  --font-serif: "Cormorant Garamond", "Times New Roman", serif;
+  background: none; border: 0; border-radius: 0; overflow: visible;
+  padding: clamp(10px, 2.2vw, 30px) 0 clamp(14px, 2vw, 26px);
+}
+.hero-title {
+  font-family: var(--font-serif); font-style: italic; font-weight: 500;
+  font-size: clamp(42px, 4.2vw, 60px); line-height: 1.05; letter-spacing: .005em; color: var(--amber-deeper);
+  max-width: 20ch; margin: 2px auto 20px; position: relative; text-wrap: balance;
+}
+.hero-title::after {
+  content: ""; display: block; width: 56px; height: 1px; margin: 20px auto 0; background: var(--amber-deep); opacity: .75;
+}
+.hero-lead {
+  font-family: var(--font-serif); font-weight: 500;
+  font-size: clamp(21px, 1.65vw, 24px); line-height: 1.6; color: var(--ink);
+  max-width: 54ch; margin: 0 auto; position: relative; text-wrap: pretty;
+}
+.hero-sign {
+  font-family: var(--font-serif); font-style: italic; font-weight: 500;
+  font-size: clamp(21px, 1.65vw, 24px); color: var(--amber-deep); margin: 16px auto 30px; position: relative;
+}
+@media (max-width: 560px) {
+  .hero-lead, .hero-sign { font-size: 19.5px; }
+}
+.slider { min-height: 0; aspect-ratio: 16 / 8; max-height: 86vh; justify-self: center; width: 100%; }
 @media (max-width: 980px) {
   .slider { aspect-ratio: 4 / 3.3; }
 }
 @media (max-width: 760px) {
-  .hero-points li { font-size: 14.5px; }
   .slider { aspect-ratio: 4 / 4.4; }
 }
