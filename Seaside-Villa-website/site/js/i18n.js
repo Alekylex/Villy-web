@@ -177,7 +177,6 @@ window.I18N = (function () {
       "float.label": "Book your stay", "float.title": "Book your stay", "float.from": "from {price} / night",
 
       "photo.roof-terrace": ["Roof terrace", "Top terrace with a table, chairs and a view over the ocean"],
-      "photo.balcony": ["Balcony", "Shaded balcony with a wooden table and four chairs"],
       "photo.balcony-table": ["", "Outdoor dining table on the covered balcony"],
       "photo.living-balcony": ["Living room & balcony", "Living room with sliding doors opening onto the balcony"],
       "photo.living-room": ["Living room", "Living room with a corner sofa, flat-screen TV and the stairs behind"],
@@ -360,7 +359,6 @@ window.I18N = (function () {
       "float.label": "Rezervovat pobyt", "float.title": "Rezervovat pobyt", "float.from": "od {price} / noc",
 
       "photo.roof-terrace": ["Střešní terasa", "Horní terasa se stolkem, křeslem a výhledem na oceán"],
-      "photo.balcony": ["Balkon", "Zastíněný balkon s dřevěným stolem a čtyřmi židlemi"],
       "photo.balcony-table": ["", "Jídelní stůl na krytém balkoně"],
       "photo.living-balcony": ["Obývák a balkon", "Obývací pokoj s posuvnými dveřmi na balkon"],
       "photo.living-room": ["Obývací pokoj", "Obývací pokoj s rohovou pohovkou, televizí a schody v pozadí"],
@@ -543,7 +541,6 @@ window.I18N = (function () {
       "float.label": "Reserva tu estancia", "float.title": "Reserva tu estancia", "float.from": "desde {price} / noche",
 
       "photo.roof-terrace": ["Terraza superior", "Terraza de arriba con mesa, butaca y vistas al océano"],
-      "photo.balcony": ["Balcón", "Balcón a la sombra con mesa de madera y cuatro sillas"],
       "photo.balcony-table": ["", "Mesa para comer al aire libre en el balcón cubierto"],
       "photo.living-balcony": ["Salón y balcón", "Salón con puertas correderas que dan al balcón"],
       "photo.living-room": ["Salón", "Salón con sofá rinconera, televisión y las escaleras al fondo"],
