@@ -14,6 +14,7 @@ window.VILLA_TRIPS = {
   /* ---------------------------------------------------------------- TEIDE */
   teide: {
     image: "teide.jpg",
+    photo: "teide-2.jpg?v=2",
     title: "Pico del Teide",
     cs: {
       tagline: "Nejvyšší vrchol Španělska, hodinu a čtvrt od vily",
@@ -101,6 +102,7 @@ window.VILLA_TRIPS = {
   /* ----------------------------------------------------------- SANTA CRUZ */
   santaCruz: {
     image: "santa-cruz.jpg",
+    photo: "santa-cruz-2.jpg?v=2",
     title: "Santa Cruz de Tenerife",
     cs: {
       tagline: "Hlavní město ostrova mezi oceánem a horami Anaga",
@@ -185,6 +187,7 @@ window.VILLA_TRIPS = {
   /* ---------------------------------------------------------------- MASCA */
   masca: {
     image: "masca.jpg",
+    photo: "masca-2.jpg?v=2",
     title: "Masca",
     cs: {
       tagline: "Horská vesnice v srdci pohoří Teno",

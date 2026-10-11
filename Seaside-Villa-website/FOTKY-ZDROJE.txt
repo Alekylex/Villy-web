@@ -1,12 +1,25 @@
 Zdroje fotek výletů (Seaside Villa)
-Všechny jsou z Unsplash pod licencí Unsplash License (https://unsplash.com/license):
+
+1) Karty výletů na hlavní stránce (site/images/cards, 900 × 675 px)
+Z Unsplash pod licencí Unsplash License (https://unsplash.com/license):
 volné použití zdarma i komerčně, uvedení autora není povinné.
 Staženo 28. 9. 2026.
 
-site/images/teide.jpg         Gustavo A. Pérez   https://unsplash.com/photos/mIblcb-GrhE
-site/images/el-medano.jpg     Angelika P         https://unsplash.com/photos/Z0ycJ5FE4CA
-site/images/los-gigantes.jpg  Boris Busorgin     https://unsplash.com/photos/cWUvHh9nb9Y
+site/images/cards/teide.jpg         Gustavo A. Pérez   https://unsplash.com/photos/mIblcb-GrhE
+site/images/cards/el-medano.jpg     Angelika P         https://unsplash.com/photos/Z0ycJ5FE4CA
+site/images/los-gigantes-2.jpg       Boris Busorgin     https://unsplash.com/photos/cWUvHh9nb9Y
+   (u Los Gigantes je tato fotka uprostřed textu výletu; na kartě je fotka z Pexels, viz níže)
 
-Ve složce site/images/cards jsou tytéž fotky oříznuté a zaostřené pro karty výletů (900 × 675 px).
+2) Fotka uprostřed textu v okně „Více o výletu" (site/images/*-2.jpg, 1600 px na šířku)
+   Fotka nahoře v okně výletu (site/images/<název>.jpg) zůstává původní z Unsplash, stejná jako na kartě.
+Z Pexels pod licencí Pexels License (https://www.pexels.com/license/):
+volné použití zdarma i komerčně (i na webu), úpravy povoleny, uvedení autora není povinné.
+Staženo 11. 10. 2026, licence ověřena týž den.
+
+site/images/teide-2.jpg       Pexels   autor: (doplnit)   odkaz: (doplnit)   Teide nad pásem mraků ze severního pobřeží
+site/images/los-gigantes.jpg    Pexels   autor: (doplnit)   odkaz: (doplnit)   útesy Los Gigantes při západu slunce
+site/images/cards/los-gigantes.jpg  (tatáž fotka z Pexels, oříznutá pro kartu na hlavní stránce)
+
+Originály z Pexels jsou v C:\Users\Uzivatel\Pictures\Screenshots (Teide Sea Side.jpg, Los Gigantes.jpg).
 
 Původní fotky z Pinterestu jsou ve složce _zaloha-fotky-pinterest (na web je nenahrávat).

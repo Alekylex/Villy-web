@@ -1,12 +1,24 @@
 Zdroje fotek výletů (Horizont Villa)
-Všechny jsou z Unsplash pod licencí Unsplash License (https://unsplash.com/license):
+
+1) Karty výletů na hlavní stránce (site/images/cards, 900 × 675 px)
+Z Unsplash pod licencí Unsplash License (https://unsplash.com/license):
 volné použití zdarma i komerčně, uvedení autora není povinné.
 Staženo 28. 9. 2026.
 
-site/images/teide.jpg        Maciek Sulkowski   https://unsplash.com/photos/XMXEl9VzOiE
-site/images/santa-cruz.jpg   Majestic Lukas     https://unsplash.com/photos/Y-GoeBrTNw8   (pláž Las Teresitas)
-site/images/masca.jpg        Tobias Pfeifer     https://unsplash.com/photos/9Qs6PMAp3fw
+site/images/cards/teide.jpg        Maciek Sulkowski   https://unsplash.com/photos/XMXEl9VzOiE
+site/images/cards/santa-cruz.jpg   Majestic Lukas     https://unsplash.com/photos/Y-GoeBrTNw8   (pláž Las Teresitas)
+site/images/cards/masca.jpg        Tobias Pfeifer     https://unsplash.com/photos/9Qs6PMAp3fw
 
-Ve složce site/images/cards jsou tytéž fotky oříznuté a zaostřené pro karty výletů (900 × 675 px).
+2) Fotka uprostřed textu v okně „Více o výletu" (site/images/*-2.jpg, 1600 px na šířku)
+   Fotka nahoře v okně výletu (site/images/<název>.jpg) zůstává původní z Unsplash, stejná jako na kartě.
+Z Pexels pod licencí Pexels License (https://www.pexels.com/license/):
+volné použití zdarma i komerčně (i na webu), úpravy povoleny, uvedení autora není povinné.
+Staženo 11. 10. 2026, licence ověřena týž den.
+
+site/images/teide-2.jpg      Pexels   autor: (doplnit)   odkaz: (doplnit)   Teide oranžové při západu slunce
+site/images/santa-cruz-2.jpg Pexels   autor: (doplnit)   odkaz: (doplnit)   Auditorio de Tenerife na nábřeží
+site/images/masca-2.jpg      Pexels   autor: (doplnit)   odkaz: (doplnit)   vesnice Masca v pohoří Teno
+
+Originály z Pexels jsou v C:\Users\Uzivatel\Pictures\Screenshots (Teide Horizon.jpg, Santa Cruz.jpg, Masca.jpg).
 
 Původní fotky z Pinterestu jsou ve složce _zaloha-fotky-pinterest (na web je nenahrávat).

@@ -14,6 +14,7 @@ window.VILLA_TRIPS = {
   /* ---------------------------------------------------------------- TEIDE */
   teide: {
     image: "teide.jpg",
+    photo: "teide-2.jpg?v=2",
     title: "Pico del Teide",
     cs: {
       tagline: "Nejvyšší vrchol Španělska, hodinu a čtvrt od vily",
@@ -181,7 +182,8 @@ window.VILLA_TRIPS = {
 
   /* --------------------------------------------------------- LOS GIGANTES */
   gigantes: {
-    image: "los-gigantes.jpg",
+    image: "los-gigantes.jpg?v=2",
+    photo: "los-gigantes-2.jpg?v=2",
     title: "Los Gigantes",
     cs: {
       tagline: "Monumentální útesy, velryby a nejkrásnější západy slunce",

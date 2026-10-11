@@ -963,7 +963,7 @@
       closeBtn.setAttribute("aria-label", t("trip.close"));
       body.innerHTML = `
         <dl class="trip-facts">${c.facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>
-        <div class="trip-story">${c.story.map((p) => `<p>${p}</p>`).join("")}</div>
+        <div class="trip-story">${c.story.map((p, i) => `<p>${p}</p>` + (i === 0 && trip.photo ? `<figure class="trip-photo"><img src="${img(trip.photo)}" alt="" loading="lazy"></figure>` : "")).join("")}</div>
         <section class="trip-block trip-know"><h4>${t("trip.didYouKnow")}</h4>${list(c.didYouKnow)}</section>
         <section class="trip-block trip-tips"><h4>${t("trip.tips")}</h4>${list(c.tips)}</section>
         <a class="btn btn-primary trip-cta" href="#booking"><span>${t("trip.book")}</span><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>`;
