@@ -1,5 +1,7 @@
 @echo off
 cd /d "%~dp0"
+echo Stahuji nejnovejsi verzi webu z GitHubu...
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0aktualizovat.ps1"
 start "" powershell -NoProfile -ExecutionPolicy Bypass -WindowStyle Minimized -File "%~dp0server.ps1" -Port 8090 -Root "%~dp0."
 timeout /t 2 >nul
 set "WEB1=http://localhost:8090/Seaside-Villa-website/site/index.html"
