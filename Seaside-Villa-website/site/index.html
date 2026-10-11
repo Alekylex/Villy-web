@@ -67,8 +67,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=66">
-  <link rel="stylesheet" href="css/effects.css?v=41">
+  <link rel="stylesheet" href="css/styles.css?v=70">
+  <link rel="stylesheet" href="css/effects.css?v=43">
   <script>
     document.documentElement.classList.add("fx");
     // safety net: never leave the hero hidden if the effects script fails to load
@@ -84,6 +84,7 @@
       <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><path d="M12 20h.01"/></symbol>
       <symbol id="i-pool" viewBox="0 0 24 24"><path d="M2 12c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0 3-1 4.5 0"/><path d="M2 17c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0 3-1 4.5 0"/><path d="M8 9V5a2 2 0 0 1 4 0"/><path d="M16 9V5a2 2 0 0 0-4 0"/></symbol>
       <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
       <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
       <symbol id="i-chef" viewBox="0 0 24 24"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.46.31-.85.74-1A4 4 0 0 0 16.2 6.1a5 5 0 0 0-8.4 0 4 4 0 0 0-2.54 7.55c.43.15.74.54.74 1V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></symbol>
       <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
@@ -140,6 +141,92 @@
         <rect x="8" y="9" width="16" height="8" rx="3" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
         <rect x="40" y="9" width="16" height="8" rx="3" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
         <path d="M4 22h24M36 22h24" stroke="currentColor" stroke-width="1.6" opacity=".45"/>
+      </symbol>
+
+      <!-- Room drawings for the "floor by floor" card: same hand as the beds
+           (seen from above, outlined, soft accent fill, 64 x 44) -->
+      <symbol id="art-tv" viewBox="0 0 64 44">
+        <rect x="9" y="3" width="46" height="30" rx="3.5" fill="var(--surface)" stroke="currentColor" stroke-width="2"/>
+        <rect x="13.5" y="7.5" width="37" height="21" rx="1.5" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M19 12l5-0M19 15.5l9-0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".35"/>
+        <path d="M32 33v6M23 40.5h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="art-dining" viewBox="0 0 64 44">
+        <rect x="17" y="11" width="30" height="22" rx="4" fill="var(--surface)" stroke="currentColor" stroke-width="2"/>
+        <g fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6">
+          <rect x="20" y="3" width="10" height="5" rx="2.5"/><rect x="34" y="3" width="10" height="5" rx="2.5"/>
+          <rect x="20" y="36" width="10" height="5" rx="2.5"/><rect x="34" y="36" width="10" height="5" rx="2.5"/>
+        </g>
+      </symbol>
+      <symbol id="art-kitchen" viewBox="0 0 64 44">
+        <path d="M24 12c-2-2.4 2-3.8 0-6.4M32 11c-2-2.4 2-3.8 0-6.4M40 12c-2-2.4 2-3.8 0-6.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".45"/>
+        <rect x="29" y="14" width="6" height="4" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>
+        <rect x="12" y="18" width="40" height="5" rx="2.5" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M15 23h34v11a6 6 0 0 1-6 6H21a6 6 0 0 1-6-6Z" fill="var(--surface)" stroke="currentColor" stroke-width="2"/>
+        <path d="M15 27H9M49 27h6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M15 31h34" stroke="currentColor" stroke-width="1.4" opacity=".35"/>
+      </symbol>
+      <symbol id="art-bath" viewBox="0 0 64 44">
+        <circle cx="19" cy="11" r="3" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="26.5" cy="7" r="2.2" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="25" cy="13.5" r="1.6" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.3"/>
+        <path d="M51 18V9.5a4 4 0 0 0-8 0v1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <rect x="4" y="18" width="56" height="5" rx="2.5" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M7 23h50v3a10 10 0 0 1-10 10H17A10 10 0 0 1 7 26Z" fill="var(--surface)" stroke="currentColor" stroke-width="2"/>
+        <path d="M16 36l-2.5 5M48 36l2.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="art-shower" viewBox="0 0 64 44">
+        <path d="M14 42V12a7 7 0 0 1 7-7h10a6 6 0 0 1 6 6v2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M25 20a12 7.5 0 0 1 24 0Z" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M28 25v4M33 25v4M38 25v4M43 25v4M47 25v4M30.5 33v4M35.5 33v4M40.5 33v4M45 33v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".5"/>
+      </symbol>
+      <symbol id="art-car" viewBox="0 0 64 44">
+        <g>
+          <rect x="7" y="3" width="21" height="38" rx="9" fill="var(--surface)" stroke="currentColor" stroke-width="2"/>
+          <rect x="10.5" y="10" width="14" height="6" rx="2.5" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+          <rect x="11.5" y="31" width="12" height="4" rx="2" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+        </g>
+        <g transform="translate(29 0)">
+          <rect x="7" y="3" width="21" height="38" rx="9" fill="var(--surface)" stroke="currentColor" stroke-width="2"/>
+          <rect x="10.5" y="10" width="14" height="6" rx="2.5" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+          <rect x="11.5" y="31" width="12" height="4" rx="2" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+        </g>
+      </symbol>
+      <symbol id="art-washer" viewBox="0 0 64 44">
+        <rect x="13" y="2" width="38" height="40" rx="5" fill="var(--surface)" stroke="currentColor" stroke-width="2"/>
+        <path d="M13 11h38" stroke="currentColor" stroke-width="1.6" opacity=".45"/>
+        <circle cx="19.5" cy="6.5" r="1.8" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.4"/>
+        <rect x="33" y="5" width="12" height="3.2" rx="1.6" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="32" cy="26.5" r="11" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="32" cy="26.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".45"/>
+      </symbol>
+      <symbol id="art-terrace" viewBox="0 0 64 44">
+        <circle cx="45" cy="10" r="5.5" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M5 19c3 0 3-1.6 6-1.6s3 1.6 6 1.6 3-1.6 6-1.6 3 1.6 6 1.6M35 19c3 0 3-1.6 6-1.6s3 1.6 6 1.6 3-1.6 6-1.6 3 1.6 6 1.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".45"/>
+        <rect x="3" y="23" width="58" height="4" rx="2" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M9 27v12M17 27v12M25 27v12M33 27v12M41 27v12M49 27v12M57 27v12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M3 41h58" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="art-palm" viewBox="0 0 64 44">
+        <g fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6">
+          <ellipse cx="32" cy="11" rx="5" ry="9"/>
+          <ellipse cx="32" cy="11" rx="5" ry="9" transform="rotate(72 32 22)"/>
+          <ellipse cx="32" cy="11" rx="5" ry="9" transform="rotate(144 32 22)"/>
+          <ellipse cx="32" cy="11" rx="5" ry="9" transform="rotate(216 32 22)"/>
+          <ellipse cx="32" cy="11" rx="5" ry="9" transform="rotate(288 32 22)"/>
+        </g>
+        <circle cx="32" cy="22" r="4" fill="var(--surface)" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+      <symbol id="art-stairs" viewBox="0 0 64 44">
+        <rect x="16" y="3" width="32" height="38" rx="4" fill="var(--surface)" stroke="currentColor" stroke-width="2"/>
+        <path d="M16 10h32M16 16h32M16 22h32M16 28h32M16 34h32" stroke="currentColor" stroke-width="1.4" opacity=".4"/>
+        <path d="M32 36V9M27 14l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="art-boxes" viewBox="0 0 64 44">
+        <rect x="8" y="22" width="22" height="18" rx="3" fill="var(--aqua-soft)" stroke="currentColor" stroke-width="1.6"/>
+        <rect x="34" y="22" width="22" height="18" rx="3" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>
+        <rect x="19" y="4" width="22" height="18" rx="3" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M14 22v5h10v-5M40 22v5h10v-5M25 4v5h10V4" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".45"/>
       </symbol>
 
       <!-- Sister property: Horizont Villa's mark, kept in its own amber so the
@@ -308,64 +395,63 @@
             </dl>
           </article>
 
-          <!-- sleeping arrangements -->
-          <article class="b-card b-sleep">
+          <!-- on site -->
+          <article class="b-card b-outside">
+            <h3 data-i18n="floor.outside">On site</h3>
+            <ul class="outdoors">
+              <li><span class="out-icon"><svg class="icon"><use href="#i-pool"/></svg></span><div><span data-i18n="room.pools">3 pools</span><em data-i18n="room.onProperty">On the property</em></div></li>
+              <li><span class="out-icon"><svg class="icon"><use href="#i-tennis"/></svg></span><div><span data-i18n="room.tennis">Tennis court</span><em data-i18n="room.onProperty">On the property</em></div></li>
+              <li><span class="out-icon"><svg class="icon"><use href="#i-grill"/></svg></span><div><span data-i18n="room.grill">BBQ grill</span><em data-i18n="room.outdoorDining">Outdoor dining</em></div></li>
+              <li><span class="out-icon"><svg class="icon"><use href="#i-leaf"/></svg></span><div><span data-i18n="room.garden">Garden</span><em data-i18n="room.gardenView">Garden view</em></div></li>
+              <li><span class="out-icon"><svg class="icon"><use href="#i-car"/></svg></span><div><span data-i18n="room.parking">Parking</span><em data-i18n="room.parkingNote">Free, on site</em></div></li>
+              <li><span class="out-icon"><svg class="icon"><use href="#i-waves"/></svg></span><div><span data-i18n="room.beach">Beach</span><em data-i18n="room.beachWalk">250 m walk</em></div></li>
+            </ul>
+          </article>
+
+          <!-- the house floor by floor, with each bedroom on the floor it is on -->
+          <article class="b-card b-house">
             <div class="b-card-head">
-              <h3 data-i18n="villa.sleeping">Sleeping arrangements</h3>
+              <h3 data-i18n="villa.floors">Floor by floor</h3>
               <span class="b-pill" data-i18n="mq.guests">Up to 4 guests</span>
             </div>
-            <ul class="beds">
-              <li><svg class="bed-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#bed-double"/></svg><span class="bed-room" data-i18n="villa.bedroom1">Bedroom 1</span><strong data-i18n="room.doubleBed">1 double bed</strong></li>
-              <li><svg class="bed-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#bed-twin"/></svg><span class="bed-room" data-i18n="villa.bedroom2">Bedroom 2</span><strong data-i18n="room.twinBeds">2 single beds</strong></li>
-            </ul>
-          </article>
-
-          <!-- floors -->
-          <article class="b-card b-floor">
-            <p class="b-index">01</p>
-            <h3 data-i18n="floor.upper">Upper floor</h3>
-            <ul class="rooms">
-              <li><span data-i18n="room.roofTerrace">Roof terrace</span><em data-i18n="room.sunsetView">Sunset over the ocean</em></li>
-              <li><span data-i18n="room.double">Double bedroom</span><em data-i18n="room.wardrobe">Wardrobe &amp; fan</em></li>
-              <li><span data-i18n="room.twin">Twin bedroom</span><em data-i18n="room.twinBeds">2 single beds</em></li>
-              <li><span data-i18n="room.mainBath">Main bathroom</span><em data-i18n="room.bathNote">Bathtub &amp; shower</em></li>
-            </ul>
-          </article>
-
-          <article class="b-card b-floor">
-            <p class="b-index">02</p>
-            <h3 data-i18n="floor.main">Main floor</h3>
-            <ul class="rooms">
-              <li><span data-i18n="room.living">Living room</span><em data-i18n="room.tv">Flat-screen TV</em></li>
-              <li><span data-i18n="room.dining">Dining area</span><em data-i18n="room.table">Table for four</em></li>
-              <li><span data-i18n="room.kitchen">Kitchen</span><em data-i18n="room.equipped">Fully equipped</em></li>
-              <li><span data-i18n="room.balcony">Balcony</span><em data-i18n="room.balconyNote">Shaded, table &amp; chairs</em></li>
-              <li><span data-i18n="room.shower">Shower room</span><em data-i18n="room.secondBath">Second bathroom</em></li>
-            </ul>
-          </article>
-
-          <article class="b-card b-floor b-lower">
-            <p class="b-index">03</p>
-            <h3 data-i18n="floor.ground">Ground floor</h3>
-            <ul class="rooms">
-              <li><span data-i18n="room.garage">Garage</span><em data-i18n="room.twoCars">Room for two cars</em></li>
-              <li><span data-i18n="room.utility">Utility room</span><em data-i18n="room.washer">Washing machine</em></li>
-              <li><span data-i18n="room.patio">Garden level</span><em data-i18n="room.lowerTerrace">The quiet lower terrace</em></li>
-              <li><span data-i18n="room.hall">Entrance hall</span><em data-i18n="room.stairs">Stairs to all three floors</em></li>
-            </ul>
-          </article>
-
-          <article class="b-card b-floor b-outside">
-            <p class="b-index">04</p>
-            <h3 data-i18n="floor.outside">On site</h3>
-            <ul class="rooms">
-              <li><span data-i18n="room.pools">3 pools</span><em data-i18n="room.onProperty">On the property</em></li>
-              <li><span data-i18n="room.tennis">Tennis court</span><em data-i18n="room.onProperty">On the property</em></li>
-              <li><span data-i18n="room.grill">BBQ grill</span><em data-i18n="room.outdoorDining">Outdoor dining</em></li>
-              <li><span data-i18n="room.garden">Garden</span><em data-i18n="room.gardenView">Garden view</em></li>
-              <li><span data-i18n="room.parking">Parking</span><em data-i18n="room.parkingNote">Free, on site</em></li>
-              <li><span data-i18n="room.beach">Beach</span><em data-i18n="room.beachWalk">250 m walk</em></li>
-            </ul>
+            <ol class="storeys">
+              <li class="storey">
+                <div class="storey-tag"><span class="b-index">01</span><h4 data-i18n="floor.upper">Upper floor</h4></div>
+                <div class="storey-body">
+                  <ul class="beds">
+                    <li><svg class="bed-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#bed-double"/></svg><div><span class="bed-room" data-i18n="villa.bedroom1">Bedroom 1</span><strong data-i18n="room.doubleBed">1 double bed</strong><em data-i18n="room.wardrobe">Wardrobe &amp; fan</em></div></li>
+                    <li><svg class="bed-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#bed-twin"/></svg><div><span class="bed-room" data-i18n="villa.bedroom2">Bedroom 2</span><strong data-i18n="room.twinBeds">2 single beds</strong></div></li>
+                  </ul>
+                  <ul class="spaces">
+                    <li><svg class="space-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#art-terrace"/></svg><div><span data-i18n="room.roofTerrace">Roof terrace</span><em data-i18n="room.sunsetView">Sunset over the ocean</em></div></li>
+                    <li><svg class="space-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#art-bath"/></svg><div><span data-i18n="room.mainBath">Main bathroom</span><em data-i18n="room.bathNote">Bathtub &amp; shower</em></div></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="storey">
+                <div class="storey-tag"><span class="b-index">02</span><h4 data-i18n="floor.main">Main floor</h4></div>
+                <div class="storey-body">
+                  <ul class="spaces">
+                    <li><svg class="space-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#art-tv"/></svg><div><span data-i18n="room.living">Living room</span><em data-i18n="room.tv">Flat-screen TV</em></div></li>
+                    <li><svg class="space-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#art-dining"/></svg><div><span data-i18n="room.dining">Dining area</span><em data-i18n="room.table">Table for four</em></div></li>
+                    <li><svg class="space-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#art-kitchen"/></svg><div><span data-i18n="room.kitchen">Kitchen</span><em data-i18n="room.equipped">Fully equipped</em></div></li>
+                    <li><svg class="space-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#art-terrace"/></svg><div><span data-i18n="room.balcony">Balcony</span><em data-i18n="room.balconyNote">Shaded, table &amp; chairs</em></div></li>
+                    <li><svg class="space-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#art-shower"/></svg><div><span data-i18n="room.shower">Shower room</span><em data-i18n="room.secondBath">Second bathroom</em></div></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="storey">
+                <div class="storey-tag"><span class="b-index">03</span><h4 data-i18n="floor.ground">Ground floor</h4></div>
+                <div class="storey-body">
+                  <ul class="spaces">
+                    <li><svg class="space-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#art-car"/></svg><div><span data-i18n="room.garage">Garage</span><em data-i18n="room.twoCars">Room for two cars</em></div></li>
+                    <li><svg class="space-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#art-washer"/></svg><div><span data-i18n="room.utility">Utility room</span><em data-i18n="room.washer">Washing machine</em></div></li>
+                    <li><svg class="space-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#art-palm"/></svg><div><span data-i18n="room.patio">Garden level</span><em data-i18n="room.lowerTerrace">The quiet lower terrace</em></div></li>
+                    <li><svg class="space-art" viewBox="0 0 64 44" aria-hidden="true"><use href="#art-stairs"/></svg><div><span data-i18n="room.hall">Entrance hall</span><em data-i18n="room.stairs">Stairs to all three floors</em></div></li>
+                  </ul>
+                </div>
+              </li>
+            </ol>
           </article>
 
           <!-- services -->
@@ -712,7 +798,7 @@
 
   <script src="js/config.js?v=38"></script>
   <script src="js/booked.js?v=37"></script>
-  <script src="js/i18n.js?v=45"></script>
+  <script src="js/i18n.js?v=46"></script>
   <script src="js/trips.js?v=37"></script>
   <script src="js/main.js?v=42"></script>
   <script src="js/effects.js?v=40"></script>

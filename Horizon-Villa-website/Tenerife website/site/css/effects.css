@@ -203,14 +203,15 @@
 .chips li .icon { transition: transform .45s var(--spring); }
 .chips li:hover .icon { transform: scale(1.2) rotate(-8deg); }
 
-.beds li { transition: transform .45s var(--spring), box-shadow .35s var(--glide); }
-.beds li:hover { transform: translateY(-5px); box-shadow: 0 18px 30px -20px rgba(80, 55, 25, .5); }
+.beds li, .outdoors li { transition: transform .45s var(--spring), box-shadow .35s var(--glide); }
+.beds li:hover, .outdoors li:hover { transform: translateY(-5px); box-shadow: 0 18px 30px -20px rgba(80, 55, 25, .5); }
 .bed-art { transition: transform .5s var(--spring); }
 .beds li:hover .bed-art { transform: scale(1.08); }
+.space-art { transition: transform .5s var(--spring); }
+.spaces li:hover .space-art { transform: scale(1.1); }
 
-.rooms li { transition: padding-left .35s var(--glide), color .25s; }
-.rooms li:hover { padding-left: 8px; }
-.rooms li:hover span { color: var(--amber-deep); }
+.out-icon { transition: transform .5s var(--spring); }
+.outdoors li:hover .out-icon { transform: scale(1.1) rotate(-6deg); }
 
 /* ---------- Booking: lively calendar & form ---------- */
 .day { transition: background-color .15s, color .15s, transform .3s var(--spring); }

@@ -509,7 +509,7 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 
 /* key numbers */
 .b-key {
-  grid-column: span 5;
+  grid-column: span 4;
   background: radial-gradient(120% 90% at 100% 0%, #4A3B2A 0%, var(--ink) 55%);
   border-color: transparent; color: #F6EEE3;
   display: flex; flex-direction: column;
@@ -529,35 +529,59 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .b-stats dt { font-size: 12.5px; color: #CDBBA4; }
 .b-stats dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 38px; font-weight: 600; color: #fff; line-height: 1; }
 
-/* sleeping arrangements */
-.b-sleep { grid-column: span 7; background: linear-gradient(160deg, var(--sand-50), var(--sand-100)); display: flex; flex-direction: column; }
+/* the house floor by floor: the floor names stack up like a little building
+   on the left (roof on top), and each floor's bedrooms and rooms sit beside it */
+.b-house { grid-column: 5 / -1; grid-row: 1 / span 2; display: flex; flex-direction: column; }
 .b-card-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 20px; }
+.b-house .b-card-head { margin-bottom: 0; }
 .b-pill { font-size: 12.5px; font-weight: 600; color: var(--amber-deeper); background: var(--tint-amber); padding: 6px 12px; border-radius: 999px; }
-.beds { flex: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-.beds li {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
-  padding: 18px 16px;
-}
-.bed-art { width: 100%; max-width: 96px; height: auto; aspect-ratio: 64 / 44; color: var(--ink-2); margin-bottom: auto; padding-bottom: 18px; }
-.bed-room { font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--amber-deep); }
-.beds strong { font-size: 15.5px; font-weight: 600; line-height: 1.3; }
-
-/* floors */
-.b-floor { grid-column: span 4; }
 .b-index { font-size: 13px; font-weight: 700; letter-spacing: .1em; color: var(--amber-deep); margin-bottom: 4px; }
-.b-floor h3 { margin-bottom: 14px; }
-.rooms { display: grid; }
-.rooms li {
-  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
-  padding: 11px 0; border-top: 1px solid var(--line); font-size: 15px;
+.storeys {
+  --storey-1: var(--sand-100); --storey-2: var(--tint-sand); --storey-3: var(--sand-200);
+  flex: 1; display: flex; flex-direction: column; padding-top: 38px;
 }
-.rooms span { font-weight: 600; }
-.rooms em { font-style: normal; color: var(--ink-3); font-size: 14px; text-align: right; }
-.b-outside { grid-column: 1 / -1; background: linear-gradient(170deg, #EEF4F2, var(--surface) 70%); }
-.b-outside .rooms { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; }
-.b-lower { background: linear-gradient(170deg, var(--sand-100), var(--surface) 75%); }
-.b-outside .b-index { color: var(--sea); }
+.storey { flex: 1; display: grid; grid-template-columns: 150px minmax(0, 1fr); }
+.storey-tag {
+  position: relative; display: flex; flex-direction: column; justify-content: center;
+  padding: 16px 18px; background: var(--storey-1);
+}
+.storey + .storey .storey-tag { border-top: 3px solid var(--surface); }
+.storey:nth-child(2) .storey-tag { background: var(--storey-2); }
+.storey:nth-child(3) .storey-tag { background: var(--storey-3); border-radius: 0 0 14px 14px; }
+.storey:first-child .storey-tag::before {                       /* the roof */
+  content: ""; position: absolute; left: -10px; right: -10px; bottom: 100%; height: 30px;
+  background: var(--storey-1); clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.storey-tag .b-index { margin-bottom: 2px; }
+.storey-tag h4 { font-family: var(--font-display); font-size: 21px; font-weight: 600; line-height: 1.15; }
+.storey-body { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 18px 0 18px 26px; }
+.storey + .storey .storey-body { border-top: 1px solid var(--line); }
+.beds { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
+.beds li {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--sand-50); border: 1px solid var(--line); border-radius: 16px; padding: 12px 16px;
+}
+.bed-art { flex: none; width: 52px; height: auto; aspect-ratio: 64 / 44; color: var(--ink-2); }
+.bed-room { display: block; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--amber-deep); }
+.beds strong { display: block; font-size: 15.5px; font-weight: 600; line-height: 1.3; }
+.beds em { display: block; font-style: normal; font-size: 13px; line-height: 1.35; color: var(--ink-3); }
+.spaces { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px 20px; }
+.spaces li { display: flex; align-items: center; gap: 14px; font-size: 15px; line-height: 1.3; }
+.space-art { flex: none; width: 50px; height: auto; aspect-ratio: 64 / 44; color: var(--ink-2); }
+.spaces span { display: block; font-weight: 600; }
+.spaces em { display: block; font-style: normal; font-size: 13px; line-height: 1.35; color: var(--ink-3); }
+
+/* outside: the same little icon cards as the bedrooms */
+.b-outside { grid-column: 1 / span 4; display: flex; flex-direction: column; background: linear-gradient(170deg, #EEF4F2, var(--surface) 70%); }
+.b-outside h3 { margin-bottom: 18px; }
+.outdoors { flex: 1; display: grid; gap: 10px; align-content: start; }
+.outdoors li {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 10px 14px;
+}
+.out-icon { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--tint-sea); color: var(--sea); }
+.outdoors span:not(.out-icon) { display: block; font-size: 15px; font-weight: 600; line-height: 1.3; }
+.outdoors em { display: block; font-style: normal; font-size: 13px; line-height: 1.35; color: var(--ink-3); }
 
 /* services */
 .b-services { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; }
@@ -935,9 +959,8 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
   .amenities ul { justify-content: flex-start; }
   .amenities li { flex: 1 1 200px; }
   .villa-head { grid-template-columns: 1fr; align-items: start; }
-  .b-key, .b-sleep { grid-column: 1 / -1; }
-  .b-floor { grid-column: span 6; }
-  .b-outside .rooms { grid-template-columns: 1fr; }
+  .b-key, .b-outside { grid-column: span 6; }
+  .b-house { grid-column: 1 / -1; grid-row: auto; }
 }
 
 @media (max-width: 760px) {
@@ -971,8 +994,18 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
   .hero-card-watermark { width: 200px; height: 200px; right: -50px; bottom: -60px; opacity: .06; }
   .calendar { grid-template-columns: 1fr; }
   .bento { gap: 12px; }
-  .b-floor { grid-column: 1 / -1; }
-  .beds { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .b-key, .b-outside { grid-column: 1 / -1; }
+  .b-outside { order: 1; }                       /* bedrooms first, then the outside */
+  .b-services { order: 2; }
+  .storeys { padding-top: 18px; gap: 6px; }
+  .storey { grid-template-columns: 1fr; }
+  .storeys .storey .storey-tag { flex-direction: row; align-items: baseline; gap: 10px; padding: 10px 14px; border: 0; border-radius: 12px; }
+  .storey:first-child .storey-tag::before { display: none; }
+  .storey-tag .b-index { margin: 0; }
+  .storey-tag h4 { font-size: 19px; }
+  .storey-body, .storey + .storey .storey-body { padding: 14px 0 18px; border-top: 0; }
+  .spaces { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; }
+  .space-art { width: 34px; }
   .b-card:hover { transform: none; }
   .b-services { gap: 14px; }
   .chips li { font-size: 14px; padding: 8px 13px; }
