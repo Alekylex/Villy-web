@@ -300,3 +300,7 @@
 @media (prefers-reduced-motion: reduce) {
   .cursor-dot { transition: opacity .3s; }
 }
+
+/* Top-centre logo: letters drift after the pointer (js: initLogoDrift) */
+.cover-logo-name .logo-letter { display: inline-block; transition: transform .5s ease-out; will-change: transform; }
+.cover-logo-mark { transition: transform .6s ease-out; }

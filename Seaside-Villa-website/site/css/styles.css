@@ -1686,3 +1686,20 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 @media (min-width: 1241px) {
   .hero-points li { font-size: clamp(13px, .93vw, 15px); }   /* one line per point on laptop screens too */
 }
+
+/* hero, stacked: the card sits in the middle with free space either side,
+   the photos run full width underneath it */
+.hero { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+.hero-left { width: min(100%, 760px); margin-inline: auto; }
+.hero-card { align-items: center; text-align: center; padding: clamp(28px, 3.4vw, 48px) clamp(24px, 4vw, 56px); }
+.hero-points { width: fit-content; max-width: 100%; margin-inline: auto; text-align: left; }
+.hero-points li { font-size: 16px; }
+.hero-actions { justify-content: center; }
+.slider { min-height: 0; aspect-ratio: 16 / 8; max-height: 86vh; }
+@media (max-width: 980px) {
+  .slider { aspect-ratio: 4 / 3.3; }
+}
+@media (max-width: 760px) {
+  .hero-points li { font-size: 14.5px; }
+  .slider { aspect-ratio: 4 / 4.4; }
+}

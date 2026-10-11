@@ -347,7 +347,44 @@
     update();
   }
 
+  /* ------------------------------------------------------------------ */
+  /* Top-centre logo: letters drift after the pointer, each a bit more  */
+  /* than the one before, so the name ripples (like hotelaurelia.online) */
+  /* ------------------------------------------------------------------ */
+  function initLogoDrift() {
+    const logo = $(".cover-logo");
+    const name = logo && $(".cover-logo-name", logo);
+    if (!name || !finePointer || reduceMotion) return;
+    const text = name.textContent;
+    name.textContent = "";
+    const letters = Array.from(text).map((ch) => {
+      const span = document.createElement("span");
+      span.className = "logo-letter";
+      span.textContent = ch === " " ? " " : ch;
+      name.appendChild(span);
+      return span;
+    });
+    const mark = $(".cover-logo-mark", logo);
+    let x = 0.5, y = 0.5, ticking = false;
+    const update = () => {
+      ticking = false;
+      const dx = x - 0.5, dy = y - 0.5;
+      letters.forEach((span, i) => {
+        const k = (i + 1) / letters.length;
+        span.style.transform = `translate3d(${dx * 28 * (0.4 + k * 1.2)}px, ${dy * 10 * (0.6 + k)}px, 0)`;
+      });
+      if (mark) mark.style.transform = `translate3d(${dx * -10}px, ${dy * -8}px, 0)`;
+    };
+    window.addEventListener("pointermove", (e) => {
+      x = e.clientX / window.innerWidth;
+      y = e.clientY / window.innerHeight;
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    document.documentElement.addEventListener("pointerleave", () => { x = y = 0.5; requestAnimationFrame(update); });
+  }
+
   initIntro();
+  initLogoDrift();
   initCursor();
   initFinale();
   initButtons();
