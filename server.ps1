@@ -6,6 +6,8 @@ $l.Start()
 Write-Host "Serving $Root on http://localhost:$Port/"
 while ($l.IsListening) {
   $ctx = $l.GetContext()
+  # Prohlizec si nic neuklada, takze po stazeni z GitHubu vzdy ukaze nejnovejsi verzi.
+  $ctx.Response.Headers.Add("Cache-Control", "no-store")
   $rel = [Uri]::UnescapeDataString($ctx.Request.Url.AbsolutePath).TrimStart('/')
   $path = Join-Path $Root $rel
   if (Test-Path $path -PathType Container) { $path = Join-Path $path "index.html" }

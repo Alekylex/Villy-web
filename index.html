@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Villy Tenerife</title>
+<link rel="icon" href="Seaside-Villa-website/site/images/favicon.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;600&display=swap">
+<style>
+  :root { --aqua-deep: #0E6E6C; --ink: #1C2A2C; --bg: #F6F3EE; --card: #fff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink);
+    font-family: Manrope, system-ui, sans-serif; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 32px 16px; }
+  h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 2.6rem; margin: 0 0 6px; }
+  p { margin: 0 0 32px; opacity: .7; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 340px)); gap: 24px; justify-content: center; width: 100%; }
+  a.card { display: block; background: var(--card); border-radius: 16px; overflow: hidden; text-decoration: none;
+    color: inherit; box-shadow: 0 6px 24px rgba(28,42,44,.10); transition: transform .2s, box-shadow .2s; }
+  a.card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(28,42,44,.16); }
+  a.card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  a.card span { display: block; padding: 16px 20px; font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.6rem; font-weight: 600; color: var(--aqua-deep); }
+</style>
+</head>
+<body>
+  <h1>Villy Tenerife</h1>
+  <p>Vyberte web</p>
+  <div class="grid">
+    <a class="card" href="Seaside-Villa-website/site/index.html">
+      <img src="Seaside-Villa-website/site/images/beach-sunset.jpg" alt="">
+      <span>Seaside Villa</span>
+    </a>
+    <a class="card" href="Horizon-Villa-website/Tenerife%20website/site/index.html">
+      <img src="Horizon-Villa-website/Tenerife%20website/site/images/beach-sunset-2.jpg" alt="">
+      <span>Horizont Villa</span>
+    </a>
+  </div>
+</body>
+</html>
