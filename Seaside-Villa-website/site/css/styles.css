@@ -296,7 +296,7 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 
 /* ---------- Slider ---------- */
 .slider {
-  position: relative; border-radius: var(--radius-lg); overflow: hidden;
+  position: relative; border-radius: 10px; overflow: hidden;
   min-height: 560px; background: var(--shell-100);
   isolation: isolate;
 }
@@ -315,7 +315,7 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .slider.thumbs-hidden::after { height: 18%; opacity: .75; }
 .slider-btn {
   position: absolute; top: 44%; z-index: 2;
-  width: 52px; height: 52px; border-radius: 16px; border: 0;
+  width: 52px; height: 52px; border-radius: 10px; border: 0;
   display: grid; place-items: center;
   background: rgba(251, 253, 253, .94);
   cursor: pointer; transition: background-color .2s, transform .2s;
@@ -335,7 +335,7 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
   position: absolute; left: 18px; right: 18px; bottom: 18px; z-index: 2;
   display: flex; gap: 10px; padding: 10px;
   background: transparent;                     /* thumbs float straight on the photo */
-  border-radius: 20px;
+  border-radius: 10px;
   overflow-x: auto; scrollbar-width: none;
   transition: transform .5s var(--ease), opacity .35s var(--ease), visibility 0s;
 }
@@ -362,7 +362,7 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .slider.thumbs-hidden .thumbs-toggle .icon { transform: rotate(180deg); }
 .thumb {
   flex: 0 0 auto; width: 104px; height: 72px; padding: 0;
-  border-radius: 12px; overflow: hidden; cursor: pointer;
+  border-radius: 4px; overflow: hidden; cursor: pointer;
   border: 2.5px solid rgba(255, 255, 255, .55); background: none;
   box-shadow: 0 8px 20px -8px rgba(0, 0, 0, .55);
   opacity: .92; transition: opacity .2s, border-color .2s;
@@ -1741,3 +1741,19 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 @media (max-width: 760px) {
   .slider { aspect-ratio: 4 / 4.4; }
 }
+
+/* ---------- Big headings: the same elegant serif as "Architecture of the house" ---------- */
+.section-head h2, .location-text h2, .footer-cta h2, .finale-title, .trip-title {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-style: italic; font-weight: 500; letter-spacing: 0; line-height: 1.05;
+  text-wrap: balance;
+}
+.section-head h2, .location-text h2, .footer-cta h2 { font-size: clamp(42px, 5vw, 64px); }
+.finale-title { font-size: clamp(44px, 6.4vw, 96px); }
+.trip-title { font-size: clamp(40px, 5.6vw, 58px); }
+/* the villa's name on the cover photo: upright, with "La Tejita" in italics */
+.cover-title { font-family: "Cormorant Garamond", "Times New Roman", serif; font-weight: 500; letter-spacing: .005em; line-height: 1; font-size: clamp(54px, 7.6vw, 116px); }
+.cover-title em { font-weight: 500; }
+.sister h3, .nearby h3 { font-family: "Cormorant Garamond", "Times New Roman", serif; font-style: italic; font-weight: 500; letter-spacing: 0; }
+.sister h3 { font-size: clamp(32px, 3.2vw, 42px); }
+.nearby h3 { font-size: 32px; }
