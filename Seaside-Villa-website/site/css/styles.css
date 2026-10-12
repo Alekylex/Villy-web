@@ -503,7 +503,7 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 
 /* key numbers */
 .b-key {
-  grid-column: span 4;
+  grid-column: span 5;
   background: radial-gradient(120% 90% at 100% 0%, #28484A 0%, var(--ink) 55%);
   border-color: transparent; color: #E9F4F3;
   display: flex; flex-direction: column;
@@ -523,52 +523,11 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .b-stats dt { font-size: 12.5px; color: #A6C2C1; }
 .b-stats dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 38px; font-weight: 600; color: #fff; line-height: 1; }
 
-/* the house floor by floor: the floor names stack up like a little building
-   on the left (roof on top), and each floor's bedrooms and rooms sit beside it */
-.b-house { grid-column: 5 / -1; grid-row: 1 / span 2; display: flex; flex-direction: column; }
-.b-card-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 20px; }
-.b-house .b-card-head { margin-bottom: 0; }
-.b-pill { font-size: 12.5px; font-weight: 600; color: var(--aqua-deeper); background: var(--tint-aqua); padding: 6px 12px; border-radius: 999px; }
-.b-index { font-size: 13px; font-weight: 700; letter-spacing: .1em; color: var(--aqua-deep); margin-bottom: 4px; }
-.storeys {
-  --storey-1: var(--shell-100); --storey-2: var(--tint-aqua); --storey-3: var(--shell-200);
-  flex: 1; display: flex; flex-direction: column; padding-top: 38px;
-}
-.storey { flex: 1; display: grid; grid-template-columns: 150px minmax(0, 1fr); }
-.storey-tag {
-  position: relative; display: flex; flex-direction: column; justify-content: center;
-  padding: 16px 18px; background: var(--storey-1);
-}
-.storey + .storey .storey-tag { border-top: 3px solid var(--surface); }
-.storey:nth-child(2) .storey-tag { background: var(--storey-2); }
-.storey:nth-child(3) .storey-tag { background: var(--storey-3); border-radius: 0 0 14px 14px; }
-.storey:first-child .storey-tag::before {                       /* the roof */
-  content: ""; position: absolute; left: -10px; right: -10px; bottom: 100%; height: 30px;
-  background: var(--storey-1); clip-path: polygon(50% 0, 100% 100%, 0 100%);
-}
-.storey-tag .b-index { margin-bottom: 2px; }
-.storey-tag h4 { font-family: var(--font-display); font-size: 21px; font-weight: 600; line-height: 1.15; }
-.storey-body { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 18px 0 18px 26px; }
-.storey + .storey .storey-body { border-top: 1px solid var(--line); }
-.beds { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
-.beds li {
-  display: flex; align-items: center; gap: 14px;
-  background: var(--shell-50); border: 1px solid var(--line); border-radius: 16px; padding: 12px 16px;
-}
-.bed-art { flex: none; width: 52px; height: auto; aspect-ratio: 64 / 44; color: var(--ink-2); }
-.bed-room { display: block; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--aqua-deep); }
-.beds strong { display: block; font-size: 15.5px; font-weight: 600; line-height: 1.3; }
-.beds em { display: block; font-style: normal; font-size: 13px; line-height: 1.35; color: var(--ink-3); }
-.spaces { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px 20px; }
-.spaces li { display: flex; align-items: center; gap: 14px; font-size: 15px; line-height: 1.3; }
-.space-art { flex: none; width: 50px; height: auto; aspect-ratio: 64 / 44; color: var(--ink-2); }
-.spaces span { display: block; font-weight: 600; }
-.spaces em { display: block; font-style: normal; font-size: 13px; line-height: 1.35; color: var(--ink-3); }
 
 /* outside: the same little icon cards as the bedrooms */
-.b-outside { grid-column: 1 / span 4; display: flex; flex-direction: column; background: linear-gradient(170deg, #E7F2F5, var(--surface) 70%); }
+.b-outside { grid-column: span 7; display: flex; flex-direction: column; background: linear-gradient(170deg, #E7F2F5, var(--surface) 70%); }
 .b-outside h3 { margin-bottom: 18px; }
-.outdoors { flex: 1; display: grid; gap: 10px; align-content: start; }
+.outdoors { flex: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-content: start; }
 .outdoors li {
   display: flex; align-items: center; gap: 14px;
   background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 10px 14px;
@@ -577,6 +536,53 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .outdoors span:not(.out-icon) { display: block; font-size: 15px; font-weight: 600; line-height: 1.3; }
 .outdoors em { display: block; font-style: normal; font-size: 13px; line-height: 1.35; color: var(--ink-3); }
 
+
+/* ---------- Architecture of the house: an architect's section beside the floors ---------- */
+.arch { --arch-tint: #DCEFEC; --arch-accent: var(--aqua-deep); --arch-serif: "Cormorant Garamond", "Times New Roman", serif; }
+.arch-head { text-align: center; max-width: 760px; margin: 0 auto clamp(40px, 5vw, 72px); }
+.arch-head .eyebrow { color: var(--arch-accent); }
+.arch-head h2 {
+  font-family: var(--arch-serif); font-style: italic; font-weight: 500;
+  font-size: clamp(44px, 5.2vw, 68px); line-height: 1; margin-top: 14px;
+}
+.arch-head h2::after { content: ""; display: block; width: 48px; height: 1px; margin: 24px auto 0; background: var(--ink); opacity: .35; }
+.arch-head p:last-child { margin-top: 20px; font-size: 17.5px; line-height: 1.7; color: var(--ink-2); text-wrap: pretty; }
+
+.arch-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: clamp(40px, 5vw, 80px); align-items: start; }
+.arch-drawing { position: sticky; top: 110px; color: var(--ink); }
+.arch-drawing svg { display: block; width: 100%; height: auto; }
+.arch-hl { fill: var(--arch-tint); opacity: 0; transition: opacity .5s var(--ease); }
+.arch-hl.is-active { opacity: 1; }
+.arch-drawing text { stroke: none; font-family: var(--font-body); text-transform: uppercase; }
+.arch-lv { font-size: 9px; font-weight: 700; letter-spacing: .2em; fill: var(--ink-3); transition: fill .4s; }
+.arch-lv.is-active { fill: var(--arch-accent); }
+.arch-rooms-l text { font-size: 8.5px; font-weight: 600; letter-spacing: .16em; fill: var(--ink-3); }
+.arch-rooms-l text.is-small, .arch-rooms-l.is-small text { font-size: 7.5px; letter-spacing: .12em; }
+.arch-rooms-l text.is-bed { fill: var(--arch-accent); }
+.arch-drawing .arch-note { font-family: var(--arch-serif); font-style: italic; font-size: 17px; text-transform: none; fill: var(--ink-3); }
+
+.arch-floors { display: grid; gap: clamp(64px, 8vw, 110px); }
+.arch-num { font-family: var(--arch-serif); font-size: 22px; font-weight: 500; font-variant-numeric: lining-nums; letter-spacing: .06em; color: var(--arch-accent); }
+.arch-num::after { content: ""; display: inline-block; width: 36px; height: 1px; margin-left: 14px; vertical-align: middle; background: currentColor; opacity: .6; }
+.arch-floor h3 { font-family: var(--arch-serif); font-style: italic; font-weight: 500; font-size: clamp(36px, 3.6vw, 46px); line-height: 1; margin-top: 10px; }
+.arch-lede { margin: 18px 0 28px; font-size: 17px; line-height: 1.8; color: var(--ink-2); text-wrap: pretty; }
+.arch-photo { margin: 0; border-radius: 4px; overflow: hidden; aspect-ratio: 16 / 9; }
+.arch-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.arch-rooms { display: grid; grid-template-columns: 1fr 1fr; column-gap: 44px; margin: 28px 0 0; border-top: 1px solid var(--ink); }
+.arch-rooms div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 15px 0; border-bottom: 1px solid var(--line); }
+.arch-rooms dt { font-size: 15px; font-weight: 600; white-space: nowrap; }
+.arch-rooms dd { margin: 0; font-size: 14.5px; color: var(--ink-3); text-align: right; }
+.arch-rooms .is-bed dt { color: var(--arch-accent); }
+
+@media (max-width: 1100px) {
+  .arch-rooms { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .arch-grid { grid-template-columns: 1fr; }
+  /* phones and tablets: the drawing sits on top, small enough to keep the text in view */
+  .arch-drawing { position: sticky; top: 64px; z-index: 2; margin: 0 calc(-1 * var(--page-pad)); padding: 8px var(--page-pad) 10px; background: var(--surface); box-shadow: 0 12px 20px -18px rgba(0, 0, 0, .35); }
+  .arch-drawing svg { max-width: 460px; max-height: 38vh; margin: 0 auto; }
+}
 /* services */
 .b-services { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; }
 .b-services .chips { flex: 1 1 520px; }
@@ -997,7 +1003,6 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
   .amenities li { flex: 1 1 200px; }
   .villa-head { grid-template-columns: 1fr; align-items: start; }
   .b-key, .b-outside { grid-column: span 6; }
-  .b-house { grid-column: 1 / -1; grid-row: auto; }
   .nearby-grid { grid-template-columns: 1fr; }
 }
 
@@ -1033,17 +1038,7 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
   .calendar { grid-template-columns: 1fr; }
   .bento { gap: 12px; }
   .b-key, .b-outside { grid-column: 1 / -1; }
-  .b-outside { order: 1; }                       /* bedrooms first, then the outside */
-  .b-services { order: 2; }
-  .storeys { padding-top: 18px; gap: 6px; }
-  .storey { grid-template-columns: 1fr; }
-  .storeys .storey .storey-tag { flex-direction: row; align-items: baseline; gap: 10px; padding: 10px 14px; border: 0; border-radius: 12px; }
-  .storey:first-child .storey-tag::before { display: none; }
-  .storey-tag .b-index { margin: 0; }
-  .storey-tag h4 { font-size: 19px; }
-  .storey-body, .storey + .storey .storey-body { padding: 14px 0 18px; border-top: 0; }
-  .spaces { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; }
-  .space-art { width: 34px; }
+  .outdoors { grid-template-columns: 1fr; }
   .b-card:hover { transform: none; }
   .b-services { gap: 14px; }
   .chips li { font-size: 14px; padding: 8px 13px; }
@@ -1556,7 +1551,8 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .cover-bar.is-scrolled .nav-list li { flex: 0 0 auto; }
 .cover-bar.is-scrolled .nav-list a {
   flex: 0 0 auto; padding: 9px 14px; border-radius: 10px;
-  font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;   /* same serif as the welcome text */
+  font-size: 15.5px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase;
 }
 .cover-bar.is-scrolled .nav-indicator { border-radius: 10px; }
 
@@ -1585,10 +1581,14 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .cover-bar.is-scrolled .cover-lang .lang-short { color: var(--ink-3); }
 .cover-bar.is-scrolled .cover-lang .lang-menu button[aria-current="true"] .lang-short, .cover-bar.is-scrolled .cover-lang .lang-check { color: var(--aqua-deep); }
 
+/* laptops: the serif menu is wider, so tighten it before it reaches the buttons on the right */
+@media (max-width: 1440px) {
+  .cover-bar.is-scrolled .nav-list a { padding: 9px 10px; font-size: 14.5px; letter-spacing: .1em; }
+}
 /* narrower desktops: a tighter menu, the other villa as its mark only */
 @media (max-width: 1240px) {
   .cover-bar.is-scrolled { gap: 14px; padding-inline: 24px; }
-  .cover-bar.is-scrolled .nav-list a { padding: 9px 9px; font-size: 12px; letter-spacing: .08em; }
+  .cover-bar.is-scrolled .nav-list a { padding: 9px 9px; font-size: 14.5px; letter-spacing: .09em; }
   .cover-bar.is-scrolled .cover-sister { padding: 3px; }
   .cover-bar.is-scrolled .cover-sister-text { display: none; }
 }
@@ -1606,7 +1606,7 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
     left: 12px; right: 12px; top: calc(100% + 6px);
     padding: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
   }
-  .cover-bar.is-scrolled .nav-list a { padding: 14px 16px; font-size: 16px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+  .cover-bar.is-scrolled .nav-list a { padding: 14px 16px; font-size: 20px; font-weight: 600; letter-spacing: .02em; text-transform: none; }
   .cover-bar.is-scrolled .cover-lang .lang-btn { height: 40px; }
 }
 @media (max-width: 420px) {

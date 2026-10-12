@@ -879,11 +879,42 @@
   }
 
   /* ------------------------------------------------------------------ */
+  /* Architecture of the house: the floor you are reading lights up in   */
+  /* the drawing; room names are squeezed to fit their room if a         */
+  /* language runs long.                                                 */
+  /* ------------------------------------------------------------------ */
+  function initArch() {
+    const sec = $(".arch");
+    if (!sec) return;
+    const marks = $$(".arch-hl, .arch-lv", sec);
+    const show = (n) => marks.forEach((m) => m.classList.toggle("is-active", m.dataset.floor === n));
+    show("1");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting) show(en.target.dataset.floor); });
+      }, { rootMargin: "-40% 0px -55% 0px" });
+      $$(".arch-floor", sec).forEach((f) => io.observe(f));
+    }
+    const fit = () => $$("text[data-fit]", sec).forEach((t) => {
+      t.removeAttribute("textLength");
+      t.removeAttribute("lengthAdjust");
+      const max = Number(t.dataset.fit);
+      if (t.getComputedTextLength() > max) {
+        t.setAttribute("textLength", max);
+        t.setAttribute("lengthAdjust", "spacingAndGlyphs");
+      }
+    });
+    fit();
+    I18N.onChange(fit);
+    if (document.fonts) document.fonts.ready.then(fit);
+  }
+
+  /* ------------------------------------------------------------------ */
   /* Scroll reveal                                                       */
   /* ------------------------------------------------------------------ */
   function initReveal() {
     if (reduceMotion || !("IntersectionObserver" in window)) return;
-    const els = $$(".villa-head, .bento .b-card, .island-grid li, .rules-times, .rules-grid, .booking-layout, .seasons, .location-grid, .footer-cta");
+    const els = $$(".villa-head, .bento .b-card, .arch-head, .arch-floor, .island-grid li, .rules-times, .rules-grid, .booking-layout, .seasons, .location-grid, .footer-cta");
     els.forEach((el) => el.classList.add("reveal"));
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
@@ -1007,5 +1038,6 @@
   initNav();
   initSlider();
   initBooking();
+  initArch();
   initReveal();
 })();
