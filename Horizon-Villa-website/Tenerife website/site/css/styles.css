@@ -1714,3 +1714,7 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .sister h3, .nearby h3 { font-family: "Cormorant Garamond", "Times New Roman", serif; font-style: italic; font-weight: 500; letter-spacing: 0; }
 .sister h3 { font-size: clamp(32px, 3.2vw, 42px); }
 .nearby h3 { font-size: 32px; }
+
+/* key numbers card: a bold, elegant serif for the floor area and the counts */
+.b-big, .b-stats dd { font-family: "DM Serif Display", "Times New Roman", serif; font-weight: 400; letter-spacing: 0; }
+.b-big .unit { margin-left: 6px; }
