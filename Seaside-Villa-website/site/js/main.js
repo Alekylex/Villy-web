@@ -15,8 +15,9 @@
   /* ------------------------------------------------------------------ */
   /* Hero slider photos, in order. Captions and alt texts live in i18n.js ("photo.<file name>"). */
   const PHOTOS = [
-    "roof-terrace", "balcony-table",                                                   // the terraces, top first
-    "living-balcony", "living-room", "living-stairs",                                  // main floor
+    "living-room",                                                                     // first photo, also the link preview (og-image.jpg)
+    "balcony-table",                                                                   // the terrace
+    "living-balcony", "living-stairs",                                                 // main floor
     "dining", "kitchen", "kitchen-terrace",
     "bedroom-double", "bedroom-detail", "bedroom-twin",                                // upper floor
     "bathroom", "shower-room",
