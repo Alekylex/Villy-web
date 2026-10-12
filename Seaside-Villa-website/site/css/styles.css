@@ -1761,3 +1761,18 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 /* key numbers card: a bold, elegant serif for the floor area and the counts */
 .b-big, .b-stats dd { font-family: "DM Serif Display", "Times New Roman", serif; font-weight: 400; letter-spacing: 0; }
 .b-big .unit { margin-left: 6px; }
+
+/* section titles a step bigger and a touch firmer */
+.section-head h2, .location-text h2, .footer-cta h2, .arch-head h2 { font-size: clamp(46px, 5.6vw, 74px); font-weight: 600; }
+.cover-title { font-size: clamp(60px, 8.4vw, 128px); }
+/* practical headings keep their own font, just without the heavy black weight */
+.b-card h3, .cancel h3, .island-card h3, .trip-block h4, .booking-panel h3, .form-success h4,
+.seasons h3, .map-placeholder strong, .month h4 .m-name, .time-card strong, .season-price strong,
+.price-total strong, .cal-summary dd strong, .price-box strong { font-weight: 500; }
+.rules-grid h3, .nearby-grid h4 { font-weight: 600; }
+.time-card strong { font-weight: 400; }
+
+/* section headings centred, like "Architecture of the house"; the content below stays left-aligned */
+.section-head { margin-left: auto; margin-right: auto; text-align: center; }
+.section-head .lead { margin-left: auto; margin-right: auto; text-wrap: pretty; }
+.section-head h2::after { content: ""; display: block; width: 48px; height: 1px; margin: 22px auto 0; background: var(--ink); opacity: .35; }
