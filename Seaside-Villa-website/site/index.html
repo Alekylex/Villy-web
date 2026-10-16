@@ -491,14 +491,14 @@
 
             <!-- Rates: seasons down the side, number of nights across the top -->
             <div class="rates" data-i18n-attr="aria-label:rates.label" aria-label="Rates">
-              <h3 data-i18n="rates.title">Rates</h3>
-              <p class="rates-note"></p>
-              <div class="rates-scroll">
-                <table class="rates-table">
-                  <thead><tr><th scope="col" data-i18n="rates.colSeason">Season</th><th scope="col" data-i18n="rates.colDates">Dates</th><th scope="col" data-i18n="rates.colNight">Per night</th><th scope="col" data-i18n="rates.colMin">Minimum stay</th></tr></thead>
-                  <tbody class="rates-body"></tbody>
-                </table>
+              <div class="rates-text">
+                <h3 data-i18n="rates.title">Rates</h3>
+                <p class="rates-note"></p>
               </div>
+              <table class="rates-table rates-facts">
+                <thead><tr><th scope="col" data-i18n="rates.colNight">Per night</th><th scope="col" data-i18n="rates.colMin">Minimum stay</th></tr></thead>
+                <tbody><tr><td class="rates-price" data-rate="night"></td><td data-rate="min"></td></tr></tbody>
+              </table>
             </div>
 
             <!-- Request form: "Your stay from … to …" -->
@@ -511,19 +511,6 @@
               </dl>
 
               <form class="booking-form" id="booking-request" aria-labelledby="summary-title" novalidate>
-                <fieldset class="form-part">
-                  <legend data-i18n="form.stayInfo">Stay details</legend>
-                  <div class="field" data-children-ages hidden>
-                    <label for="f-ages" data-i18n="form.ages">Children's ages</label>
-                    <input id="f-ages" name="childrenAges" type="text" inputmode="numeric" data-i18n-attr="placeholder:form.agesPlaceholder" placeholder="e.g. 2, 7, 12">
-                    <p class="field-help" data-i18n="form.adultRate">Guests aged 18 and over are charged as adults.</p>
-                  </div>
-                  <div class="checks">
-                    <label class="check"><input type="checkbox" name="crib" value="yes"><span data-i18n="form.cot">Cot for a baby (0–3 years, free)</span></label>
-                    <label class="check"><input type="checkbox" name="pets" value="yes"><span data-i18n="form.pet">Travelling with a pet (on request, for a fee)</span></label>
-                  </div>
-                </fieldset>
-
                 <fieldset class="form-part">
                   <legend data-i18n="form.personal">Personal details</legend>
                   <div class="field-row">
@@ -550,7 +537,6 @@
 
                 <p class="form-error" role="alert" hidden></p>
                 <button class="btn btn-primary" type="submit"><span data-i18n="form.submit">Send booking request</span><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-                <p class="form-note" data-i18n="form.note">No payment now. We'll confirm availability and send you payment details.</p>
               </form>
 
               <div class="form-success" hidden tabindex="-1">
@@ -562,9 +548,7 @@
           </div>
 
           <!-- "Book now" pad -->
-          <aside class="book-pad" aria-labelledby="pad-title">
-            <h3 class="pad-title" id="pad-title"><span data-i18n="pad.title">Book now</span><small data-i18n="pad.sub">Choose your dates</small></h3>
-            <p class="pad-howto" data-i18n-html="pad.howto">Click your <u>arrival day</u>, then your <u>departure day</u>.</p>
+          <aside class="book-pad" data-i18n-attr="aria-label:pad.title" aria-label="Book now">
 
             <div class="calendar-wrap">
               <div class="year-nav">
@@ -588,6 +572,11 @@
               </div>
             </div>
             <p class="field-help" data-i18n="form.maxGuests">Maximum 4 guests in total, children included.</p>
+            <div class="field" data-children-ages hidden>
+              <label for="f-ages" data-i18n="form.ages">Children's ages</label>
+              <input id="f-ages" name="childrenAges" type="text" inputmode="numeric" form="booking-request" data-i18n-attr="placeholder:form.agesPlaceholder" placeholder="e.g. 2, 7, 12">
+              <p class="field-help" data-i18n="form.adultRate">Guests aged 18 and over are charged as adults.</p>
+            </div>
 
             <div class="price-box" data-out="price"></div>
 

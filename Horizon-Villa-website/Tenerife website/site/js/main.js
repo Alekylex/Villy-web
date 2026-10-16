@@ -747,17 +747,14 @@
     prevBtn.addEventListener("click", () => { state.offset = Math.max(0, state.offset - 1); render(); });
     nextBtn.addEventListener("click", () => { state.offset = Math.min(maxOffset(), state.offset + 1); render(); });
 
-    /* Rates table: one row per season */
+    /* Rates: price per night and minimum stay beside the heading (the lowest season price if there are several) */
     const seasons = (CFG.seasons || []);
-    const mdLabel = (md) => { const [m, d] = md.split("-").map(Number); return fmt().short.format(new Date(2000, m - 1, d)); };
     function renderRates() {
-      $(".rates-body").innerHTML = seasons.map((s, i) => {
-        const isFallback = i === seasons.length - 1 && s.from === "01-01" && s.to === "12-31";
-        return `<tr><th scope="row">${seasonName(s)}</th>
-          <td>${isFallback ? t("rates.allOther") : `${mdLabel(s.from)} – ${mdLabel(s.to)}`}</td>
-          <td class="rates-price">${money(s.nightly)}</td>
-          <td>${nights(Math.max(CFG.minNights || 1, s.minNights || 0))}</td></tr>`;
-      }).join("");
+      const prices = seasons.map((s) => s.nightly);
+      const lowest = prices.length ? Math.min(...prices) : 0;
+      $('[data-rate="night"]').textContent = prices.length > 1 && Math.max(...prices) > lowest
+        ? t("float.from", { price: money(lowest) }) : money(lowest);
+      $('[data-rate="min"]').textContent = nights(CFG.minNights || 1);
       $(".rates-note").textContent = [
         t("rates.note", { guests: CFG.maxGuests || 6, nights: nights(CFG.minNights || 1) }),
         CFG.cleaningFee ? t("rates.cleaning", { fee: money(CFG.cleaningFee) }) : "",

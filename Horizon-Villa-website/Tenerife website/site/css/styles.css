@@ -1747,7 +1747,7 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
    column (two months, guests, price, buttons, legend) on the right.
    ========================================================= */
 .booking { --bk-line: #DCDCDC; --bk-soft: #F4F4F4; --bk-cond: "Cormorant Garamond", "Times New Roman", serif; }
-.booking-layout { grid-template-columns: minmax(0, 1fr) 320px; gap: clamp(28px, 4vw, 54px); }
+.booking-layout { grid-template-columns: minmax(0, 1fr) 440px; gap: clamp(28px, 4vw, 54px); }
 .booking-main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; min-width: 0; }
 
 /* rates */
@@ -1864,12 +1864,12 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .book-pad .lg-selected { background: var(--amber-deep); }
 
 @media (max-width: 1100px) {
-  .booking-layout { grid-template-columns: minmax(0, 1fr) 300px; }
+  .booking-layout { grid-template-columns: minmax(0, 1fr) 380px; }
 }
 /* phones and tablets: the "Book now" column first, then rates, terms and the form */
 @media (max-width: 900px) {
   .booking-layout { grid-template-columns: minmax(0, 1fr); }
-  .book-pad { order: -1; max-width: 420px; width: 100%; justify-self: center; }
+  .book-pad { order: -1; max-width: 560px; width: 100%; justify-self: center; }
 }
 @media (max-width: 560px) {
   .booking-panel .stay-dates { grid-template-columns: 1fr 1fr; }
@@ -1906,3 +1906,17 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .book-pad .legend h4, .pad-title small { font-family: "Cormorant Garamond", "Times New Roman", serif; }
 .book-pad .legend h4 { font-size: 22px; font-weight: 600; }
 .booking-layout { font-variant-numeric: lining-nums; }   /* even-height figures in prices and dates */
+
+/* rates: heading and text on the left as before, price per night and minimum stay on the right */
+.rates { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 18px 40px; }
+.rates-text { flex: 1 1 320px; min-width: 0; }
+.rates-text .rates-note { margin-bottom: 0; }
+.rates .rates-facts { width: auto; flex: none; }   /* the same cells as the old rates table, just two columns */
+.rates-facts th, .rates-facts td { min-width: 150px; }
+
+/* the rule above "Rates" runs on across the "Book now" column */
+.rates { padding-top: 0; border-top: 0; }
+.booking-layout { padding-top: 30px; border-top: 1px solid var(--bk-line); }
+
+/* no step hint under the calendar ("Select your arrival date" …); a too-short stay is still flagged in the price box */
+.book-pad .cal-hint { display: none; }
