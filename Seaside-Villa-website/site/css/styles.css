@@ -1790,7 +1790,7 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
    column (two months, guests, price, buttons, legend) on the right.
    ========================================================= */
 .booking { --bk-line: #DCDCDC; --bk-soft: #F4F4F4; --bk-cond: "Cormorant Garamond", "Times New Roman", serif; }
-.booking-layout { grid-template-columns: minmax(0, 1fr) 440px; gap: clamp(28px, 4vw, 54px); }
+.booking-layout { grid-template-columns: minmax(0, 1fr) 480px; gap: clamp(28px, 4vw, 54px); }
 .booking-main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; min-width: 0; }
 
 /* rates */
@@ -1963,3 +1963,57 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 
 /* no step hint under the calendar ("Select your arrival date" …); a too-short stay is still flagged in the price box */
 .book-pad .cal-hint { display: none; }
+
+/* calendar and guests a step larger, with darker, easier-to-read figures */
+.book-pad .month h4 { height: 52px; }
+.book-pad .month h4 .m-name { font-size: 28px; font-weight: 700; }
+.book-pad .month h4 .icon-btn { top: 9px; color: var(--ink); }
+.book-pad .dow span { padding: 8px 0; font-size: 17px; font-weight: 700; color: var(--ink); }
+.book-pad .day { height: 42px; color: var(--ink); }
+.book-pad .d-num { font-size: 19px; font-weight: 700; }
+.book-pad .d-price { font-size: 12.5px; font-weight: 600; color: var(--ink-2); }
+.book-pad .day.is-past, .book-pad .day[disabled]:not(.is-start):not(.is-booked) { color: #9C9C9C; }
+.book-pad .day.is-booked, .book-pad .day.is-booked.b-start, .book-pad .day.is-booked.b-end, .book-pad .day.is-booked.b-start.b-end { color: #6F6F6F; }
+.book-pad .day.in-range .d-price, .book-pad .day.is-start .d-price { color: rgba(255, 255, 255, .85); }
+.book-pad .pad-guests .field label { font-size: 19px; font-weight: 700; color: var(--ink); }
+.book-pad .pad-guests .field select { font-size: 21px; font-weight: 600; color: var(--ink); min-height: 54px; }
+.book-pad .field-help { font-size: 17px; color: var(--ink-2); }
+
+/* left column: darker text for rates, stay summary and the form */
+.rates h3, .booking-panel h3 { color: var(--ink); font-weight: 600; }
+.rates-note { color: var(--ink); font-size: 17px; font-weight: 500; }
+.rates-table td { color: var(--ink); }
+.rates-table thead th { font-weight: 700; }
+.booking-panel .stay-dates dt { color: var(--ink-2); }
+.booking-panel .stay-dates dd { color: var(--ink); }
+.form-part legend { color: var(--ink); font-weight: 700; }
+.booking .field label { color: var(--ink); font-weight: 700; }
+.booking .opt { color: var(--ink-2); }
+.booking .field input::placeholder, .booking .field textarea::placeholder { color: var(--ink-3); opacity: 1; }
+
+/* no "Choose dates to see your price" line: the price box only appears once a stay is picked */
+.book-pad .price-empty { display: none; }
+.book-pad .price-box:has(.price-empty) { display: none; }
+
+/* personal details laid out like villa-vista-magnifika.com/booking: two columns,
+   label above a bare underline, the message box running the full height on the right */
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(28px, 5vw, 64px); }
+.form-col { display: grid; gap: 38px; align-content: start; }
+/* the message box stretches to the left column, so its underline sits level with the phone line */
+.form-col:last-child { display: flex; flex-direction: column; }
+.form-col:last-child .field { display: flex; flex-direction: column; flex: 1 1 auto; }
+.booking-form .field { gap: 2px; }
+.booking-form .field label { font-size: 18px; font-weight: 500; color: var(--ink); }
+.booking-form .field:has([required]) label::after { content: " *"; }
+.booking .booking-form .field input, .booking .booking-form .field textarea {
+  border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent;
+  padding: 6px 0; min-height: 40px; box-shadow: none;
+}
+.booking .booking-form .field textarea { flex: 1 1 auto; height: auto; min-height: 120px; resize: none; }
+.booking .booking-form .field input:focus, .booking .booking-form .field textarea:focus { border-bottom: 2px solid var(--c-deep); box-shadow: none; outline: none; }
+.booking .booking-form .field.has-error input { border-bottom-color: var(--danger); }
+.booking-form > .btn { margin-top: 14px; }
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; gap: 38px; }
+  .booking .booking-form .field textarea { min-height: 140px; }
+}

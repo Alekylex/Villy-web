@@ -515,25 +515,29 @@
               <form class="booking-form" id="booking-request" aria-labelledby="summary-title" novalidate>
                 <fieldset class="form-part">
                   <legend data-i18n="form.personal">Personal details</legend>
-                  <div class="field-row">
-                    <div class="field">
-                      <label for="f-name" data-i18n="form.name">Full name</label>
-                      <input id="f-name" name="name" type="text" autocomplete="name" required>
-                      <p class="field-error" data-i18n="form.nameError" hidden>Please enter your name.</p>
+                  <div class="form-grid">
+                    <div class="form-col">
+                      <div class="field">
+                        <label for="f-name" data-i18n="form.name">Full name</label>
+                        <input id="f-name" name="name" type="text" autocomplete="name" required>
+                        <p class="field-error" data-i18n="form.nameError" hidden>Please enter your name.</p>
+                      </div>
+                      <div class="field">
+                        <label for="f-email" data-i18n="form.email">Email</label>
+                        <input id="f-email" name="email" type="email" autocomplete="email" required>
+                        <p class="field-error" data-i18n="form.emailError" hidden>Please enter a valid email address.</p>
+                      </div>
+                      <div class="field">
+                        <label for="f-phone" data-i18n-html="form.phone">Phone <span class="opt">(optional)</span></label>
+                        <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+                      </div>
                     </div>
-                    <div class="field">
-                      <label for="f-email" data-i18n="form.email">Email</label>
-                      <input id="f-email" name="email" type="email" autocomplete="email" required>
-                      <p class="field-error" data-i18n="form.emailError" hidden>Please enter a valid email address.</p>
+                    <div class="form-col">
+                      <div class="field">
+                        <label for="f-msg" data-i18n-html="form.message">Message <span class="opt">(optional)</span></label>
+                        <textarea id="f-msg" name="message" rows="4" data-i18n-attr="placeholder:form.messagePlaceholder" placeholder="Expected arrival time (check-in 17:00–22:00), questions, requests…"></textarea>
+                      </div>
                     </div>
-                  </div>
-                  <div class="field">
-                    <label for="f-phone" data-i18n-html="form.phone">Phone <span class="opt">(optional)</span></label>
-                    <input id="f-phone" name="phone" type="tel" autocomplete="tel">
-                  </div>
-                  <div class="field">
-                    <label for="f-msg" data-i18n-html="form.message">Message <span class="opt">(optional)</span></label>
-                    <textarea id="f-msg" name="message" rows="4" data-i18n-attr="placeholder:form.messagePlaceholder" placeholder="Expected arrival time (check-in 17:00–22:00), questions, requests…"></textarea>
                   </div>
                 </fieldset>
 
