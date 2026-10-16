@@ -248,7 +248,7 @@ window.I18N = (function () {
       "hero.lead": "Jsme rádi, že jste k nám zavítali. Náš dům stojí jen pár minut chůze od pláže La Tejita a po celou dobu pobytu bude patřit jen Vám a Vašim blízkým. Přejeme si, abyste se tu cítili jako doma: dny plné slunce a zážitků, klidné večery na balkonu a západy slunce nad oceánem, na které se nezapomíná.",
       "hero.sign": "Těšíme se na Vás. Vaši hostitelé",
       "hero.cta": "Ověřit dostupnost", "cover.scroll": "Dolů", "cover.book": "Rezervovat",
-      "cal.stay": "Pobyt", "cal.confirm": "Pokračovat", "cal.priceNote": "Ceny v EUR za noc za celou vilu", "form.title": "Vaše údaje",
+      "cal.stay": "Pobyt", "cal.confirm": "Pokračovat", "cal.priceNote": "Ceny v Kč za noc za celou vilu", "form.title": "Vaše údaje",
       "cover.f1": "220 m²", "cover.f2": "4 ložnice",
       "cover.f3": "300 m od pláže", "cover.f4": "3 bazény v areálu", "hero.explore": "Prohlédnout vilu",
       "slider.label": "Fotografie vily", "slider.prev": "Předchozí fotka", "slider.next": "Další fotka",

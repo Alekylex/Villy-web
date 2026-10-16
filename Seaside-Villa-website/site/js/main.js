@@ -463,13 +463,19 @@
         month: df({ month: "long" }),
         monthYear: df({ month: "short", year: "numeric" }),
         short: df({ day: "numeric", month: "short" }),
-        money: new Intl.NumberFormat(loc, { style: "currency", currency: CFG.currency || "EUR", maximumFractionDigits: 0 })
+        czk: new Intl.NumberFormat(loc, { style: "currency", currency: "CZK", maximumFractionDigits: 0 }),
+        num: new Intl.NumberFormat(loc, { maximumFractionDigits: 0 })
       };
     }
     return formatCache[loc];
   };
   const cap = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-  const money = (v) => fmt().money.format(v);
+  /* Prices are set in euros (config.js). Czech shows Czech crowns, converted at CFG.czkRate
+     and rounded to tens; every other language shows euros with the sign after the number.
+     local() converts a euro amount into the shown currency, money() formats a shown amount. */
+  const inCzk = () => I18N.lang === "cs" && CFG.czkRate > 0;
+  const local = (eur) => (inCzk() ? Math.round((eur * CFG.czkRate) / 10) * 10 : eur);
+  const money = (v) => (inCzk() ? fmt().czk.format(v) : `${fmt().num.format(v)}\u00a0€`);
   const emailDate = new Intl.DateTimeFormat("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
   // a season name may be plain text or { en, cs, es }
   const seasonName = (s) => (s.name && typeof s.name === "object" ? s.name[I18N.lang] || s.name.en : s.name);
@@ -579,7 +585,7 @@
       // nightly price under each night that can still be booked
       dayButtons.forEach((b) => {
         const date = parseKey(b.dataset.key);
-        if (date >= today && !bookedNights.has(b.dataset.key)) $(".d-price", b).textContent = seasonFor(date).nightly;
+        if (date >= today && !bookedNights.has(b.dataset.key)) $(".d-price", b).textContent = fmt().num.format(local(seasonFor(date).nightly));
       });
       applyCompact();
       paint();
@@ -683,8 +689,8 @@
 
       const stay = nightsBetween(ci, co);
       let subtotal = 0;
-      for (let d = ci; d < co; d = addDays(d, 1)) subtotal += seasonFor(d).nightly;
-      const fee = CFG.cleaningFee || 0;
+      for (let d = ci; d < co; d = addDays(d, 1)) subtotal += local(seasonFor(d).nightly);
+      const fee = local(CFG.cleaningFee || 0);
       const total = subtotal + fee;
       const min = minNightsFor(ci);
       out("stay").innerHTML = `<strong>${nights(stay)}</strong><small>${guestsLabel()}</small>`;
@@ -778,15 +784,15 @@
       const prices = seasons.map((s) => s.nightly);
       const lowest = prices.length ? Math.min(...prices) : 0;
       $('[data-rate="night"]').textContent = prices.length > 1 && Math.max(...prices) > lowest
-        ? t("float.from", { price: money(lowest) }) : money(lowest);
+        ? t("float.from", { price: money(local(lowest)) }) : money(local(lowest));
       $('[data-rate="min"]').textContent = nights(CFG.minNights || 1);
       $(".rates-note").textContent = [
         t("rates.note", { guests: CFG.maxGuests || 6, nights: nights(CFG.minNights || 1) }),
-        CFG.cleaningFee ? t("rates.cleaning", { fee: money(CFG.cleaningFee) }) : "",
+        CFG.cleaningFee ? t("rates.cleaning", { fee: money(local(CFG.cleaningFee)) }) : "",
         t("rates.included")
       ].filter(Boolean).join(" ");
       const floatPrice = $("[data-float-price]");
-      if (floatPrice && seasons.length) floatPrice.textContent = t("float.from", { price: money(Math.min(...seasons.map((x) => x.nightly))) });
+      if (floatPrice && seasons.length) floatPrice.textContent = t("float.from", { price: money(local(Math.min(...seasons.map((x) => x.nightly)))) });
     }
     renderRates();
 

@@ -43,6 +43,10 @@ window.VILLA_CONFIG = {
 
   /* ---- Pricing (EUR) ---------------------------------------------------- */
   currency: "EUR",
+  /* Czech version only: prices are shown in Czech crowns, converted from the
+     euro prices below at this rate and rounded to whole tens of crowns.
+     TODO check the rate now and then (1 EUR = ? CZK). */
+  czkRate: 25,
   cleaningFee: 0,           // one-off per stay (0 = not shown)
   minNights: 5,             // minimum stay
   maxGuests: 4,             // adults + children together
