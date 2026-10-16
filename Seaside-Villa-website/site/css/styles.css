@@ -1776,3 +1776,9 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .section-head { margin-left: auto; margin-right: auto; text-align: center; }
 .section-head .lead { margin-left: auto; margin-right: auto; text-wrap: pretty; }
 .section-head h2::after { content: ""; display: block; width: 48px; height: 1px; margin: 22px auto 0; background: var(--ink); opacity: .35; }
+
+/* section titles in exactly the same lettering and size as the welcome title; only the welcome keeps its accent colour */
+.section-head h2, .location-text h2, .arch-head h2 {
+  font-family: "Cormorant Garamond", "Times New Roman", serif; font-style: italic; font-weight: 500;
+  font-size: clamp(42px, 4.2vw, 60px); line-height: 1.05; letter-spacing: .005em;
+}
