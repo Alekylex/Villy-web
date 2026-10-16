@@ -33,7 +33,7 @@ window.I18N = (function () {
       "header.sisterEyebrow": "Our other villa",
       "header.sisterAria": "Go to Horizont Villa La Tejita, our other house",
 
-      "hero.photoAlt": "Fiery sunset over the dark volcanic sand of La Tejita beach",
+      "hero.photoAlt": "Turquoise waves breaking on the deep blue Atlantic",
       "hero.eyebrow": "Holiday house · Canary Islands",
       "hero.title": "Welcome to Seaside Villa",
       "hero.lead": "We are delighted you have found us. Our house sits just a short walk from La Tejita beach, and for your whole stay it is yours alone, for you and the people you love. We hope you will feel truly at home here: mornings on the terrace, afternoons by the sea, and evenings on the roof terrace watching the sun sink into the ocean.",
@@ -252,7 +252,7 @@ window.I18N = (function () {
       "header.sisterEyebrow": "Naše druhá vila",
       "header.sisterAria": "Přejít na Horizont Villa La Tejita, náš druhý dům",
 
-      "hero.photoAlt": "Ohnivý západ slunce nad tmavým sopečným pískem pláže La Tejita",
+      "hero.photoAlt": "Tyrkysové vlny tříštící se na temně modrém Atlantiku",
       "hero.eyebrow": "Prázdninový dům · Kanárské ostrovy",
       "hero.title": "Vítejte v Seaside Villa",
       "hero.lead": "Jsme rádi, že jste k nám zavítali. Náš dům stojí jen kousek od pláže La Tejita a po celou dobu pobytu bude patřit jen Vám a Vašim blízkým. Přejeme si, abyste se tu cítili jako doma: rána na terase, odpoledne u moře a večery na střešní terase, odkud je vidět, jak slunce zapadá do oceánu.",
@@ -471,7 +471,7 @@ window.I18N = (function () {
       "header.sisterEyebrow": "Nuestra otra villa",
       "header.sisterAria": "Ir a Horizont Villa La Tejita, nuestra otra casa",
 
-      "hero.photoAlt": "Atardecer encendido sobre la arena volcánica oscura de la playa de La Tejita",
+      "hero.photoAlt": "Olas turquesa rompiendo en el Atlántico azul profundo",
       "hero.eyebrow": "Casa vacacional · Islas Canarias",
       "hero.title": "Bienvenidos a Seaside Villa",
       "hero.lead": "Nos alegra mucho que nos haya encontrado. Nuestra casa está a un corto paseo de la playa de La Tejita y, durante toda su estancia, será solo para usted y los suyos. Deseamos que aquí se sienta como en casa: mañanas en la terraza, tardes junto al mar y noches en la azotea viendo cómo el sol se esconde en el océano.",
