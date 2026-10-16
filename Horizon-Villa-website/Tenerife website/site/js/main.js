@@ -15,7 +15,7 @@
   /* ------------------------------------------------------------------ */
   /* Hero slider photos, in order. Captions and alt texts live in i18n.js ("photo.<file name>"). */
   const PHOTOS = [
-    "roof-terrace", "bedroom-sea-view", "bedroom-main", "twin-bedroom", "bathroom",   // balcony & upper floor
+    "bedroom-sea-view", "roof-terrace", "bedroom-main", "twin-bedroom", "bathroom",   // balcony & upper floor
     "living-room", "lounge-terrace", "dining", "kitchen", "shower-room",              // ground floor
     "pool", "pool-night", "montana-roja", "beach-sunset-2",                            // pools & views
     "sunset-terrace", "sunset-roof", "sunset-hills", "sunset-coast", "sunset-plane",  // sunsets from the house and around

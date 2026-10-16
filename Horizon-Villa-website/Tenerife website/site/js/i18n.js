@@ -33,7 +33,7 @@ window.I18N = (function () {
       "header.sisterEyebrow": "Our other villa",
       "header.sisterAria": "Go to Seaside Villa La Tejita, our other house",
 
-      "hero.photoAlt": "Golden sunset over the dark volcanic sand of La Tejita beach",
+      "hero.photoAlt": "The Milky Way above Montaña Roja and La Tejita beach at night",
       "hero.eyebrow": "Holiday villa · Canary Islands",
       "hero.title": "Welcome to Horizont Villa",
       "hero.lead": "We are delighted you have found us. Our home lies just a few minutes’ walk from La Tejita beach, and for your stay it is yours alone, for you and the people you love. We hope you will feel truly at home here: days full of sunshine and adventure, quiet evenings on the balcony, and sunsets over the ocean you will remember long after.",
@@ -235,7 +235,7 @@ window.I18N = (function () {
       "header.sisterEyebrow": "Naše druhá vila",
       "header.sisterAria": "Přejít na Seaside Villa La Tejita, náš druhý dům",
 
-      "hero.photoAlt": "Zlatý západ slunce nad tmavým sopečným pískem pláže La Tejita",
+      "hero.photoAlt": "Mléčná dráha nad Montaña Roja a pláží La Tejita v noci",
       "hero.eyebrow": "Prázdninová vila · Kanárské ostrovy",
       "hero.title": "Vítejte v Horizont Villa",
       "hero.lead": "Jsme rádi, že jste k nám zavítali. Náš dům stojí jen pár minut chůze od pláže La Tejita a po celou dobu pobytu bude patřit jen Vám a Vašim blízkým. Přejeme si, abyste se tu cítili jako doma: dny plné slunce a zážitků, klidné večery na balkonu a západy slunce nad oceánem, na které se nezapomíná.",
@@ -437,7 +437,7 @@ window.I18N = (function () {
       "header.sisterEyebrow": "Nuestra otra villa",
       "header.sisterAria": "Ir a Seaside Villa La Tejita, nuestra otra casa",
 
-      "hero.photoAlt": "Atardecer dorado sobre la arena volcánica oscura de la playa de La Tejita",
+      "hero.photoAlt": "La Vía Láctea sobre Montaña Roja y la playa de La Tejita de noche",
       "hero.eyebrow": "Villa vacacional · Islas Canarias",
       "hero.title": "Bienvenidos a Horizont Villa",
       "hero.lead": "Nos alegra mucho que nos haya encontrado. Nuestra casa está a pocos minutos a pie de la playa de La Tejita y, durante su estancia, será solo para usted y los suyos. Deseamos que aquí se sienta como en casa: días llenos de sol y aventuras, noches serenas en el balcón y atardeceres sobre el océano que no olvidará.",
