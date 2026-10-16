@@ -2349,3 +2349,39 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
   .orbit-dot { --orb: 40px !important; margin: 0 !important; }
   .orbit-item, .orbit-item:nth-child(-n+4), .orbit-item:nth-child(n+5) { align-items: flex-start; gap: 16px; }
 }
+
+/* the titles sit in coloured bubbles filled with the same patch of the cover photo the orbs used,
+   white lettering inside; the orbs themselves step aside */
+.orbit-dot { display: none !important; }
+.rules-orbit { column-gap: 36px; }
+.orbit-item, .orbit-item:nth-child(-n+4), .orbit-item:nth-child(n+5) { gap: 0; }
+.orbit-text h3 {
+  display: inline-block; padding: .32em .95em .38em; border-radius: 999px;
+  font-size: clamp(23px, 2.1vw, 28px); color: #fff; text-shadow: 0 1px 6px rgba(0, 0, 0, .35);
+  background: linear-gradient(rgba(0, 35, 55, .5), rgba(0, 35, 55, .5)), #222 url("../images/ocean-waves.jpg") no-repeat;
+  background-size: 100% 100%, 1700px auto; 
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12), 0 10px 24px -14px rgba(0, 0, 0, .55);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.orbit-item:nth-child(1) .orbit-text h3 { background-position: center, 46% 63%; }
+.orbit-item:nth-child(2) .orbit-text h3 { background-position: center, 56% 74%; }
+.orbit-item:nth-child(3) .orbit-text h3 { background-position: center, 40% 79%; }
+.orbit-item:nth-child(4) .orbit-text h3 { background-position: center, 63% 69%; }
+.orbit-item:nth-child(5) .orbit-text h3 { background-position: center, 31% 56%; }
+.orbit-item:nth-child(6) .orbit-text h3 { background-position: center, 51% 66%; }
+.orbit-item:nth-child(7) .orbit-text h3 { background-position: center, 72% 64%; }
+.orbit-item:nth-child(8) .orbit-text h3 { background-position: center, 36% 71%; }
+.orbit-text h3 .orbit-tag { color: rgba(255, 255, 255, .92); }
+.orbit-item:hover .orbit-text h3, .orbit-item:focus-visible .orbit-text h3 { transform: scale(1.05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .2), 0 16px 30px -14px rgba(0, 0, 0, .6); }
+.orbit-item:focus-visible h3 { text-decoration: none; outline: 2px solid currentColor; outline-offset: 3px; }
+.orbit-detail { margin-top: 12px; }
+
+/* every bubble its own size (set per rule with --bs in index.html, so it travels with the rule when the list is re-sorted) */
+.orbit-text h3 { font-size: calc(clamp(23px, 2.1vw, 28px) * var(--bs, 1)); }
+.orbit-item, .orbit-item:nth-child(-n+4), .orbit-item:nth-child(n+5) { min-height: 96px; }
+@media (hover: none), (max-width: 760px) {
+  .orbit-text h3 { font-size: calc(22px * var(--bs, 1)); }
+}
+
+/* each rule keeps its own patch of the photo (--bp in index.html), wherever the sorting puts it */
+.rules-orbit .orbit-item .orbit-text h3 { background-position: center, var(--bp, 50% 50%); }
