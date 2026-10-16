@@ -5,6 +5,10 @@ try {
   if ((Test-Path (Join-Path $root '.git')) -and (Get-Command git -ErrorAction SilentlyContinue)) {
     git -C $root pull --ff-only origin main
     if ($LASTEXITCODE -eq 0) { exit 0 }
+    # Zip se tu nestahuje: je pomaly (vsechny fotky) a prepsal by soubory, takze by priste nesel ani git.
+    Write-Host "Stazeni pres git se nepovedlo (asi neulozene zmeny ve slozce), otviram posledni stazenou verzi."
+    Start-Sleep -Seconds 3
+    exit 0
   }
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
   $tmp = Join-Path $env:TEMP ("villy-web-" + [guid]::NewGuid())
