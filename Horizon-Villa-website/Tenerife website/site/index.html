@@ -147,7 +147,6 @@
     <div class="cover-logo" aria-hidden="true">
       <svg class="cover-logo-mark"><use href="#logo-mark"/></svg>
       <span class="cover-logo-name">Horizont Villa</span>
-      <span class="cover-logo-sub">La Tejita · Tenerife</span>
     </div>
     <nav class="nav" data-i18n-attr="aria-label:a11y.mainNav" aria-label="Main">
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Open menu">
@@ -189,7 +188,6 @@
       <img class="cover-img" src="images/milky-way-montana-roja.jpg" data-i18n-attr="alt:hero.photoAlt" alt="The Milky Way above Montaña Roja and La Tejita beach at night" fetchpriority="high">
     </div>
     <div class="cover-content">
-      <p class="cover-overline">La Tejita · Tenerife</p>
       <h1 id="hero-title" class="cover-title">Horizont Villa<br><em>La Tejita</em></h1>
       <a class="cover-book" href="#booking" data-i18n="cover.book">Book</a>
     </div>
@@ -324,9 +322,6 @@
               <g class="arch-hl" data-floor="2"><rect x="104" y="305" width="332" height="115"/><rect x="444" y="380" width="56" height="40" fill-opacity=".6"/></g>
               <g class="arch-hl" data-floor="3"><rect x="104" y="425" width="332" height="115"/></g>
 
-              <!-- sun over the sea -->
-              <circle cx="548" cy="96" r="11"/>
-              <path d="M504 124h88M520 132h56" stroke-width=".9" opacity=".5"/>
 
               <!-- roof: sloping over the bedroom with the sloped ceiling, flat on the right -->
               <path d="M92 224L300 186" stroke-width="1.6"/>
@@ -491,105 +486,127 @@
           <p class="lead" data-i18n="book.lead">Pick your arrival and departure date on the calendar below. You'll see the price right away, then send us a booking request. We confirm personally within 24 hours, and booking direct means no platform fees.</p>
         </div>
 
+        <!-- Laid out like hebergement-charlevoix.com: rates and the request form on the left,
+             the "Book now" column with two months, guests and price on the right -->
         <div class="booking-layout">
-          <div class="calendar-wrap">
-            <div class="calendar-toolbar">
-              <div class="legend" aria-hidden="true">
-                <span><i class="lg lg-free"></i><span data-i18n="cal.available">Available</span></span>
-                <span><i class="lg lg-booked"></i><span data-i18n="cal.booked">Booked</span></span>
-                <span><i class="lg lg-selected"></i><span data-i18n="cal.yourStay">Your stay</span></span>
-              </div>
-              <p class="cal-note" data-i18n="cal.priceNote">Prices in EUR per night for the whole house</p>
-              <div class="year-nav">
-                <button class="icon-btn" data-cal="prev" data-i18n-attr="aria-label:cal.earlier" aria-label="Earlier months"><svg class="icon"><use href="#i-left"/></svg></button>
-                <span class="year-label" aria-live="polite"></span>
-                <button class="icon-btn" data-cal="next" data-i18n-attr="aria-label:cal.later" aria-label="Later months"><svg class="icon"><use href="#i-right"/></svg></button>
+          <div class="booking-main">
+
+            <!-- Rates: seasons down the side, number of nights across the top -->
+            <div class="rates" data-i18n-attr="aria-label:rates.label" aria-label="Rates">
+              <h3 data-i18n="rates.title">Rates</h3>
+              <p class="rates-note"></p>
+              <div class="rates-scroll">
+                <table class="rates-table">
+                  <thead><tr><th scope="col" data-i18n="rates.colSeason">Season</th><th scope="col" data-i18n="rates.colDates">Dates</th><th scope="col" data-i18n="rates.colNight">Per night</th><th scope="col" data-i18n="rates.colMin">Minimum stay</th></tr></thead>
+                  <tbody class="rates-body"></tbody>
+                </table>
               </div>
             </div>
-            <p class="cal-hint" aria-live="polite"></p>
-            <div class="calendar" id="calendar"></div>
-            <div class="cal-summary">
+
+            <!-- Request form: "Your stay from … to …" -->
+            <div class="booking-panel" id="booking-form">
+              <h3 id="summary-title" data-i18n="form.stayTitle">Your stay</h3>
               <dl class="stay-dates">
                 <div><dt data-i18n="book.arrival">Arrival</dt><dd data-out="checkin">—</dd></div>
                 <div><dt data-i18n="book.departure">Departure</dt><dd data-out="checkout">—</dd></div>
                 <div><dt data-i18n="cal.stay">Stay</dt><dd data-out="stay">—</dd></div>
               </dl>
-              <div class="price-box" data-out="price"></div>
-              <button class="btn btn-primary cal-confirm" type="button" data-cal-confirm disabled><span data-i18n="cal.confirm">Continue</span><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-            </div>
 
-            <div class="cancel">
-              <span class="badge badge-green" data-i18n="cancel.flexible">Flexible</span>
-              <h3 data-i18n="cancel.title">Cancellation &amp; payment</h3>
-              <p class="cancel-intro" data-i18n="cancel.intro">Prices include taxes and fees. Every booking is on our flexible terms:</p>
-              <ul class="ticks">
-                <li data-i18n="cancel.flex1">Free cancellation until the date shown in your booking confirmation</li>
-                <li data-i18n="cancel.flex2">Nothing is charged until shortly before your free-cancellation date</li>
-                <li data-i18n="cancel.flex3">You can change your dates if your plans change</li>
-              </ul>
+              <form class="booking-form" id="booking-request" aria-labelledby="summary-title" novalidate>
+                <fieldset class="form-part">
+                  <legend data-i18n="form.stayInfo">Stay details</legend>
+                  <div class="field" data-children-ages hidden>
+                    <label for="f-ages" data-i18n="form.ages">Children's ages</label>
+                    <input id="f-ages" name="childrenAges" type="text" inputmode="numeric" data-i18n-attr="placeholder:form.agesPlaceholder" placeholder="e.g. 2, 7, 12">
+                    <p class="field-help" data-i18n="form.adultRate">Guests aged 18 and over are charged as adults.</p>
+                  </div>
+                  <div class="checks">
+                    <label class="check"><input type="checkbox" name="crib" value="yes"><span data-i18n="form.cot">Cot for a baby (0–3 years, free)</span></label>
+                    <label class="check"><input type="checkbox" name="pets" value="yes"><span data-i18n="form.pet">Travelling with a pet (on request, for a fee)</span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="form-part">
+                  <legend data-i18n="form.personal">Personal details</legend>
+                  <div class="field-row">
+                    <div class="field">
+                      <label for="f-name" data-i18n="form.name">Full name</label>
+                      <input id="f-name" name="name" type="text" autocomplete="name" required>
+                      <p class="field-error" data-i18n="form.nameError" hidden>Please enter your name.</p>
+                    </div>
+                    <div class="field">
+                      <label for="f-email" data-i18n="form.email">Email</label>
+                      <input id="f-email" name="email" type="email" autocomplete="email" required>
+                      <p class="field-error" data-i18n="form.emailError" hidden>Please enter a valid email address.</p>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="f-phone" data-i18n-html="form.phone">Phone <span class="opt">(optional)</span></label>
+                    <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+                  </div>
+                  <div class="field">
+                    <label for="f-msg" data-i18n-html="form.message">Message <span class="opt">(optional)</span></label>
+                    <textarea id="f-msg" name="message" rows="4" data-i18n-attr="placeholder:form.messagePlaceholder" placeholder="Expected arrival time (check-in 17:00–22:00), questions, requests…"></textarea>
+                  </div>
+                </fieldset>
+
+                <p class="form-error" role="alert" hidden></p>
+                <button class="btn btn-primary" type="submit"><span data-i18n="form.submit">Send booking request</span><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                <p class="form-note" data-i18n="form.note">No payment now. We'll confirm availability and send you payment details.</p>
+              </form>
+
+              <div class="form-success" hidden tabindex="-1">
+                <span class="success-icon"><svg class="icon"><use href="#i-check"/></svg></span>
+                <h4 data-i18n="form.successTitle">Request sent, thank you!</h4>
+                <p data-i18n="form.successText">We'll reply within 24 hours to confirm your stay at Horizont Villa.</p>
+              </div>
             </div>
           </div>
 
-          <aside class="booking-panel" aria-labelledby="summary-title">
-            <h3 id="summary-title" data-i18n="form.title">Your details</h3>
+          <!-- "Book now" pad -->
+          <aside class="book-pad" aria-labelledby="pad-title">
+            <h3 class="pad-title" id="pad-title"><span data-i18n="pad.title">Book now</span><small data-i18n="pad.sub">Choose your dates</small></h3>
+            <p class="pad-howto" data-i18n-html="pad.howto">Click your <u>arrival day</u>, then your <u>departure day</u>.</p>
 
-            <form class="booking-form" novalidate>
-              <div class="field">
-                <label for="f-name" data-i18n="form.name">Full name</label>
-                <input id="f-name" name="name" type="text" autocomplete="name" required>
-                <p class="field-error" data-i18n="form.nameError" hidden>Please enter your name.</p>
+            <div class="calendar-wrap">
+              <div class="year-nav">
+                <button class="icon-btn" data-cal="prev" data-i18n-attr="aria-label:cal.earlier" aria-label="Earlier months"><svg class="icon"><use href="#i-left"/></svg></button>
+                <span class="year-label" aria-live="polite"></span>
+                <button class="icon-btn" data-cal="next" data-i18n-attr="aria-label:cal.later" aria-label="Later months"><svg class="icon"><use href="#i-right"/></svg></button>
               </div>
-              <div class="field">
-                <label for="f-email" data-i18n="form.email">Email</label>
-                <input id="f-email" name="email" type="email" autocomplete="email" required>
-                <p class="field-error" data-i18n="form.emailError" hidden>Please enter a valid email address.</p>
-              </div>
-              <div class="field">
-                <label for="f-phone" data-i18n-html="form.phone">Phone <span class="opt">(optional)</span></label>
-                <input id="f-phone" name="phone" type="tel" autocomplete="tel">
-              </div>
-              <div class="field-row">
-                <div class="field">
-                  <label for="f-adults" data-i18n="form.adults">Adults</label>
-                  <select id="f-adults" name="adults"></select>
-                </div>
-                <div class="field">
-                  <label for="f-children" data-i18n="form.children">Children</label>
-                  <select id="f-children" name="children"></select>
-                </div>
-              </div>
-              <div class="field" data-children-ages hidden>
-                <label for="f-ages" data-i18n="form.ages">Children's ages</label>
-                <input id="f-ages" name="childrenAges" type="text" inputmode="numeric" data-i18n-attr="placeholder:form.agesPlaceholder" placeholder="e.g. 2, 7, 12">
-                <p class="field-help" data-i18n="form.adultRate">Guests aged 18 and over are charged as adults.</p>
-              </div>
-              <p class="field-help" data-i18n="form.maxGuests">Maximum 6 guests in total, children included.</p>
-              <fieldset class="checks">
-                <legend data-i18n="form.extras">Extras</legend>
-                <label class="check"><input type="checkbox" name="crib" value="yes"><span data-i18n="form.cot">Cot for a baby (0–3 years, free)</span></label>
-                <label class="check"><input type="checkbox" name="pets" value="yes"><span data-i18n="form.pet">Travelling with a pet (on request, for a fee)</span></label>
-              </fieldset>
-              <div class="field">
-                <label for="f-msg" data-i18n-html="form.message">Message <span class="opt">(optional)</span></label>
-                <textarea id="f-msg" name="message" rows="3" data-i18n-attr="placeholder:form.messagePlaceholder" placeholder="Expected arrival time (check-in 17:00–22:00), questions, requests…"></textarea>
-              </div>
-              <p class="form-error" role="alert" hidden></p>
-              <button class="btn btn-primary btn-block" type="submit"><span data-i18n="form.submit">Send booking request</span><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-              <p class="form-note" data-i18n="form.note">No payment now. We'll confirm availability and send you payment details.</p>
-            </form>
+              <div class="calendar" id="calendar"></div>
+              <p class="cal-hint" aria-live="polite"></p>
+            </div>
 
-            <div class="form-success" hidden tabindex="-1">
-              <span class="success-icon"><svg class="icon"><use href="#i-check"/></svg></span>
-              <h4 data-i18n="form.successTitle">Request sent, thank you!</h4>
-              <p data-i18n="form.successText">We'll reply within 24 hours to confirm your stay at Horizont Villa.</p>
+            <div class="pad-guests">
+              <div class="field">
+                <label for="f-adults" data-i18n="form.adults">Adults</label>
+                <select id="f-adults" name="adults" form="booking-request"></select>
+              </div>
+              <div class="field">
+                <label for="f-children" data-i18n="form.children">Children</label>
+                <select id="f-children" name="children" form="booking-request"></select>
+              </div>
+            </div>
+            <p class="field-help" data-i18n="form.maxGuests">Maximum 6 guests in total, children included.</p>
+
+            <div class="price-box" data-out="price"></div>
+
+            <div class="pad-actions">
+              <button class="btn btn-primary btn-block cal-confirm" type="button" data-cal-confirm disabled><span data-i18n="pad.book">Book</span></button>
+              <button class="btn btn-ghost btn-block" type="button" data-pad-info><span data-i18n="pad.info">Ask a question</span></button>
+            </div>
+
+            <div class="legend">
+              <h4 data-i18n="pad.legend">Legend</h4>
+              <ul>
+                <li><i class="lg lg-booked"></i><span data-i18n="pad.unavailable">Unavailable</span></li>
+                <li><i class="lg lg-free"></i><span data-i18n="cal.available">Available</span></li>
+                <li><i class="lg lg-turnover"></i><span data-i18n="pad.arrDep">Arrival / departure</span></li>
+                <li><i class="lg lg-selected"></i><span data-i18n="cal.yourStay">Your stay</span></li>
+              </ul>
             </div>
           </aside>
-        </div>
-
-        <div class="seasons" data-i18n-attr="aria-label:rates.label" aria-label="Rates">
-          <h3 data-i18n="rates.title">Rates</h3>
-          <div class="season-list"></div>
-          <p class="season-note"></p>
         </div>
       </section>
 
@@ -669,7 +686,6 @@
       <section class="section location" id="location" aria-labelledby="location-title">
         <div class="location-grid">
           <div class="location-text">
-            <p class="eyebrow" data-i18n="nav.location">Location</p>
             <h2 id="location-title" data-i18n="loc.title">La Tejita, the wild side of the south</h2>
             <p class="lead" data-i18n="loc.lead">The villa sits by the beach in La Tejita, with a natural sandy beach and the red volcanic cone of Montaña Roja on the doorstep. The airport, golf and the island's big attractions are all a short drive away.</p>
             <ul class="distances">

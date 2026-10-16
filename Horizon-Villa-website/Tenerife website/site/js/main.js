@@ -492,8 +492,7 @@
     const nextBtn = $('[data-cal="next"]');
     const out = (name) => $(`[data-out="${name}"]`);
     const MONTHS_AHEAD = 24;   // how far ahead guests can book
-    const phone = window.matchMedia("(max-width: 640px)");
-    const visibleMonths = () => (phone.matches ? 1 : 2);
+    const visibleMonths = () => 2;   // two months stacked in the "Book now" column
     const maxOffset = () => MONTHS_AHEAD - visibleMonths();
 
     // booked nights (check-out day stays free)
@@ -561,10 +560,10 @@
         frag.appendChild(month);
       }
       cal.appendChild(frag);
-      // month arrows sit in the captions: back on the first month, forward on the last
+      // both month arrows sit in the first month's caption, the months stack below
       const caps = $$(".month h4", cal);
       caps[0].prepend(prevBtn);
-      caps[caps.length - 1].append(nextBtn);
+      caps[0].append(nextBtn);
       dayButtons = $$(".day", cal);
       // nightly price under each night that can still be booked
       dayButtons.forEach((b) => {
@@ -676,9 +675,11 @@
       const total = subtotal + fee;
       const min = minNightsFor(ci);
       out("stay").innerHTML = `<strong>${nights(stay)}</strong><small>${guestsLabel()}</small>`;
-      box.innerHTML = `<div class="q-total"><strong>${money(total)}</strong><small>${t("price.total", { nights: nights(stay) })}</small></div>
-        <div class="q-night"><strong>${money(Math.round(subtotal / stay))}</strong><small>${t("rates.perNight")}</small></div>${
-        fee ? `<p class="q-note">${t("price.cleaning")}: ${money(fee)}</p>` : ""}${
+      // price estimate, line by line like the listing: subtotal, fees, total
+      box.innerHTML = `<div class="est-row"><span>${money(Math.round(subtotal / stay))} × ${nights(stay)}</span><span>${money(subtotal)}</span></div>${
+        fee ? `<div class="est-row"><span>${t("price.cleaning")}</span><span>${money(fee)}</span></div>` : ""}
+        <div class="est-row q-total"><span>${t("price.totalLabel")}</span><strong>${money(total)}</strong></div>
+        <p class="q-note">${t("price.approval")}</p>${
         stay < min ? `<p class="price-warn">${t("price.min", { nights: nights(min) })}</p>` : ""}`;
       confirmBtn.disabled = stay < min;
       hint.textContent = stay < min
@@ -691,6 +692,11 @@
       const panel = $(".booking-panel");
       panel.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
       $("#f-name").focus({ preventScroll: true });
+    });
+    // "Ask a question": straight to the message box, dates or not
+    $("[data-pad-info]").addEventListener("click", () => {
+      $(".booking-panel").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      $("#f-msg").focus({ preventScroll: true });
     });
 
     function choose(date) {
@@ -740,24 +746,19 @@
 
     prevBtn.addEventListener("click", () => { state.offset = Math.max(0, state.offset - 1); render(); });
     nextBtn.addEventListener("click", () => { state.offset = Math.min(maxOffset(), state.offset + 1); render(); });
-    phone.addEventListener("change", () => { state.offset = Math.min(state.offset, maxOffset()); render(); });
 
-    /* Rates list */
-    const seasonList = $(".season-list");
+    /* Rates table: one row per season */
     const seasons = (CFG.seasons || []);
     const mdLabel = (md) => { const [m, d] = md.split("-").map(Number); return fmt().short.format(new Date(2000, m - 1, d)); };
     function renderRates() {
-      seasonList.innerHTML = "";
-      seasons.forEach((s, i) => {
+      $(".rates-body").innerHTML = seasons.map((s, i) => {
         const isFallback = i === seasons.length - 1 && s.from === "01-01" && s.to === "12-31";
-        const el = document.createElement("div");
-        el.className = "season";
-        el.innerHTML = `<div class="season-name">${seasonName(s)}</div>
-          <div class="season-dates">${isFallback ? t("rates.allOther") : `${mdLabel(s.from)} – ${mdLabel(s.to)}`}</div>
-          <div class="season-price"><strong>${money(s.nightly)}</strong> ${t("rates.perNight")}${s.minNights ? ` · ${t("rates.min", { nights: nights(s.minNights) })}` : ""}</div>`;
-        seasonList.appendChild(el);
-      });
-      $(".season-note").textContent = [
+        return `<tr><th scope="row">${seasonName(s)}</th>
+          <td>${isFallback ? t("rates.allOther") : `${mdLabel(s.from)} – ${mdLabel(s.to)}`}</td>
+          <td class="rates-price">${money(s.nightly)}</td>
+          <td>${nights(Math.max(CFG.minNights || 1, s.minNights || 0))}</td></tr>`;
+      }).join("");
+      $(".rates-note").textContent = [
         t("rates.note", { guests: CFG.maxGuests || 6, nights: nights(CFG.minNights || 1) }),
         CFG.cleaningFee ? t("rates.cleaning", { fee: money(CFG.cleaningFee) }) : "",
         t("rates.included")

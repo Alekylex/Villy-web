@@ -1739,3 +1739,170 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
   font-family: "Cormorant Garamond", "Times New Roman", serif; font-style: italic; font-weight: 500;
   font-size: clamp(42px, 4.2vw, 60px); line-height: 1.05; letter-spacing: .005em;
 }
+
+/* =========================================================
+   Booking, styled like hebergement-charlevoix.com: flat and white,
+   square corners and thin grey rules, condensed upper-case titles.
+   Rates, terms and the request form on the left; the "Book now"
+   column (two months, guests, price, buttons, legend) on the right.
+   ========================================================= */
+.booking { --bk-line: #DCDCDC; --bk-soft: #F4F4F4; --bk-cond: "Cormorant Garamond", "Times New Roman", serif; }
+.booking-layout { grid-template-columns: minmax(0, 1fr) 320px; gap: clamp(28px, 4vw, 54px); }
+.booking-main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; min-width: 0; }
+
+/* rates */
+.rates { padding-top: 30px; border-top: 1px solid var(--bk-line); }
+.rates h3, .booking-panel h3 {
+  font-family: var(--bk-cond); font-size: 30px; font-weight: 300; letter-spacing: .02em;
+  text-transform: uppercase; color: var(--ink-2); margin-bottom: 14px;
+}
+.rates-note { font-size: 13px; color: var(--ink-2); margin-bottom: 20px; max-width: 80ch; }
+.rates-scroll { overflow-x: auto; }
+.rates-table { width: 100%; border-collapse: collapse; border: 1px solid var(--bk-line); font-size: 15px; }
+.rates-table th, .rates-table td { padding: 14px 12px; border: 1px solid var(--bk-line); text-align: left; white-space: nowrap; }
+.rates-table thead th { font-family: var(--bk-cond); font-weight: 400; font-size: 14px; color: var(--amber-deep); }
+.rates-table tbody th { font-family: var(--bk-cond); font-weight: 500; font-size: 17px; }
+.rates-table td { font-family: var(--bk-cond); font-weight: 300; font-size: 16px; color: var(--ink-2); }
+.rates-table .rates-price { font-weight: 400; font-size: 18px; color: var(--ink); }
+
+/* terms, folded with a chevron */
+.terms { border-top: 1px solid var(--bk-line); }
+.term { border-bottom: 1px solid var(--bk-line); }
+.term summary {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 24px 0; cursor: pointer; list-style: none;
+  font-family: var(--bk-cond); font-size: 24px; font-weight: 300; text-transform: uppercase; color: var(--ink-2);
+}
+.term summary::-webkit-details-marker { display: none; }
+.term summary::after {
+  content: ""; width: 10px; height: 10px; margin-right: 6px;
+  border-right: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink);
+  transform: rotate(45deg) translateY(-3px); transition: transform .2s;
+}
+.term[open] summary::after { transform: rotate(-135deg) translateY(-3px); }
+.term-body { padding: 0 0 24px; color: var(--ink-2); }
+.term-body > p { margin-bottom: 12px; }
+
+/* request form: "Your stay" */
+.booking-panel { position: static; background: none; border: 0; border-top: 1px solid var(--bk-line); border-radius: 0; padding: 30px 0 0; }
+.booking-panel .stay-dates { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-bottom: 26px; border: 1px solid var(--bk-line); }
+.booking-panel .stay-dates div { border: 0; border-left: 1px solid var(--bk-line); border-radius: 0; background: none; }
+.booking-panel .stay-dates div:first-child { border-left: 0; }
+.booking-panel .stay-dates dd { display: flex; flex-direction: column; line-height: 1.25; }
+.booking-panel .stay-dates dd small { font-size: 12px; font-weight: 500; color: var(--ink-3); }
+.form-part { border: 0; margin: 0; padding: 0; display: grid; gap: 12px; }
+.form-part legend { padding: 0; margin-bottom: 10px; font-family: var(--bk-cond); font-size: 18px; font-weight: 400; text-transform: uppercase; color: var(--ink); }
+.form-part + .form-part { margin-top: 12px; }
+.booking .field input, .booking .field select, .booking .field textarea { border: 1px solid var(--bk-line); border-radius: 0; }
+.booking .field input:focus, .booking .field select:focus, .booking .field textarea:focus { border-color: var(--amber-deep); box-shadow: none; }
+.booking .field label { font-size: 13px; font-weight: 500; }
+.booking .check input { border-radius: 0; }
+.booking-form > .btn { justify-self: start; }
+.booking-form .form-note { text-align: left; }
+
+/* square, flat buttons in the condensed face */
+.booking .btn { border-radius: 0; box-shadow: none; font-family: var(--bk-cond); font-weight: 400; font-size: 18px; letter-spacing: .03em; text-transform: uppercase; min-height: 42px; }
+.booking .btn-primary { background: var(--amber-deep); border-color: var(--amber-deep); color: #fff; }
+.booking .btn-primary:hover:not([disabled]) { background: var(--amber-deeper); transform: none; }
+.booking .btn-ghost { background: #fff; border: 1.5px solid var(--ink); color: var(--ink); }
+.booking .btn-ghost:hover { background: var(--bk-soft); }
+
+/* the "Book now" column */
+.book-pad { position: static; background: none; border: 0; border-radius: 0; padding: 0; box-shadow: none; display: grid; gap: 16px; }
+.pad-title { margin: 0; text-align: center; font-family: var(--bk-cond); font-size: 30px; font-weight: 300; line-height: 1.2; text-transform: uppercase; color: var(--amber-deep); }
+.pad-title small { display: block; margin-top: 2px; font-family: var(--font-body); font-size: 15px; font-weight: 500; letter-spacing: .02em; color: var(--ink); }
+.pad-howto { text-align: center; font-size: 11.5px; line-height: 1.5; color: var(--ink-2); }
+
+/* two months stacked, each in a thin frame, plain number cells */
+.book-pad .calendar-wrap { border: 0; border-radius: 0; padding: 0; }
+.book-pad .calendar { grid-template-columns: 1fr; gap: 12px; }
+.book-pad .month { border: 1px solid var(--bk-line); padding-bottom: 8px; }
+.book-pad .month h4 { height: 46px; margin: 0; }
+.book-pad .month h4 .m-name { font-family: var(--bk-cond); font-size: 21px; font-weight: 300; color: var(--amber-deep); }
+.book-pad .month h4 .icon-btn { top: 6px; width: 32px; height: 32px; border: 0; border-radius: 0; background: none; box-shadow: none; }
+.book-pad .month h4 [data-cal="prev"] { left: 4px; }
+.book-pad .month h4 [data-cal="next"] { right: 4px; }
+.book-pad .dow { background: var(--bk-soft); border: 0; margin: 0 0 4px; }
+.book-pad .dow span { padding: 6px 0; font-size: 12px; font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--ink); }
+.book-pad .days { gap: 0; }
+.book-pad .day {
+  aspect-ratio: auto; min-height: 0; max-height: none; height: 34px;
+  border: 0; border-radius: 0; background: none; gap: 0;
+}
+.book-pad .d-num { font-size: 12.5px; font-weight: 500; }
+.book-pad .d-price { font-size: 9px; line-height: 1; }
+.book-pad .day:hover:not([disabled]) { background: var(--amber-soft); border: 0; }
+.book-pad .day.is-past, .book-pad .day[disabled]:not(.is-start):not(.is-booked) { background: none; border: 0; color: #C4C4C4; opacity: 1; }
+.book-pad .day.is-booked, .book-pad .day.is-booked.b-start, .book-pad .day.is-booked.b-end, .book-pad .day.is-booked.b-start.b-end {
+  background: #E2E2E2; border-radius: 0; color: var(--ink-3);
+}
+.book-pad .day.is-booked .d-num { text-decoration: none; }
+.book-pad .day.is-turnover { background: linear-gradient(135deg, #E2E2E2 0 50%, transparent 50%); }
+.book-pad .day.in-range, .book-pad .day.is-start, .book-pad .day.is-start.solo { background: var(--amber-deep); border: 0; border-radius: 0; color: #fff; }
+.book-pad .day.is-end, .book-pad .day.is-end.is-booked { background: var(--amber-soft); border: 0; border-radius: 0; color: var(--amber-deeper); }
+.book-pad .day.is-hover-range { background: var(--amber-soft); border: 0; border-radius: 0; }
+.book-pad .cal-hint { margin: 10px 0 0; font-size: 12.5px; text-align: center; min-height: 0; }
+
+.pad-guests { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.book-pad .field-help { margin-top: -8px; font-size: 12px; }
+
+.book-pad .price-box { margin: 0; padding: 12px 0 0; background: none; border: 0; border-top: 1px solid var(--bk-line); border-radius: 0; }
+.est-row { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; color: var(--ink-2); font-size: 14px; }
+.est-row.q-total { flex-direction: row; margin-top: 4px; padding-top: 8px; border-top: 1px solid var(--bk-line); color: var(--ink); font-weight: 600; align-items: baseline; }
+.est-row.q-total strong { font-family: var(--bk-cond); font-size: 24px; font-weight: 400; color: var(--ink); }
+.book-pad .q-note { margin-top: 4px; font-size: 11.5px; color: var(--ink-3); }
+.pad-actions { display: grid; gap: 14px; }
+
+.book-pad .legend { display: block; padding: 4px 10px 0; }
+.book-pad .legend h4 { font-family: var(--font-body); font-size: 17px; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--ink); margin-bottom: 12px; }
+.book-pad .legend ul { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; font-size: 13px; color: var(--ink); }
+.book-pad .legend li { display: flex; align-items: center; gap: 10px; }
+.book-pad .lg { flex: none; width: 20px; height: 20px; border-radius: 0; border: 0; box-shadow: 0 0 0 1px var(--bk-line), 1px 1px 3px rgba(0, 0, 0, .18); }
+.book-pad .lg-booked { background: #E2E2E2; }
+.book-pad .lg-free { background: #fff; }
+.book-pad .lg-turnover { background: linear-gradient(135deg, #E2E2E2 0 50%, #fff 50%); }
+.book-pad .lg-selected { background: var(--amber-deep); }
+
+@media (max-width: 1100px) {
+  .booking-layout { grid-template-columns: minmax(0, 1fr) 300px; }
+}
+/* phones and tablets: the "Book now" column first, then rates, terms and the form */
+@media (max-width: 900px) {
+  .booking-layout { grid-template-columns: minmax(0, 1fr); }
+  .book-pad { order: -1; max-width: 420px; width: 100%; justify-self: center; }
+}
+@media (max-width: 560px) {
+  .booking-panel .stay-dates { grid-template-columns: 1fr 1fr; }
+  .booking-panel .stay-dates div:nth-child(3) { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--bk-line); }
+  .booking-form .field-row { grid-template-columns: 1fr; }
+}
+
+/* the whole booking block in the welcome text's serif (Cormorant Garamond), sized up to match it */
+.booking-layout, .booking-layout input, .booking-layout select, .booking-layout textarea, .booking-layout button {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+}
+.booking-layout { font-size: 18px; font-weight: 500; }
+.booking .field input, .booking .field select, .booking .field textarea { font-size: 19px; font-weight: 500; }
+.booking .field label, .booking .check, .pad-howto, .rates-note, .book-pad .cal-hint, .booking .field-help,
+.booking-form .form-note, .book-pad .q-note, .book-pad .legend ul { font-size: 16px; font-weight: 500; }
+.booking .field label { font-weight: 600; }
+.pad-title small, .est-row { font-size: 17px; }
+.rates-table { font-size: 18px; }
+.rates-table thead th { font-size: 17px; font-weight: 600; }
+.rates-table tbody th { font-size: 20px; font-weight: 600; }
+.rates-table td { font-size: 19px; font-weight: 500; }
+.rates-table .rates-price { font-size: 21px; font-weight: 600; }
+.rates h3, .booking-panel h3, .pad-title { font-size: 34px; font-weight: 500; letter-spacing: .03em; }
+.form-part legend { font-size: 20px; font-weight: 600; letter-spacing: .03em; }
+.book-pad .month h4 .m-name { font-size: 24px; font-weight: 600; }
+.book-pad .dow span { font-size: 15px; font-weight: 600; }
+.book-pad .d-num { font-size: 16px; font-weight: 600; }
+.book-pad .d-price { font-size: 11px; }
+.booking-panel .stay-dates dt { font-size: 13px; font-weight: 700; }
+.booking-panel .stay-dates dd { font-size: 19px; }
+.booking-panel .stay-dates dd small { font-size: 15px; }
+.est-row.q-total strong { font-size: 28px; font-weight: 600; }
+.booking .btn { font-size: 19px; font-weight: 600; letter-spacing: .06em; }
+.book-pad .legend h4, .pad-title small { font-family: "Cormorant Garamond", "Times New Roman", serif; }
+.book-pad .legend h4 { font-size: 22px; font-weight: 600; }
+.booking-layout { font-variant-numeric: lining-nums; }   /* even-height figures in prices and dates */
