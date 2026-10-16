@@ -1974,3 +1974,31 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
   .form-grid { grid-template-columns: 1fr; gap: 38px; }
   .booking .booking-form .field textarea { min-height: 140px; }
 }
+
+/* booking: one more step up in size and weight */
+.booking-layout { font-size: 19px; font-weight: 600; }
+.rates h3, .booking-panel h3 { font-size: 37px; font-weight: 700; }
+.rates-note { font-size: 18.5px; font-weight: 600; }
+.rates-table thead th { font-size: 18.5px; font-weight: 700; }
+.rates-table td { font-size: 20.5px; font-weight: 600; }
+.rates-table .rates-price { font-size: 23px; font-weight: 700; }
+.booking-panel .stay-dates dt { font-size: 14px; font-weight: 700; }
+.booking-panel .stay-dates dd { font-size: 21px; font-weight: 600; }
+.booking-panel .stay-dates dd small { font-size: 16px; font-weight: 600; }
+.form-part legend { font-size: 22px; font-weight: 700; }
+.booking-form .field label { font-size: 19.5px; font-weight: 600; }
+.booking .booking-form .field input, .booking .booking-form .field textarea { font-size: 20px; font-weight: 600; }
+.book-pad .month h4 .m-name { font-size: 30px; font-weight: 700; }
+.book-pad .dow span { font-size: 18px; font-weight: 700; }
+.book-pad .day { height: 44px; }
+.book-pad .d-num { font-size: 20.5px; font-weight: 700; }
+.book-pad .d-price { font-size: 13.5px; font-weight: 700; }
+.book-pad .pad-guests .field label { font-size: 20.5px; font-weight: 700; }
+.book-pad .pad-guests .field select { font-size: 22px; font-weight: 700; }
+.book-pad .field-help { font-size: 18px; font-weight: 600; }
+.est-row { font-size: 18.5px; font-weight: 600; }
+.est-row.q-total strong { font-size: 31px; font-weight: 700; }
+.book-pad .q-note { font-size: 16.5px; font-weight: 600; }
+.booking .btn { font-size: 20.5px; font-weight: 700; }
+.book-pad .legend h4 { font-size: 24px; font-weight: 700; }
+.book-pad .legend ul { font-size: 17.5px; font-weight: 600; }
