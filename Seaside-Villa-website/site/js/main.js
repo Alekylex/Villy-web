@@ -939,11 +939,85 @@
   }
 
   /* ------------------------------------------------------------------ */
+  /* House rules: the bullets drift a little with the pointer, each at   */
+  /* its own depth, so the field feels alive (pointer devices only).     */
+  /* ------------------------------------------------------------------ */
+  function initRulesOrbit() {
+    const field = $(".rules-orbit");
+    if (!field || reduceMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    const items = $$(".orbit-item", field);
+    const depths = [14, 26, 18, 32, 22, 12, 28, 20];
+    let frame = 0;
+    field.addEventListener("pointermove", (e) => {
+      const r = field.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => items.forEach((el, i) => {
+        const d = depths[i % depths.length];
+        el.style.setProperty("--mx", `${(-x * d).toFixed(1)}px`);
+        el.style.setProperty("--my", `${(-y * d).toFixed(1)}px`);
+      }));
+    });
+    field.addEventListener("pointerleave", () => items.forEach((el) => { el.style.setProperty("--mx", "0px"); el.style.setProperty("--my", "0px"); }));
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* House rules entrance, timed like phosvillas.gr: while the whole     */
+  /* section (title and list) fits on screen the bullets glide in from   */
+  /* both sides (1.9 s, easing out) and the text fades in; as soon as    */
+  /* the next scroll moves it off, up or down, they glide out again.     */
+  /* ------------------------------------------------------------------ */
+  function initRulesScroll() {
+    const field = $(".rules-orbit"), head = $("#rules .section-head");
+    const list = window.matchMedia("(hover: none), (max-width: 760px)");   // phones: a plain list, always shown
+    if (!field || !head || reduceMotion) return;
+    let frame = 0;
+    function update() {
+      frame = 0;
+      const on = !list.matches;
+      field.classList.toggle("is-anim", on);
+      if (!on) return;
+      const vh = window.innerHeight;
+      const top = head.getBoundingClientRect().top, bottom = field.getBoundingClientRect().bottom;
+      const fits = bottom - top <= vh - 60;
+      // in view: the whole section on screen (with a little slack); on a short screen, its middle in view
+      const inView = fits ? top >= 40 && bottom <= vh + 40 : top < vh * 0.5 && bottom > vh * 0.5;
+      field.classList.toggle("is-on", inView);
+    }
+    const queue = () => { if (!frame) frame = requestAnimationFrame(update); };
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
+    list.addEventListener("change", queue);
+    update();
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* House rules order: longest title first, shortest last, dealt in     */
+  /* turn to the left and right column so both taper the same way.       */
+  /* Lengths differ per language, so it is redone on a language change.  */
+  /* ------------------------------------------------------------------ */
+  function initRulesOrder() {
+    const field = $(".rules-orbit");
+    if (!field) return;
+    const widthOf = (li) => { const r = document.createRange(); r.selectNodeContents($("h3", li)); return r.getBoundingClientRect().width; };
+    function sort() {
+      field.classList.add("is-measuring");   // measure at natural size, not mid-animation
+      const ranked = $$(".orbit-item", field).map((li) => [li, widthOf(li)]).sort((a, b) => b[1] - a[1]).map(([li]) => li);
+      field.classList.remove("is-measuring");
+      // the list fills the left column first: ranks 1, 3, 5, 7 there, then 2, 4, 6, 8 on the right
+      ranked.filter((_, i) => i % 2 === 0).concat(ranked.filter((_, i) => i % 2 === 1)).forEach((li) => field.appendChild(li));
+    }
+    sort();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(sort);
+    I18N.onChange(() => requestAnimationFrame(sort));
+  }
+
+  /* ------------------------------------------------------------------ */
   /* Scroll reveal                                                       */
   /* ------------------------------------------------------------------ */
   function initReveal() {
     if (reduceMotion || !("IntersectionObserver" in window)) return;
-    const els = $$(".villa-head, .bento .b-card, .arch-head, .arch-floor, .island-grid li, .rules-times, .rules-grid, .booking-layout, .seasons, .location-grid, .footer-cta");
+    const els = $$(".villa-head, .bento .b-card, .arch-head, .arch-floor, .island-grid li, .booking-layout, .seasons, .location-grid, .footer-cta");
     els.forEach((el) => el.classList.add("reveal"));
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
@@ -1068,5 +1142,8 @@
   initSlider();
   initBooking();
   initArch();
+  initRulesOrder();
+  initRulesOrbit();
+  initRulesScroll();
   initReveal();
 })();

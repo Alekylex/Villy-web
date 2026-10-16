@@ -282,7 +282,7 @@
 
           <!-- outside -->
           <article class="b-card b-outside">
-            <h3 data-i18n="floor.outside">Outside</h3>
+            <h3 data-i18n="floor.outside">The Estate</h3>
             <ul class="outdoors">
               <li><span class="out-icon"><svg class="icon"><use href="#i-pool"/></svg></span><div><span data-i18n="mq.pools">3 pools in the complex</span><em data-i18n="room.onProperty">A few steps from the house</em></div></li>
               <li><span class="out-icon"><svg class="icon"><use href="#i-sun"/></svg></span><div><span data-i18n="room.terrace">Terrace &amp; patio</span><em data-i18n="room.outdoorDining">Outdoor dining</em></div></li>
@@ -611,66 +611,63 @@
           <h2 id="rules-title" data-i18n="rules.title">House rules &amp; policies</h2>
         </div>
 
-        <div class="rules-times">
-          <div class="time-card">
-            <svg class="icon"><use href="#i-clock"/></svg>
-            <div>
-              <span class="time-label">Check-in</span>
-              <strong>17:00 – 22:00</strong>
-              <p data-i18n="rules.checkinNote">Please let us know your arrival time in advance.</p>
+        <!-- Rules scattered like a small constellation: each bullet shows its title, the details
+             open on hover or keyboard focus, and the whole field drifts gently with the pointer -->
+        <ul class="rules-orbit">
+          <li class="orbit-item" tabindex="0">
+            <span class="orbit-dot" aria-hidden="true"></span>
+            <div class="orbit-text">
+              <h3>Check-in <span class="orbit-tag">17:00<span class="dash">–</span>22:00</span></h3>
+              <p class="orbit-detail" data-i18n="rules.checkinNote">Please let us know your arrival time in advance.</p>
             </div>
-          </div>
-          <div class="time-card">
-            <svg class="icon"><use href="#i-flag"/></svg>
-            <div>
-              <span class="time-label">Check-out</span>
-              <strong>08:00 – 11:00</strong>
-              <p data-i18n="rules.checkoutNote">Please check out by 11:00 at the latest.</p>
+          </li>
+          <li class="orbit-item" tabindex="0">
+            <span class="orbit-dot" aria-hidden="true"></span>
+            <div class="orbit-text">
+              <h3>Check-out <span class="orbit-tag">08:00<span class="dash">–</span>11:00</span></h3>
+              <p class="orbit-detail" data-i18n="rules.checkoutNote">Please check out by 11:00 at the latest.</p>
             </div>
-          </div>
-        </div>
-
-        <ul class="rules-grid">
-          <li>
-            <span class="rule-icon am-sage"><svg class="icon"><use href="#i-baby"/></svg></span>
-            <div>
+          </li>
+          <li class="orbit-item" tabindex="0">
+            <span class="orbit-dot" aria-hidden="true"></span>
+            <div class="orbit-text">
               <h3 data-i18n="rules.childrenTitle">Children</h3>
-              <p data-i18n="rules.childrenText">Children of any age are welcome. Guests aged 18 and over are charged the adult rate. Please tell us the number and ages of children when you request a booking.</p>
+              <p class="orbit-detail" data-i18n="rules.childrenText">Children of any age are welcome. Guests aged 18 and over are charged the adult rate. Please tell us the number and ages of children when you request a booking.</p>
             </div>
           </li>
-          <li>
-            <span class="rule-icon am-sea"><svg class="icon"><use href="#i-bed"/></svg></span>
-            <div>
+          <li class="orbit-item" tabindex="0">
+            <span class="orbit-dot" aria-hidden="true"></span>
+            <div class="orbit-text">
               <h3 data-i18n="rules.cotsTitle">Cots &amp; extra beds</h3>
-              <p data-i18n="rules.cotsText">A cot for children aged 0–3 is free on request, subject to availability. Extra beds are not available.</p>
+              <p class="orbit-detail" data-i18n="rules.cotsText">A cot for children aged 0–3 is free on request, subject to availability. Extra beds are not available.</p>
             </div>
           </li>
-          <li>
-            <span class="rule-icon am-sand"><svg class="icon"><use href="#i-paw"/></svg></span>
-            <div>
+          <li class="orbit-item" tabindex="0">
+            <span class="orbit-dot" aria-hidden="true"></span>
+            <div class="orbit-text">
               <h3 data-i18n="rules.petsTitle">Pets</h3>
-              <p data-i18n="rules.petsText">Pets are allowed on request, for a fee. Please mention your pet in your booking request.</p>
+              <p class="orbit-detail" data-i18n="rules.petsText">Pets are allowed on request, for a fee. Please mention your pet in your booking request.</p>
             </div>
           </li>
-          <li>
-            <span class="rule-icon am-rose"><svg class="icon"><use href="#i-nosmoke"/></svg></span>
-            <div>
+          <li class="orbit-item" tabindex="0">
+            <span class="orbit-dot" aria-hidden="true"></span>
+            <div class="orbit-text">
               <h3 data-i18n="rules.smokingTitle">No smoking</h3>
-              <p data-i18n="rules.smokingText">Smoking is not allowed anywhere inside the villa.</p>
+              <p class="orbit-detail" data-i18n="rules.smokingText">Smoking is not allowed anywhere inside the villa.</p>
             </div>
           </li>
-          <li>
-            <span class="rule-icon am-amber"><svg class="icon"><use href="#i-noparty"/></svg></span>
-            <div>
+          <li class="orbit-item" tabindex="0">
+            <span class="orbit-dot" aria-hidden="true"></span>
+            <div class="orbit-text">
               <h3 data-i18n="rules.partiesTitle">No parties or events</h3>
-              <p data-i18n="rules.partiesText">Parties and events are not permitted, so the neighbourhood stays calm for everyone.</p>
+              <p class="orbit-detail" data-i18n="rules.partiesText">Parties and events are not permitted, so the neighbourhood stays calm for everyone.</p>
             </div>
           </li>
-          <li>
-            <span class="rule-icon am-sage"><svg class="icon"><use href="#i-users"/></svg></span>
-            <div>
+          <li class="orbit-item" tabindex="0">
+            <span class="orbit-dot" aria-hidden="true"></span>
+            <div class="orbit-text">
               <h3 data-i18n="mq.guests">Up to 6 guests</h3>
-              <p data-i18n="rules.guestsText">The villa welcomes a maximum of 6 guests, children included. Guests of all ages are welcome, and the minimum stay is 6 nights.</p>
+              <p class="orbit-detail" data-i18n="rules.guestsText">The villa welcomes a maximum of 6 guests, children included. Guests of all ages are welcome, and the minimum stay is 6 nights.</p>
             </div>
           </li>
         </ul>

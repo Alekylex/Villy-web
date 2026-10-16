@@ -2127,3 +2127,194 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
   color: var(--arch-accent); font-variant-numeric: lining-nums;
 }
 .arch-head .arch-area span { margin-left: .18em; font-size: .62em; letter-spacing: .02em; }
+
+/* =========================================================
+   House rules: scattered bullets that open on hover
+   (the idea of phosvillas.gr #villas, in our own look; plain bullets for now)
+   ========================================================= */
+.rules-orbit {
+  --o-accent: var(--aqua-deep);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(40px, 8vw, 140px);
+  max-width: 1040px; margin: 0 auto; padding: 10px 0 100px;
+}
+.orbit-item {
+  --mx: 0px; --my: 0px;
+  position: relative; display: flex; align-items: flex-start; gap: 18px;
+  min-height: 200px; padding: 10px 0 0; outline: none; cursor: default;
+  transform: translate(calc(var(--dx, 0px) + var(--mx)), calc(var(--dy, 0px) + var(--my)));
+  transition: transform .9s cubic-bezier(.22, .61, .36, 1);
+}
+/* left column reads towards its bullet, right column away from it */
+.orbit-item:nth-child(odd) { grid-column: 1; flex-direction: row-reverse; text-align: right; }
+.orbit-item:nth-child(even) { grid-column: 2; margin-top: 100px; margin-bottom: -100px; }
+/* each bullet sits a little off the line, like a loose constellation */
+.orbit-item:nth-child(1) { --dx: 40px; }
+.orbit-item:nth-child(2) { --dx: -30px; }
+.orbit-item:nth-child(3) { --dx: -50px; }
+.orbit-item:nth-child(4) { --dx: 60px; }
+.orbit-item:nth-child(5) { --dx: 30px; }
+.orbit-item:nth-child(6) { --dx: -10px; }
+.orbit-item:nth-child(7) { --dx: -20px; }
+.orbit-item:nth-child(8) { --dx: 40px; }
+
+.orbit-dot {
+  flex: none; width: 12px; height: 12px; margin-top: 16px; border-radius: 50%;
+  background: var(--o-accent); transition: transform .4s ease;
+}
+.orbit-text { position: relative; min-width: 0; }
+.orbit-text h3 {
+  margin: 0; font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 40px); font-weight: 500; line-height: 1.1; letter-spacing: .01em; color: var(--ink);
+}
+.orbit-tag {
+  display: block; margin-top: 6px; font-size: 13px; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--o-accent); font-variant-numeric: lining-nums;
+}
+/* the details: tucked away until the bullet is hovered or focused */
+.orbit-detail {
+  position: absolute; top: 100%; width: min(340px, 40vw); margin: 12px 0 0;
+  font-family: "Cormorant Garamond", "Times New Roman", serif; font-size: 19px; font-weight: 500; line-height: 1.45;
+  color: var(--ink-2); opacity: 0; transform: translateY(-6px); pointer-events: none;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.orbit-item:nth-child(odd) .orbit-detail { right: 0; }
+.orbit-item:nth-child(even) .orbit-detail { left: 0; }
+.orbit-item:hover, .orbit-item:focus-visible { z-index: 2; }
+.orbit-item:hover .orbit-detail, .orbit-item:focus-visible .orbit-detail { opacity: 1; transform: none; }
+.orbit-item:hover .orbit-dot, .orbit-item:focus-visible .orbit-dot { transform: scale(1.6); }
+.orbit-item:focus-visible h3 { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+
+/* touch screens and narrow windows: a plain list with the details always shown */
+@media (hover: none), (max-width: 760px) {
+  .rules-orbit { grid-template-columns: 1fr; max-width: 560px; padding-bottom: 0; }
+  .orbit-item, .orbit-item:nth-child(odd), .orbit-item:nth-child(even) {
+    grid-column: 1; flex-direction: row; text-align: left; margin: 0; padding: 14px 0; min-height: 0; transform: none;
+  }
+  .orbit-detail { position: static; width: auto; opacity: 1; transform: none; margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit-item, .orbit-detail, .orbit-dot { transition: none; }
+}
+
+/* entrance when the rules scroll into view: the bullets fly in from the sides to their places
+   one after another, then their text fades in beside them */
+.rules { overflow-x: clip; }
+.rules-orbit.reveal, .rules-orbit.reveal.is-in { opacity: 1; transform: none; }
+.rules-orbit.reveal:not(.is-in) .orbit-dot, .rules-orbit.reveal:not(.is-in) .orbit-text { opacity: 0; }
+.orbit-item:nth-child(1) { --d: 0s; }
+.orbit-item:nth-child(2) { --d: .14s; }
+.orbit-item:nth-child(3) { --d: .28s; }
+.orbit-item:nth-child(4) { --d: .42s; }
+.orbit-item:nth-child(5) { --d: .56s; }
+.orbit-item:nth-child(6) { --d: .70s; }
+.orbit-item:nth-child(7) { --d: .84s; }
+.orbit-item:nth-child(8) { --d: .98s; }
+.rules-orbit.reveal.is-in .orbit-item:nth-child(odd) .orbit-dot { animation: orbitFromLeft 1.2s cubic-bezier(.16, .7, .2, 1) var(--d) backwards; }
+.rules-orbit.reveal.is-in .orbit-item:nth-child(even) .orbit-dot { animation: orbitFromRight 1.2s cubic-bezier(.16, .7, .2, 1) var(--d) backwards; }
+.rules-orbit.reveal.is-in .orbit-text { animation: orbitText .8s ease calc(var(--d) + 1s) backwards; }
+@keyframes orbitFromLeft { from { opacity: 0; transform: translateX(-60vw) scale(2.2); } 60% { opacity: 1; } to { opacity: 1; transform: none; } }
+@keyframes orbitFromRight { from { opacity: 0; transform: translateX(60vw) scale(2.2); } 60% { opacity: 1; } to { opacity: 1; transform: none; } }
+@keyframes orbitText { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+/* in the one-column list every bullet comes in from the left */
+@media (hover: none), (max-width: 760px) {
+  .rules-orbit.reveal.is-in .orbit-item:nth-child(even) .orbit-dot { animation-name: orbitFromLeft; }
+}
+
+/* scroll-linked version (js: initRulesScroll) replaces the one-off entrance */
+.rules-orbit.is-scroll .orbit-dot { translate: var(--fly, 0px) 0; scale: var(--fs, 1); opacity: var(--fo, 1); }
+.rules-orbit.is-scroll .orbit-text { opacity: var(--to, 1); translate: 0 calc((1 - var(--to, 1)) * 8px); }
+
+/* entrance timed like phosvillas.gr (js: initRulesScroll): bullets glide in from the sides together
+   over 1.9 s with an ease-out, the text fades in over 0.7 s at the same time; reversed on the way back up */
+.rules-orbit.is-anim .orbit-dot {
+  translate: calc(var(--side, -1) * 55vw) 0; scale: 2.6; opacity: 0;
+  transition: translate 1.9s cubic-bezier(.165, .84, .44, 1), scale 1.9s cubic-bezier(.165, .84, .44, 1), opacity .7s ease, transform .4s ease;
+}
+/* each bullet comes from the far side, so it crosses the middle instead of its own text */
+.rules-orbit.is-anim .orbit-item:nth-child(odd) { --side: 1; }
+.rules-orbit.is-anim .orbit-text { opacity: 0; transition: opacity .7s ease; }
+.rules-orbit.is-anim.is-on .orbit-dot { translate: 0 0; scale: 1; opacity: 1; }
+.rules-orbit.is-anim.is-on .orbit-text { opacity: 1; }
+@media (hover: none), (max-width: 760px) {
+  .rules-orbit.is-anim .orbit-item:nth-child(odd) { --side: -1; }
+}
+
+/* compact rules: the title and all eight bullets fit on one screen, spaced like the other sections */
+.rules-orbit { max-width: 960px; padding: 0 0 56px; column-gap: clamp(40px, 7vw, 120px); }
+.orbit-item { min-height: 108px; padding-top: 0; gap: 14px; }
+.orbit-item:nth-child(even) { margin-top: 54px; margin-bottom: -54px; }
+.orbit-text h3 { font-size: clamp(25px, 2.3vw, 31px); }
+.orbit-tag { margin-top: 4px; font-size: 12px; }
+.orbit-dot { width: 10px; height: 10px; margin-top: 12px; }
+/* on hover the details sit on a plain card, so they read cleanly over the row below */
+.orbit-detail {
+  z-index: 3; width: min(320px, 40vw); margin-top: 8px; padding: 12px 16px;
+  font-size: 18px; background: var(--surface); box-shadow: 0 14px 34px -18px rgba(0, 0, 0, .28);
+}
+@media (hover: none), (max-width: 760px) {
+  .orbit-detail { padding: 0; background: none; box-shadow: none; }
+}
+
+/* two tidy columns: the first four rules on the left, the other four on the right, row beside row */
+.rules-orbit { grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: clamp(48px, 6vw, 96px); max-width: 900px; }
+.orbit-item, .orbit-item:nth-child(odd), .orbit-item:nth-child(even) { grid-column: auto; margin: 0; --dx: 0px; min-height: 92px; }
+.orbit-item:nth-child(-n+4) { flex-direction: row-reverse; text-align: right; }
+.orbit-item:nth-child(n+5) { flex-direction: row; text-align: left; }
+.orbit-item:nth-child(-n+4) .orbit-detail { right: 0; left: auto; }
+.orbit-item:nth-child(n+5) .orbit-detail { left: 0; right: auto; }
+/* entrance: the left column comes from the right and the right column from the left, crossing in the middle */
+.rules-orbit.is-anim .orbit-item:nth-child(-n+4) { --side: 1; }
+.rules-orbit.is-anim .orbit-item:nth-child(n+5) { --side: -1; }
+@media (hover: none), (max-width: 760px) {
+  .rules-orbit { grid-template-rows: none; grid-auto-flow: row; }
+  .orbit-item:nth-child(-n+4), .orbit-item:nth-child(n+5) { flex-direction: row; text-align: left; min-height: 0; }
+  .orbit-item:nth-child(-n+4) .orbit-detail { left: auto; right: auto; }
+  .orbit-detail { width: auto; }
+}
+
+/* no bullets: only the words glide in, the left column from the left and the right column from the right,
+   with the same 1.9 s ease-out; the text also fades in. Reversed when the section scrolls away. */
+.orbit-dot { display: none; }
+.orbit-item, .orbit-item:nth-child(-n+4), .orbit-item:nth-child(n+5) { gap: 0; }
+.rules-orbit.is-anim .orbit-text {
+  translate: calc(var(--tside, -1) * 45vw) 0; opacity: 0;
+  transition: translate 1.9s cubic-bezier(.165, .84, .44, 1), opacity 1.2s ease;
+  will-change: translate, opacity;
+}
+.rules-orbit.is-anim .orbit-item:nth-child(n+5) { --tside: 1; }
+.rules-orbit.is-anim.is-on .orbit-text { translate: 0 0; opacity: 1; }
+@media (hover: none), (max-width: 760px) {
+  .rules-orbit.is-anim .orbit-item:nth-child(n+5) { --tside: -1; }
+}
+
+/* check-in / check-out times on the title line, in the same colour and serif as the title;
+   the dash is lifted to sit level with the figures */
+.orbit-text h3 .orbit-tag {
+  display: inline; margin: 0 0 0 .35em; font: inherit; font-size: .82em; letter-spacing: .01em;
+  text-transform: none; color: inherit; font-variant-numeric: lining-nums; white-space: nowrap;
+}
+.orbit-tag .dash { display: inline-block; margin: 0 .2em; transform: translateY(-.12em); }
+
+/* every title arrives from its own direction, as the planets on phosvillas.gr do:
+   left column from top-left, left, bottom-left and below; right column from above, top-right, right and bottom-right,
+   growing or shrinking a little on the way */
+.orbit-item:nth-child(1) { --fx: -38vw; --fy: -28vh; --fsc: 1.35; }
+.orbit-item:nth-child(2) { --fx: -50vw; --fy: 0vh;   --fsc: .7; }
+.orbit-item:nth-child(3) { --fx: -34vw; --fy: 26vh;  --fsc: 1.25; }
+.orbit-item:nth-child(4) { --fx: -8vw;  --fy: 34vh;  --fsc: .75; }
+.orbit-item:nth-child(5) { --fx: 8vw;   --fy: -34vh; --fsc: .75; }
+.orbit-item:nth-child(6) { --fx: 38vw;  --fy: -26vh; --fsc: 1.3; }
+.orbit-item:nth-child(7) { --fx: 50vw;  --fy: 4vh;   --fsc: .7; }
+.orbit-item:nth-child(8) { --fx: 34vw;  --fy: 28vh;  --fsc: 1.35; }
+.rules-orbit.is-anim .orbit-text {
+  translate: var(--fx, -45vw) var(--fy, 0vh); scale: var(--fsc, 1); opacity: 0;
+  transition: translate 1.9s cubic-bezier(.165, .84, .44, 1), scale 1.9s cubic-bezier(.165, .84, .44, 1), opacity 1.2s ease;
+  will-change: translate, scale, opacity;
+}
+.rules-orbit.is-anim.is-on .orbit-text { translate: 0 0; scale: 1; opacity: 1; }
+/* phones: the plain list keeps a simple slide in from the left */
+@media (hover: none), (max-width: 760px) {
+  .orbit-item:nth-child(n) { --fx: -45vw; --fy: 0vh; --fsc: 1; }
+}
+/* while the order is being measured (js: initRulesOrder) every title sits at its natural size */
+.rules-orbit.is-measuring .orbit-text { translate: none !important; scale: none !important; transition: none !important; }
