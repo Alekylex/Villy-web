@@ -2275,3 +2275,34 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 }
 /* while the order is being measured (js: initRulesOrder) every title sits at its natural size */
 .rules-orbit.is-measuring .orbit-text { translate: none !important; scale: none !important; transition: none !important; }
+
+/* experiment: each rule gets an orb cut from the cover photo (Milky Way photo from the cover: each orb is a different patch of sky (one is the red mountain)).
+   The orbs sit on the spine between the two columns and travel the same path as their text,
+   a beat behind it, so they trail the words in and out. */
+.rules-orbit { column-gap: 28px; max-width: 980px; }
+.orbit-dot {
+  display: block; flex: none; width: var(--orb, 56px); height: var(--orb, 56px); margin: calc((40px - var(--orb, 56px)) / 2) 0 0;
+  border-radius: 50%; background: #111 url("../images/milky-way-montana-roja.jpg") no-repeat; background-size: 820px auto; filter: saturate(1.45) brightness(1.2) contrast(1.05);
+  box-shadow: inset -8px -10px 18px rgba(0, 0, 0, .55), inset 4px 4px 10px rgba(255, 255, 255, .12), 0 6px 18px -8px rgba(20, 10, 40, .6);
+}
+.orbit-item, .orbit-item:nth-child(-n+4), .orbit-item:nth-child(n+5) { gap: 22px; align-items: center; }
+.orbit-item:nth-child(-n+4) .orbit-dot { margin-right: calc((64px - var(--orb, 56px)) / 2); }
+.orbit-item:nth-child(n+5) .orbit-dot { margin-left: calc((64px - var(--orb, 56px)) / 2); }
+.orbit-item:nth-child(1) .orbit-dot { --orb: 64px; background-position: 62% 42%; }
+.orbit-item:nth-child(2) .orbit-dot { --orb: 52px; background-position: 70% 48%; }
+.orbit-item:nth-child(3) .orbit-dot { --orb: 58px; background-position: 50% 33%; }
+.orbit-item:nth-child(4) .orbit-dot { --orb: 46px; background-position: 79% 50%; }
+.orbit-item:nth-child(5) .orbit-dot { --orb: 56px; background-position: 41% 26%; }
+.orbit-item:nth-child(6) .orbit-dot { --orb: 62px; background-position: 86% 56%; }
+.orbit-item:nth-child(7) .orbit-dot { --orb: 48px; background-position: 31% 76%; }
+.orbit-item:nth-child(8) .orbit-dot { --orb: 54px; background-position: 57% 39%; }
+.rules-orbit.is-anim .orbit-dot {
+  translate: var(--fx, -45vw) var(--fy, 0vh); scale: var(--fsc, 1); opacity: 0;
+  transition: translate 2.2s cubic-bezier(.165, .84, .44, 1) .14s, scale 2.2s cubic-bezier(.165, .84, .44, 1) .14s, opacity 1.3s ease .14s, transform .4s ease;
+}
+.rules-orbit.is-anim.is-on .orbit-dot { translate: 0 0; scale: 1; opacity: 1; }
+.rules-orbit.is-measuring .orbit-dot { translate: none !important; scale: none !important; transition: none !important; }
+@media (hover: none), (max-width: 760px) {
+  .orbit-dot { --orb: 40px !important; margin: 0 !important; }
+  .orbit-item, .orbit-item:nth-child(-n+4), .orbit-item:nth-child(n+5) { align-items: flex-start; gap: 16px; }
+}
