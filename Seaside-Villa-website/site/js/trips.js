@@ -1,7 +1,7 @@
 /* =========================================================================
    DAY TRIPS — the stories behind the three cards in "Day trips".
    Clicking a card opens these in a window. One block per place, one
-   sub-block per language (cs / en / es); English is used if one is missing.
+   sub-block per language (cs / en / es / de); English is used if one is missing.
 
      tagline   one line under the title
      facts     short label + value pairs shown as tiles
@@ -96,6 +96,33 @@ window.VILLA_TRIPS = {
         "En mayo y junio florecen los tajinastes rojos: espigas de flores de hasta 3 m que solo crecen en esta zona.",
         "Merece la pena quedarse hasta que anochezca: una puesta de sol sobre las nubes y después un cielo sin contaminación lumínica."
       ]
+    },
+    de: {
+      tagline: "Spaniens höchster Gipfel, 75 Minuten vom Haus",
+      facts: [
+        ["Vom Haus", "ca. 1 Std. 15 Min. mit dem Auto"],
+        ["Höhe", "3.715 m"],
+        ["Wann losfahren", "frühmorgens oder zum Sonnenuntergang"],
+        ["Einplanen", "einen halben bis ganzen Tag"]
+      ],
+      story: [
+        "Vom Süden der Insel steigt die Straße durch Vilaflor, das höchstgelegene Dorf Spaniens, und weiter durch Kiefernwälder bis über die Wolkengrenze. Hinter der letzten Kurve öffnet sich die Caldera Las Cañadas: ein Vulkankrater von siebzehn Kilometern Durchmesser, gefüllt mit erstarrten Lavaströmen in Schwarz, Rost und Grün. Eine Landschaft, die eher an einen anderen Planeten erinnert als an eine Insel im Atlantik.",
+        "Über der Caldera erhebt sich der Teide, Spaniens höchster Berg. Vom Meeresboden aus gemessen erreicht er rund 7.500 m und gehört damit zu den drei höchsten Vulkanen der Erde, gleich nach Mauna Kea und Mauna Loa auf Hawaii."
+      ],
+      didYouKnow: [
+        "Die Ureinwohner der Insel, die Guanchen, verehrten den Teide als heiligen Berg und nannten ihn Echeyde.",
+        "Bei Sonnenauf- und -untergang wirft der Teide einen scharfen dreieckigen Schatten auf die Wolkendecke, Dutzende Kilometer lang. Es ist eines der bekanntesten Naturphänomene der Insel.",
+        "Der Felsen Roque Cinchado an den Roques de García war auf dem spanischen 1.000-Peseten-Schein abgebildet und gehört heute zu den meistfotografierten Orten der Kanaren.",
+        "Der Teide-Nationalpark ist seit 2007 UNESCO-Welterbe und der meistbesuchte Nationalpark Spaniens.",
+        "Wegen der außergewöhnlich klaren Luft steht hier das Observatorium von Izaña. Der Nachthimmel über der Caldera zählt zu den besten Europas."
+      ],
+      tips: [
+        "Nehmen Sie Jacke und Mütze mit. Während am Strand 25 °C herrschen, kann es oben um 5 °C haben, bei starkem Wind.",
+        "Kaufen Sie die Tickets für die Seilbahn am besten eine Woche vorher online, in der Hochsaison noch früher, denn sie sind oft ausverkauft. Die Fahrt auf 3.555 m dauert etwa 8 Minuten. Bei starkem Wind fährt sie nicht, prüfen Sie den Betrieb also am Ausflugstag.",
+        "Für den Aufstieg bis zum Gipfel brauchen Sie eine kostenlose Genehmigung des Nationalparks. In der Hochsaison lohnt es sich, sie zwei bis drei Monate im Voraus zu reservieren.",
+        "Im Mai und Juni blühen die Tajinastes: bis zu 3 m hohe rote Blütentürme, die nur in dieser Gegend wachsen.",
+        "Es lohnt sich, bis zur Dunkelheit zu bleiben. Ein Sonnenuntergang über den Wolken und danach ein Sternenhimmel ohne Lichtverschmutzung sind ein unvergessliches Erlebnis."
+      ]
     }
   },
 
@@ -176,6 +203,31 @@ window.VILLA_TRIPS = {
         "En el paseo hay numerosas escuelas de kitesurf, windsurf y paddle surf, con cursos para principiantes.",
         "La subida a la Montaña Roja lleva unos 30 minutos y es especialmente bonita antes del atardecer, con vistas a las dos playas.",
         "Justo al lado se alza la Montaña Pelada, un antiguo cráter con un sendero circular sencillo."
+      ]
+    },
+    de: {
+      tagline: "Die Surferstadt auf der anderen Seite des Montaña Roja",
+      facts: [
+        ["Vom Haus", "5 Minuten mit dem Auto"],
+        ["Zu Fuß", "entlang der Küste, ca. 1 Std."],
+        ["Wann losfahren", "morgens an den Strand, nach dem Mittag kommt der Wind"],
+        ["Einplanen", "ein paar Stunden – oder jeden Tag"]
+      ],
+      story: [
+        "El Médano ist ein bekanntes Zentrum für Windsurfen und Kitesurfen mit ganz eigener Atmosphäre. Statt weitläufiger Hotelanlagen finden Sie hier niedrige Häuserzeilen, eine Strandpromenade mit Cafés und Restaurants und einen Platz direkt über dem Strand mit einem der schönsten Sonnenuntergänge im Süden der Insel.",
+        "Mit dem Auto sind es fünf Minuten, doch am schönsten ist es zu Fuß. Vom Strand La Tejita führt ein markierter Weg durch das Naturschutzgebiet Montaña Roja: um den Fuß des roten Vulkankegels, über Sanddünen und entlang der felsigen Küste bis zum Strand Leocadio Machado am Rand von El Médano."
+      ],
+      didYouKnow: [
+        "Médano ist das spanische Wort für „Sanddüne“: Der Ort entstand auf Sand, den der Wind über Jahrhunderte vom Meer herangetragen hat.",
+        "Beständige Passatwinde machen ihn zu einem der windigsten Orte Europas, regelmäßig findet hier der Windsurf-Weltcup statt.",
+        "Der Montaña Roja (171 m) ist ein geschütztes Naturreservat. Vom Gipfel sehen Sie den Strand La Tejita, ganz El Médano und die Flugzeuge, die am Flughafen Teneriffa Süd landen.",
+        "Ein langer Holzsteg führt am Strand entlang bis ans andere Ende des Ortes, ideal für einen Morgenlauf oder einen Abendspaziergang."
+      ],
+      tips: [
+        "Der Wind frischt meist nach Mittag auf. Vormittags ist es am besten zum Baden, nachmittags wird der Strand zur Kulisse für Dutzende bunte Drachen.",
+        "An der Promenade gibt es viele Kite-, Windsurf- und Paddleboard-Schulen, auch mit Kursen für absolute Anfänger.",
+        "Der Aufstieg auf den Montaña Roja dauert etwa 30 Minuten und ist kurz vor Sonnenuntergang am schönsten, mit Blick auf beide Strände.",
+        "Gleich nebenan erhebt sich der Montaña Pelada, ein alter Krater mit einem leichten Rundweg."
       ]
     }
   },
@@ -261,6 +313,32 @@ window.VILLA_TRIPS = {
         "Recomendamos una salida de unas tres horas con parada en la bahía de Masca, donde podrás bañarte en aguas cristalinas justo bajo los acantilados.",
         "La mejor vista de los acantilados desde tierra es el Mirador de Archipenque, sobre el pueblo. Al atardecer se ve el sol ponerse detrás de La Gomera.",
         "Para descansar después del barco, la cercana Playa de la Arena, en Puerto de Santiago, tiene arena volcánica negra y fina.",
+      ]
+    },
+    de: {
+      tagline: "Gewaltige Klippen, Wale und die schönsten Sonnenuntergänge der Insel",
+      facts: [
+        ["Vom Haus", "ca. 1 Std. mit dem Auto"],
+        ["Höhe der Klippen", "bis zu 600 m"],
+        ["Wann losfahren", "morgens aufs Boot, abends zum Sonnenuntergang"],
+        ["Einplanen", "einen ganzen Tag"]
+      ],
+      story: [
+        "Die Klippen von Los Gigantes gehören zu den eindrucksvollsten Naturwundern der Kanarischen Inseln. An der Nordwestküste Teneriffas endet das Teno-Gebirge in Wänden aus dunklem Vulkangestein, die über mehrere Kilometer senkrecht aus dem Atlantik aufsteigen und bis zu 600 m hoch sind. Die Ureinwohner nannten sie die „Mauer der Hölle“.",
+        "Ihre wahre Größe erfassen Sie am besten vom Deck eines Bootes aus. Ausflugsfahrten starten im Hafen von Los Gigantes zum Fuß der Klippen und in die Gewässer zwischen Teneriffa und La Gomera, einen der besten Orte Europas, um Wale und Delfine in freier Natur zu beobachten."
+      ],
+      didYouKnow: [
+        "Zwischen Teneriffa und dem benachbarten La Gomera lebt eine sesshafte Population von Grindwalen: Hunderte Tiere, das ganze Jahr über. Solche Orte gibt es weltweit nur eine Handvoll.",
+        "Auch Große Tümmler leben hier, und mit etwas Glück sehen Sie außerdem Meeresschildkröten oder Furchenwale.",
+        "Die Klippen sind der Rest des Teno-Vulkanmassivs, eines der ältesten Teile der Insel und weit älter als der Teide selbst.",
+        "Oberhalb liegt Masca, ein Bergdorf in einer Schlucht. Bis in die 1970er-Jahre führte keine Straße dorthin, nur Bergpfade."
+      ],
+      tips: [
+        "Wählen Sie lizenzierte Walbeobachtungsboote mit der offiziellen blauen Flagge „Barco Azul“. Sie halten den vorgeschriebenen Abstand und stören die Tiere nicht.",
+        "Planen Sie die Bootsfahrt für den Vormittag ein, wenn das Meer meist ruhiger und das Licht an den Klippen am schönsten ist.",
+        "Wir empfehlen eine etwa dreistündige Fahrt mit Halt in der Bucht von Masca, wo Sie im kristallklaren Wasser direkt unter den Klippen schwimmen können.",
+        "Den schönsten Blick auf die Klippen vom Land aus haben Sie vom Mirador de Archipenque oberhalb des Ortes. Bei Sonnenuntergang sehen Sie die Sonne hinter La Gomera versinken.",
+        "Zum Entspannen nach der Bootsfahrt bietet die nahe Playa de la Arena in Puerto de Santiago feinen schwarzen Vulkansand."
       ]
     }
   }

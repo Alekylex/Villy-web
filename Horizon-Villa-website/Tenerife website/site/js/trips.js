@@ -1,7 +1,7 @@
 /* =========================================================================
    DAY TRIPS — the stories behind the three cards in "Day trips".
    Clicking a card opens these in a window. One block per place, one
-   sub-block per language (cs / en / es); English is used if one is missing.
+   sub-block per language (cs / en / es / de); English is used if one is missing.
 
      tagline   one line under the title
      facts     short label + value pairs shown as tiles
@@ -96,6 +96,33 @@ window.VILLA_TRIPS = {
         "En mayo y junio florecen los tajinastes rojos: espigas de flores de hasta 3 m que solo crecen en esta zona.",
         "Merece la pena quedarse hasta que anochezca: una puesta de sol sobre las nubes y después un cielo sin contaminación lumínica."
       ]
+    },
+    de: {
+      tagline: "Spaniens höchster Gipfel, 75 Minuten vom Haus",
+      facts: [
+        ["Vom Haus", "ca. 1 Std. 15 Min. mit dem Auto"],
+        ["Höhe", "3.715 m"],
+        ["Wann losfahren", "frühmorgens oder zum Sonnenuntergang"],
+        ["Einplanen", "einen halben bis ganzen Tag"]
+      ],
+      story: [
+        "Vom Süden der Insel steigt die Straße durch Vilaflor, das höchstgelegene Dorf Spaniens, und weiter durch Kiefernwälder bis über die Wolkengrenze. Hinter der letzten Kurve öffnet sich die Caldera Las Cañadas: ein Vulkankrater von siebzehn Kilometern Durchmesser, gefüllt mit erstarrten Lavaströmen in Schwarz, Rost und Grün. Eine Landschaft, die eher an einen anderen Planeten erinnert als an eine Insel im Atlantik.",
+        "Über der Caldera erhebt sich der Teide, Spaniens höchster Berg. Vom Meeresboden aus gemessen erreicht er rund 7.500 m und gehört damit zu den drei höchsten Vulkanen der Erde, gleich nach Mauna Kea und Mauna Loa auf Hawaii."
+      ],
+      didYouKnow: [
+        "Die Ureinwohner der Insel, die Guanchen, verehrten den Teide als heiligen Berg und nannten ihn Echeyde.",
+        "Bei Sonnenauf- und -untergang wirft der Teide einen scharfen dreieckigen Schatten auf die Wolkendecke, Dutzende Kilometer lang. Es ist eines der bekanntesten Naturphänomene der Insel.",
+        "Der Felsen Roque Cinchado an den Roques de García war auf dem spanischen 1.000-Peseten-Schein abgebildet und gehört heute zu den meistfotografierten Orten der Kanaren.",
+        "Der Teide-Nationalpark ist seit 2007 UNESCO-Welterbe und der meistbesuchte Nationalpark Spaniens.",
+        "Wegen der außergewöhnlich klaren Luft steht hier das Observatorium von Izaña. Der Nachthimmel über der Caldera zählt zu den besten Europas."
+      ],
+      tips: [
+        "Nehmen Sie Jacke und Mütze mit. Während am Strand 25 °C herrschen, kann es oben um 5 °C haben, bei starkem Wind.",
+        "Kaufen Sie die Tickets für die Seilbahn am besten eine Woche vorher online, in der Hochsaison noch früher, denn sie sind oft ausverkauft. Die Fahrt auf 3.555 m dauert etwa 8 Minuten. Bei starkem Wind fährt sie nicht, prüfen Sie den Betrieb also am Ausflugstag.",
+        "Für den Aufstieg bis zum Gipfel brauchen Sie eine kostenlose Genehmigung des Nationalparks. In der Hochsaison lohnt es sich, sie zwei bis drei Monate im Voraus zu reservieren.",
+        "Im Mai und Juni blühen die Tajinastes: bis zu 3 m hohe rote Blütentürme, die nur in dieser Gegend wachsen.",
+        "Es lohnt sich, bis zur Dunkelheit zu bleiben. Ein Sonnenuntergang über den Wolken und danach ein Sternenhimmel ohne Lichtverschmutzung sind ein unvergessliches Erlebnis."
+      ]
     }
   },
 
@@ -181,6 +208,32 @@ window.VILLA_TRIPS = {
         "Si quieres vivir el carnaval, reserva tu estancia con suficiente antelación. Suele celebrarse en febrero y atrae a visitantes de todo el mundo.",
         "Los domingos la mayoría de las tiendas cierran, así que para compras y mercado es mejor un día laborable o el sábado."
       ]
+    },
+    de: {
+      tagline: "Die Hauptstadt der Insel, zwischen Ozean und Anaga-Gebirge",
+      facts: [
+        ["Vom Haus", "ca. 50 Min. mit dem Auto"],
+        ["Einwohner", "über 200.000"],
+        ["Wann losfahren", "an einem Werktagmorgen"],
+        ["Einplanen", "einen ganzen Tag"]
+      ],
+      story: [
+        "Santa Cruz ist eine lebendige Hafenstadt, die ihren echten kanarischen Charakter bewahrt hat. Breite Boulevards, Kolonialhäuser mit Holzbalkonen, schattige Parks und eine Uferpromenade mit moderner Architektur zeigen eine ganz andere Seite Teneriffas als die Ferienorte im Süden.",
+        "Am Ufer dominiert das Auditorio de Tenerife des Architekten Santiago Calatrava, dessen weißes, wellenförmiges Dach zum Symbol der Insel geworden ist. Wenige Minuten entfernt liegen die Einkaufsstraßen, eine Markthalle voller regionaler Produkte und die Plaza de España mit ihrem großen Wasserbecken."
+      ],
+      didYouKnow: [
+        "Santa Cruz teilt sich die Rolle der Hauptstadt der Kanarischen Inseln mit Las Palmas auf Gran Canaria.",
+        "Der Karneval gehört zu den größten der Welt. 1987 kamen rund 200.000 Menschen zu einem Konzert von Celia Cruz, ein Guinness-Weltrekord.",
+        "Das Auditorio de Tenerife wurde 2003 eröffnet, die „Welle“ seines Daches ist fast 100 m lang.",
+        "Der helle Sand des nahen Strandes Las Teresitas wurde in den 1970er-Jahren aus der Sahara herangebracht. Heute ist er der Lieblingsstrand der Stadt."
+      ],
+      tips: [
+        "Beginnen Sie den Vormittag im Mercado de Nuestra Señora de África, mit frischem Obst, Fisch, Käse und lokalem Wein. Nachmittags ist er meist geschlossen.",
+        "Vom Zentrum fährt eine Straßenbahn ins benachbarte La Laguna, eine UNESCO-Welterbestadt, deren historische Gassen zu den schönsten der Insel gehören.",
+        "Fahren Sie am Nachmittag zum Strand Las Teresitas, etwa 15 Minuten vom Zentrum, mit hellem Sand und Blick auf das Anaga-Gebirge.",
+        "Wenn Sie den Karneval erleben möchten, buchen Sie Ihren Aufenthalt frühzeitig. Er findet meist im Februar statt und zieht Besucher aus aller Welt an.",
+        "Sonntags haben die meisten Geschäfte geschlossen. Für Einkäufe und den Markt ist ein Werktag oder Samstag ideal."
+      ]
     }
   },
 
@@ -265,6 +318,32 @@ window.VILLA_TRIPS = {
         "La ruta del barranco hasta el mar requiere reserva online y el pago de una tasa. Consulta las condiciones y los días de apertura antes de ir.",
         "Masca se combina perfectamente con Los Gigantes, a solo unos 30 minutos en coche.",
         "En las terrazas del pueblo prueba la cocina canaria tradicional, como las papas arrugadas con mojo."
+      ]
+    },
+    de: {
+      tagline: "Ein Bergdorf im Herzen des Teno-Gebirges",
+      facts: [
+        ["Vom Haus", "ca. 1 Std. 30 Min. mit dem Auto"],
+        ["Höhe", "ca. 600 m"],
+        ["Wann losfahren", "frühmorgens"],
+        ["Einplanen", "einen halben Tag, mit Los Gigantes einen ganzen"]
+      ],
+      story: [
+        "Masca gehört zu den eindrucksvollsten Orten Teneriffas. Eine Gruppe von Steinhäusern mit Terrakottadächern schmiegt sich an einen schmalen Grat hoch über einer Schlucht, umgeben von den schroffen Gipfeln des Teno-Gebirges, einem der ältesten und wildesten Teile der Insel.",
+        "Schon die Anfahrt ist ein Erlebnis. Von Santiago del Teide schlängelt sich die Straße in Serpentinen über die Berghänge, und Aussichtspunkte blicken tief in die Schlucht und hinüber nach La Gomera am Horizont. Das Dorf selbst bietet Ruhe, traditionelle Architektur und kleine Terrassen mit lokaler Küche."
+      ],
+      didYouKnow: [
+        "Bis in die 1970er-Jahre führte keine Straße ins Dorf. Menschen und Vorräte kamen nur über Bergpfade hierher.",
+        "Masca liegt im geschützten Landschaftspark Teno, mit endemischen Pflanzen, die es nirgendwo sonst auf der Welt gibt.",
+        "Die Schlucht Barranco de Masca führt vom Dorf bis hinunter zum Ozean und ist eine der bekanntesten Wanderungen der Kanaren.",
+        "Wie die Klippen von Los Gigantes ist das Teno-Gebirge der Rest eines der ältesten Vulkane der Insel, weit älter als der Teide selbst."
+      ],
+      tips: [
+        "Fahren Sie frühmorgens los. So meiden Sie den Verkehr auf der schmalen Straße und die Menschenmengen und sehen die Schlucht im schönsten Licht.",
+        "Halten Sie am Aussichtspunkt Mirador de Cherfe über der Schlucht. An klaren Tagen sieht man bis nach La Gomera.",
+        "Die Wanderung durch die Schlucht zum Meer erfordert eine vorherige Online-Reservierung und eine Gebühr. Prüfen Sie vor dem Ausflug die aktuellen Bedingungen und Öffnungstage.",
+        "Masca lässt sich ideal mit Los Gigantes verbinden, nur etwa 30 Minuten Fahrt entfernt.",
+        "Probieren Sie auf den Terrassen im Dorf die traditionelle kanarische Küche, zum Beispiel Papas arrugadas mit Mojo-Soße."
       ]
     }
   }

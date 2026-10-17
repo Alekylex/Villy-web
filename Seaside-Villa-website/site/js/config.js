@@ -52,10 +52,10 @@ window.VILLA_CONFIG = {
   maxGuests: 4,             // adults + children together
 
   /* Nightly price. To add seasons later, put extra lines ABOVE the "All year" line,
-     e.g. { name: { en: "Christmas", cs: "Vánoce", es: "Navidad" }, from: "12-20", to: "01-06", nightly: 210, minNights: 7 },
+     e.g. { name: { en: "Christmas", cs: "Vánoce", es: "Navidad", de: "Weihnachten" }, from: "12-20", to: "01-06", nightly: 210, minNights: 7 },
      Dates are month-day ("MM-DD"). The first matching line wins. */
   seasons: [
-    { name: { en: "All year", cs: "Celý rok", es: "Todo el año" }, from: "01-01", to: "12-31", nightly: 150 }
+    { name: { en: "All year", cs: "Celý rok", es: "Todo el año", de: "Ganzjährig" }, from: "01-01", to: "12-31", nightly: 150 }
   ],
 
   /* ---- Demo bookings (for testing) ---------------------------------------
