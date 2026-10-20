@@ -2396,3 +2396,23 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 }
 .finale .contact-pill .icon { color: #fff; }
 .finale .contact-pill:hover { background: rgba(255, 255, 255, .26); color: #fff; border-color: rgba(255, 255, 255, .75); }
+
+/* consent checkbox under the booking form */
+.consent-field { margin-top: 6px; }
+.booking .check.consent { align-items: flex-start; font-size: 16px; line-height: 1.5; color: var(--ink-2); }
+.booking .check.consent input { margin-top: 3px; }
+.check.consent a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.consent-field.has-error .check.consent { color: var(--danger); }
+/* legal links in the footer */
+.footer-legal { display: flex; flex-wrap: wrap; gap: 6px 18px; flex-basis: 100%; font-size: 13.5px; }
+.footer-legal a { color: var(--ink-3); text-decoration: none; }
+.footer-legal a:hover { color: var(--ink); text-decoration: underline; }
+.footer-bottom > .brand { order: 1; }
+.footer-bottom > .legal { order: 2; }
+.footer-bottom > .footer-legal { order: 3; }
+/* the consent line reads at the same size as the form, and needs no "required" star */
+.booking-form .consent-field label.check::after { content: none; }
+.booking .booking-form .check.consent { font-size: 17px; font-weight: 500; color: var(--ink); }
+.booking .booking-form .consent-field .check.consent span { font-size: 18px; line-height: 1.5; }
+.booking .consent-field .field-error { font-size: 15px; margin-top: 4px; }
+.booking .booking-form .consent-field.has-error .check.consent span { color: var(--danger); }

@@ -809,6 +809,7 @@
     const nameInput = $("#f-name"), emailInput = $("#f-email");
     nameInput.addEventListener("blur", () => setFieldError(nameInput, !nameInput.value.trim()));
     emailInput.addEventListener("blur", () => setFieldError(emailInput, !/^\S+@\S+\.\S+$/.test(emailInput.value.trim())));
+    $("#f-consent").addEventListener("change", (e) => { if (e.target.checked) setFieldError(e.target, false); });
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -817,6 +818,9 @@
       const badEmail = !/^\S+@\S+\.\S+$/.test(emailInput.value.trim());
       setFieldError(nameInput, badName);
       setFieldError(emailInput, badEmail);
+      const consentBox = $("#f-consent");
+      const noConsent = !consentBox.checked;
+      setFieldError(consentBox, noConsent);
 
       const ci = state.checkin, co = state.checkout;
       let problem = "";
@@ -825,6 +829,7 @@
       if (problem) { formError.textContent = problem; formError.hidden = false; }
       if (badName) { nameInput.focus(); return; }
       if (badEmail) { emailInput.focus(); return; }
+      if (noConsent) { consentBox.focus(); return; }
       if (problem) { cal.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" }); return; }
 
       const data = Object.fromEntries(new FormData(form).entries());
@@ -836,6 +841,7 @@
         nights: nightsBetween(ci, co),
         quotedTotal: total ? total.textContent : "",
         language: I18N.lang,
+        consent: `yes, ${new Date().toISOString()}`,
         _subject: `Booking request ${keyOf(ci)} → ${keyOf(co)} · ${data.name}`
       };
 
@@ -863,7 +869,8 @@
           `Cot needed: ${payload.crib ? "yes" : "no"}`, `Pets: ${payload.pets ? "yes" : "no"}`,
           `Arrival: ${emailDate.format(ci)}`, `Departure: ${emailDate.format(co)}`,
           `Guest language: ${I18N.LANGS[I18N.lang].name}`,
-          `Nights: ${payload.nights}`, `Quoted total: ${payload.quotedTotal}`, "", payload.message || ""
+          `Nights: ${payload.nights}`, `Quoted total: ${payload.quotedTotal}`,
+          `Accepted booking terms and privacy policy: ${payload.consent}`, "", payload.message || ""
         ].join("\n");
         window.location.href = `mailto:${CFG.email}?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(body)}`;
         form.hidden = true; success.hidden = false; success.focus();

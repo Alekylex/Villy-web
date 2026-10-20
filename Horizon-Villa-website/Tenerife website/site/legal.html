@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Legal information · Horizont Villa La Tejita</title>
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/styles.css?v=106">
+  <style>
+    /* legal page: a plain, readable column in the site's colours and fonts */
+    body { background: var(--surface); }
+    .legal-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 980px; margin: 0 auto; padding: 18px 20px; }
+    .legal-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-family: var(--font-display); font-size: 20px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+    .legal-brand svg { width: 34px; height: 34px; }
+    .legal-wrap { max-width: 760px; margin: 0 auto; padding: 24px 20px 96px; color: var(--ink); }
+    .legal-wrap h1 { font-family: "Cormorant Garamond", "Times New Roman", serif; font-style: italic; font-weight: 500; font-size: clamp(42px, 6vw, 60px); line-height: 1.05; margin: 10px 0 8px; }
+    .legal-updated { color: var(--ink-3); font-size: 14px; margin-bottom: 28px; }
+    .legal-back { display: inline-block; margin-bottom: 18px; color: var(--amber-deep); font-weight: 600; text-decoration: none; }
+    .legal-back::before { content: "← "; }
+    .legal-toc { border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; margin-bottom: 40px; }
+    .legal-toc p { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+    .legal-toc ul { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+    .legal-toc a, .legal-section a { color: var(--amber-deep); }
+    .legal-section { padding-top: 28px; margin-top: 28px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+    .legal-section h2 { font-family: "Cormorant Garamond", "Times New Roman", serif; font-style: italic; font-weight: 500; font-size: clamp(32px, 4vw, 40px); margin-bottom: 14px; }
+    .legal-section h3 { font-size: 17px; font-weight: 700; margin: 22px 0 6px; }
+    .legal-section p, .legal-section li { font-size: 16px; line-height: 1.7; color: var(--ink-2); }
+    .legal-section p + p { margin-top: 10px; }
+    .legal-section ul { list-style: disc; padding-left: 22px; margin: 8px 0; }
+    .legal-section li + li { margin-top: 6px; }
+    .legal-section strong { color: var(--ink); }
+    .facts { display: grid; grid-template-columns: minmax(150px, 34%) 1fr; gap: 8px 18px; margin: 16px 0; padding: 18px 20px; border-radius: 14px; background: var(--sand-50, rgba(0,0,0,.03)); }
+    .facts dt { font-weight: 600; color: var(--ink); }
+    .facts dd { margin: 0; color: var(--ink-2); }
+    mark.todo { background: #FFE58A; color: #5A4500; padding: 1px 6px; border-radius: 4px; font-size: .9em; font-weight: 600; }
+    @media (max-width: 560px) { .facts { grid-template-columns: 1fr; gap: 2px; } .facts dd { margin-bottom: 8px; } }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="logo-mark" viewBox="0 0 48 48">
+        <path d="M11 27a13 13 0 0 1 26 0" fill="none" stroke="var(--amber)" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M24 7v4M10.6 12.6l2.8 2.8M37.4 12.6l-2.8 2.8M4.5 23h3.5M40 23h3.5" stroke="var(--amber)" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M5 31.5h38" stroke="var(--ink)" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M10 37h28" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round" opacity=".7"/>
+        <path d="M16 42.5h16" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round" opacity=".45"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="legal-bar">
+    <a class="legal-brand" href="index.html"><svg aria-hidden="true"><use href="#logo-mark"/></svg>Horizont Villa La Tejita</a>
+        <div class="lang" data-lang-switch>
+          <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu">
+            <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
+            <span class="lang-code">EN</span>
+            <svg class="icon lang-chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+          </button>
+          <ul class="lang-menu" id="lang-menu" hidden>
+            <li><button type="button" data-lang="cs" lang="cs"><span class="lang-short">CZ</span>Čeština<svg class="icon lang-check" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+            <li><button type="button" data-lang="en" lang="en"><span class="lang-short">EN</span>English<svg class="icon lang-check" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+            <li><button type="button" data-lang="es" lang="es"><span class="lang-short">ES</span>Español<svg class="icon lang-check" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+            <li><button type="button" data-lang="de" lang="de"><span class="lang-short">DE</span>Deutsch<svg class="icon lang-check" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+          </ul>
+        </div>
+  </header>
+
+  <main class="legal-wrap">
+    <a class="legal-back" href="index.html" data-legal-back>Back to the website</a>
+    <h1 data-legal-title>Legal information</h1>
+    <p class="legal-updated" data-legal-updated></p>
+    <nav class="legal-toc"><p data-legal-toc-label>On this page</p><ul data-legal-toc></ul></nav>
+    <div data-legal-body></div>
+  </main>
+
+  <script src="js/config.js?v=54"></script>
+  <script src="js/i18n.js?v=70"></script>
+  <script src="js/legal.js?v=1"></script>
+</body>
+</html>

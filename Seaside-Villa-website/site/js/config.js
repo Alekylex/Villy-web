@@ -41,6 +41,26 @@ window.VILLA_CONFIG = {
   coords: "28.03248549,-16.56551578",
   mapZoom: 18,                                    // 18 shows the individual house
 
+  /* ---- Legal page (legal.html) -------------------------------------------
+     Shown on the legal notice, privacy policy and booking terms. Anything left
+     empty appears on that page highlighted as "to be completed".
+     Have the final texts checked by your gestor before going live. */
+  legal: {
+    villaName: "Seaside Villa La Tejita",
+    owner: "",                // TODO owner's full name (or company name)
+    nif: "",                  // TODO NIF / NIE
+    address: "",              // TODO owner's postal address
+    licence: "VV-38-4-01036301",
+    checkin: "17:00–23:00",
+    checkout: "04:00–11:00",
+    depositPercent: "",       // TODO e.g. 30
+    balanceDays: "",          // TODO e.g. 30  (days before arrival)
+    freeCancelDays: "",       // TODO e.g. 30  (free cancellation until N days before arrival)
+    securityDeposit: "",      // TODO e.g. "300 €" or "none"
+    paymentMethods: "",       // TODO e.g. { en: "bank transfer", cs: "bankovní převod", es: "transferencia bancaria", de: "Banküberweisung" }
+    updated: "2026-10-20"     // date of the last change to the legal texts
+  },
+
   /* ---- Pricing (EUR) ---------------------------------------------------- */
   currency: "EUR",
   /* Czech version only: prices are shown in Czech crowns, converted from the

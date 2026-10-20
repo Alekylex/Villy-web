@@ -23,3 +23,16 @@ site/images/cards/los-gigantes.jpg  (tatáž fotka z Pexels, oříznutá pro kar
 Originály z Pexels jsou v C:\Users\Uzivatel\Pictures\Screenshots (Teide Sea Side.jpg, Los Gigantes.jpg).
 
 Původní fotky z Pinterestu jsou ve složce _zaloha-fotky-pinterest (na web je nenahrávat).
+
+3) Velká úvodní fotka
+Z Pexels pod licencí Pexels License (https://www.pexels.com/license/):
+volné použití zdarma i komerčně, úpravy povoleny, uvedení autora není povinné.
+Soubor na webu je bajtově shodný s originálem staženým z Pexels (ověřeno 20. 10. 2026).
+
+site/images/ocean-waves.jpg   úvodní fotka (vlny)
+   autor: Stuart Robinson   https://www.pexels.com/@ozram/
+   fotka: https://www.pexels.com/photo/waves-crashing-on-culburra-beach-australia-37600121/
+   originál: Downloads/pexels-ozram-37600121.jpg
+   Jméno autora sedí i s metadaty souboru (© Stuart Robinson).
+
+Výřezy této fotky používají i bubliny v domovním řádu (CSS, stejný soubor).

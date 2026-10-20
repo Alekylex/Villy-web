@@ -63,9 +63,7 @@
   </script>
 
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/styles.css?v=90">
   <link rel="stylesheet" href="css/effects.css?v=44">
   <script>
@@ -543,6 +541,14 @@
                   </div>
                 </fieldset>
 
+                <div class="field consent-field">
+                  <label class="check consent">
+                    <input type="checkbox" name="consent" value="yes" id="f-consent" required>
+                    <span data-i18n-html="form.consent">I have read the <a href="legal.html#terms" target="_blank">booking terms</a> and the <a href="legal.html#privacy" target="_blank">privacy policy</a> and agree to them.</span>
+                  </label>
+                  <p class="field-error" data-i18n="form.consentError" hidden>Please confirm that you agree to the booking terms and privacy policy.</p>
+                </div>
+
                 <p class="form-error" role="alert" hidden></p>
                 <button class="btn btn-primary" type="submit"><span data-i18n="form.submit">Send booking request</span><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button>
               </form>
@@ -723,6 +729,12 @@
           <span class="brand-text"><span class="brand-name">Seaside Villa</span><span class="brand-sub">La Tejita · Tenerife</span></span>
         </a>
         <p class="legal"><span data-i18n="footer.licence">Holiday rental licence:</span> VV-38-4-01036301 &nbsp;·&nbsp; © <span data-year></span> Seaside Villa La Tejita</p>
+        <nav class="footer-legal" data-i18n-attr="aria-label:footer.legalNav" aria-label="Legal">
+          <a href="legal.html#legal" data-i18n="footer.legalNotice">Legal notice</a>
+          <a href="legal.html#privacy" data-i18n="footer.privacy">Privacy</a>
+          <a href="legal.html#cookies" data-i18n="footer.cookies">Cookies</a>
+          <a href="legal.html#terms" data-i18n="footer.terms">Booking terms</a>
+        </nav>
       </div>
     </footer>
   </div>

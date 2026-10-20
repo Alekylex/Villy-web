@@ -22,3 +22,22 @@ site/images/masca-2.jpg      Pexels   autor: (doplnit)   odkaz: (doplnit)   vesn
 Originály z Pexels jsou v C:\Users\Uzivatel\Pictures\Screenshots (Teide Horizon.jpg, Santa Cruz.jpg, Masca.jpg).
 
 Původní fotky z Pinterestu jsou ve složce _zaloha-fotky-pinterest (na web je nenahrávat).
+
+3) Velké fotky na stránce (úvod a závěr)
+Z Pexels pod licencí Pexels License (https://www.pexels.com/license/):
+volné použití zdarma i komerčně, úpravy povoleny, uvedení autora není povinné.
+Soubory na webu jsou bajtově shodné s originály stažení z Pexels (ověřeno 20. 10. 2026).
+
+site/images/milky-way-montana-roja.jpg   úvodní fotka (Mléčná dráha nad Montaña Roja)
+   autor: Adam Krypel   https://www.pexels.com/@adam-krypel-19165796/
+   fotka: https://www.pexels.com/photo/beach-at-night-and-sky-with-stars-9900540/
+   originál: Downloads/pexels-adam-krypel-19165796-9900540.jpg
+
+site/images/sunset-sea.jpg   fotka úplně dole („Your sunset is waiting")
+   nahrál na Pexels: Ezgi Bircan   https://www.pexels.com/@ezgibircan/
+   fotka: https://www.pexels.com/photo/sun-at-dusk-over-sea-18631477/
+   originál: Downloads/pexels-ezgibircan-18631477.jpg
+   POZOR: v metadatech souboru je jako autor zapsán „EMRE KARAHISAR", ne Ezgi Bircan.
+   Nejspíš blízká osoba / vypůjčený fotoaparát, ale shodu nelze ověřit.
+
+Výřezy těchto fotek používají i bubliny v domovním řádu (CSS, stejné soubory).
