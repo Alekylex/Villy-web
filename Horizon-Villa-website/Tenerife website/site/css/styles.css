@@ -2395,3 +2395,7 @@ main section[id], footer[id] { scroll-margin-top: 96px; }
 .booking .consent-field .field-error { font-size: 15px; margin-top: 4px; }
 .booking .booking-form .consent-field.has-error .check.consent span { color: var(--danger); }
 .cal-updated { font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+
+/* no short hairlines under the headings */
+.hero-title::after, .section-head h2::after, .arch-head h2::after { content: none; display: none; }
+.hero-title { margin-bottom: 26px; }

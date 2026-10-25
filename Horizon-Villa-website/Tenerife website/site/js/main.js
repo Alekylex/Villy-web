@@ -41,6 +41,8 @@
         (span || a).textContent = CFG.phone;
       });
     }
+    // no email address yet: hide the email button instead of pointing it at an address that does not exist
+    $$("[data-config-email]").forEach((a) => { a.hidden = !CFG.email; });
     if (CFG.email) {
       $$("[data-config-email]").forEach((a) => {
         a.href = "mailto:" + CFG.email;
@@ -888,6 +890,11 @@
           `Nights: ${payload.nights}`, `Quoted total: ${payload.quotedTotal}`,
           `Accepted booking terms and privacy policy: ${payload.consent}`, "", payload.message || ""
         ].join("\n");
+        if (!CFG.email) {   // neither a form service nor an email address set yet: point the guest to the phone
+          formError.textContent = t("form.errNoEmail", { phone: CFG.phone || "" });
+          formError.hidden = false;
+          return;
+        }
         window.location.href = `mailto:${CFG.email}?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(body)}`;
         form.hidden = true; success.hidden = false; success.focus();
       }

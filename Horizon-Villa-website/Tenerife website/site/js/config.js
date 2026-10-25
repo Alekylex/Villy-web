@@ -7,9 +7,9 @@
 window.VILLA_CONFIG = {
 
   /* ---- Contact ---------------------------------------------------------- */
-  email: "info@horizonvilla-latejita.com",      // TODO real email
-  phone: "+34 600 000 000",                       // TODO real phone
-  whatsapp: "34600000000",                        // TODO digits only, with country code
+  email: "",                                      // TODO email address (contact button and form appear once it is filled in)
+  phone: "+34 663 603 126",
+  whatsapp: "",                                   // WhatsApp button removed from the page
 
   /* ---- Our other villa ---------------------------------------------------
      The address of the Seaside Villa website. This puts a button in the header
