@@ -50,7 +50,7 @@ window.VILLA_CONFIG = {
     owner: "",                // TODO owner's full name (or company name)
     nif: "",                  // TODO NIF / NIE
     address: "",              // TODO owner's postal address
-    licence: "",   // TODO licence number of this villa
+    licence: "VV-38-00895433",   // from the Booking.com listing (checked 25. 10. 2026)
     checkin: "17:00–22:00",
     checkout: "08:00–11:00",
     depositPercent: "",       // TODO e.g. 30
@@ -83,18 +83,12 @@ window.VILLA_CONFIG = {
      date (starting 10, 24, 45 and 73 days from today), so the date search on the
      cover photo and the calendar can be tried out on any day.
      TODO set to false before the site goes live. */
-  demoBookings: true,
+  demoBookings: false,
 
   /* ---- Booked dates ----------------------------------------------------- */
   /* Add one line per confirmed booking: check-in date and check-out date (YYYY-MM-DD).
      The check-out day stays available for the next guest's arrival. */
   booked: [
-    { from: "2026-09-18", to: "2026-09-27" },
-    { from: "2026-10-10", to: "2026-10-24" },
-    { from: "2026-11-02", to: "2026-11-09" },
-    { from: "2026-12-22", to: "2027-01-03" },
-    { from: "2027-02-06", to: "2027-02-20" },
-    { from: "2027-03-27", to: "2027-04-05" },
-    { from: "2027-07-10", to: "2027-07-24" }
+    // e.g. { from: "2027-03-10", to: "2027-03-17" },   (Booking/Airbnb dates arrive automatically in js/booked.js)
   ]
 };

@@ -36,3 +36,6 @@ site/images/ocean-waves.jpg   úvodní fotka (vlny)
    Jméno autora sedí i s metadaty souboru (© Stuart Robinson).
 
 Výřezy této fotky používají i bubliny v domovním řádu (CSS, stejný soubor).
+
+4) Fotky vily (pokoje, kuchyně, terasy, bazény, výhledy a západy slunce z domu)
+Vlastní fotky majitelů (rodičů), potvrzeno 25. 10. 2026. Autorská práva náleží majitelům.

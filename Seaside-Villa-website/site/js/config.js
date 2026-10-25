@@ -83,18 +83,13 @@ window.VILLA_CONFIG = {
      date (starting 10, 24, 45 and 73 days from today), so the date search on the
      cover photo and the calendar can be tried out on any day.
      TODO set to false before the site goes live. */
-  demoBookings: true,
+  demoBookings: false,
 
   /* ---- Booked dates ----------------------------------------------------- */
   /* Add one line per confirmed booking: check-in date and check-out date (YYYY-MM-DD).
      The check-out day stays available for the next guest's arrival.
      TODO replace the sample lines below with your real bookings. */
   booked: [
-    { from: "2026-10-03", to: "2026-10-12" },
-    { from: "2026-11-14", to: "2026-11-21" },
-    { from: "2026-12-19", to: "2027-01-02" },
-    { from: "2027-02-20", to: "2027-03-06" },
-    { from: "2027-04-10", to: "2027-04-17" },
-    { from: "2027-06-05", to: "2027-06-19" }
+    // e.g. { from: "2027-03-10", to: "2027-03-17" },   (Booking/Airbnb dates arrive automatically in js/booked.js)
   ]
 };

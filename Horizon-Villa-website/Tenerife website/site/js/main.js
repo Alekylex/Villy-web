@@ -508,7 +508,11 @@
     const demoRanges = () => !CFG.demoBookings ? [] : [[10, 13], [24, 31], [45, 52], [73, 80]]
       .map(([a, b]) => ({ from: keyOf(addDays(today, a)), to: keyOf(addDays(today, b)) }));
 
-    (CFG.booked || []).concat(demoRanges()).forEach(({ from, to }) => {
+    /* Blocked dates come from two places and are used together:
+         js/booked.js   synced from the Booking.com / Airbnb iCal feeds (generated)
+         js/config.js   anything the owner blocks by hand */
+    const feed = window.VILLA_BOOKED || {};
+    [].concat(feed.ranges || [], CFG.booked || [], demoRanges()).filter((r) => r && r.from && r.to).forEach(({ from, to }) => {
       const a = parseKey(from), b = parseKey(to);
       for (let d = a; d < b; d = addDays(d, 1)) bookedNights.add(keyOf(d));
       turnover.add(to);
@@ -752,6 +756,18 @@
 
     prevBtn.addEventListener("click", () => { state.offset = Math.max(0, state.offset - 1); render(); });
     nextBtn.addEventListener("click", () => { state.offset = Math.min(maxOffset(), state.offset + 1); render(); });
+
+    /* Tell guests how fresh the calendar is — it is only as current as the last sync. */
+    const updatedNote = $(".cal-updated");
+    function renderUpdated() {
+      if (!updatedNote) return;
+      const when = feed.updated ? new Date(feed.updated) : null;
+      const ok = when && !isNaN(when);
+      updatedNote.hidden = !ok;
+      if (ok) updatedNote.textContent = t("cal.updated", { date: fmt().long.format(when) });
+    }
+    renderUpdated();
+    I18N.onChange(renderUpdated);
 
     /* Rates: price per night and minimum stay beside the heading (the lowest season price if there are several) */
     const seasons = (CFG.seasons || []);

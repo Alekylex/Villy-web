@@ -1,0 +1,46 @@
+# Every 3 hours: download the Booking.com / Airbnb calendars and update the
+# booked dates on both villa websites (js/booked.js). Only dates are stored.
+#
+# Setup (once): GitHub > repository > Settings > Secrets and variables > Actions
+#   New repository secret  ICAL_HORIZON  = iCal export link(s) of Horizont Villa
+#   New repository secret  ICAL_SEASIDE  = iCal export link(s) of Seaside Villa
+# Several links (Booking + Airbnb) can go in one secret, separated by spaces.
+# Run it now: Actions > Sync calendars > Run workflow.
+
+name: Sync calendars
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-calendars
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download calendars
+        env:
+          ICAL_HORIZON: ${{ secrets.ICAL_HORIZON }}
+          ICAL_SEASIDE: ${{ secrets.ICAL_SEASIDE }}
+        run: python tools/sync_ical.py
+
+      - name: Commit changed dates
+        if: always()
+        run: |
+          git config user.name "calendar-sync"
+          git config user.email "calendar-sync@users.noreply.github.com"
+          git add "Horizon-Villa-website/Tenerife website/site/js/booked.js" "Seaside-Villa-website/site/js/booked.js"
+          git diff --cached --quiet || (git commit -m "Obsazené termíny z Bookingu/Airbnb" && git push)
