@@ -7,8 +7,8 @@
 window.VILLA_CONFIG = {
 
   /* ---- Contact ---------------------------------------------------------- */
-  email: "",                                      // TODO email address (contact button and form appear once it is filled in)
-  phone: "+34 663 603 126",
+  email: "",                                      // TODO real email (until then the page shows an example address)
+  phone: "",                                      // TODO real phone (until then the page shows an example number)
   whatsapp: "",                                   // WhatsApp button removed from the page
 
   /* ---- Our other villa ---------------------------------------------------
@@ -65,8 +65,8 @@ window.VILLA_CONFIG = {
   currency: "EUR",
   /* Czech version only: prices are shown in Czech crowns, converted from the
      euro prices below at this rate and rounded to whole tens of crowns.
-     TODO check the rate now and then (1 EUR = ? CZK). */
-  czkRate: 25,
+     Checked 25. 10. 2026: CNB rate 24.335 CZK per EUR. Check it now and then. */
+  czkRate: 24.3,
   cleaningFee: 0,           // one-off per stay (0 = not shown)
   minNights: 5,             // minimum stay
   maxGuests: 4,             // adults + children together

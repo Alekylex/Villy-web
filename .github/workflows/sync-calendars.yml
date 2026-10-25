@@ -9,9 +9,12 @@
 
 name: Sync calendars
 
+# Automatic runs are OFF: the villas are not linked to Booking.com for now and
+# booked dates are entered by hand in js/config.js. To switch it on again, put
+# the two lines below back under "on:".
+#   schedule:
+#     - cron: "17 */3 * * *"
 on:
-  schedule:
-    - cron: "17 */3 * * *"
   workflow_dispatch:
 
 permissions:

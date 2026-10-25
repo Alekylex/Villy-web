@@ -44,8 +44,6 @@
         (span || a).textContent = CFG.phone;
       });
     }
-    // no email address yet: hide the email button instead of pointing it at an address that does not exist
-    $$("[data-config-email]").forEach((a) => { a.hidden = !CFG.email; });
     if (CFG.email) {
       $$("[data-config-email]").forEach((a) => {
         a.href = "mailto:" + CFG.email;
